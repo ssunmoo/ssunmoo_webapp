@@ -9,7 +9,7 @@
 		<script type="text/javascript">
 		
 		/* 문제1 : prompt함수 로 금액을 입력받아서 지폐 세기 
-		// 예) 356789 입력했을경우 
+		// 예) 365789 입력했을경우 
 		// 결과 예상 출력 [  console.log ] : 
 			십만원 : 3장
 			만원 : 5장
@@ -17,12 +17,22 @@
 			백원 : 7개
 		*/
 		
+		/*
+		1번. 문제를 잘 못 이해했다..! 나누는게 아니었다..!
 		const a = prompt("금액을 입력해 주세요")
 		console.log("입력받은 금액은 : " + a + " 원")
-		console.log("십만원의 갯수는 : " + (a/100000) + " 장")
-		console.log("만원의 갯수는 : " + (a/10000) + " 장")
-		console.log("천원의 갯수는 : " + (a/1000) + " 장")
-		console.log("백원의 갯수는 : " + (a/100) + " 장")
+		console.log("십만원 : " + (a / 100000) + " 장")
+		console.log("만원 : " + (a / 10000) + " 장")
+		console.log("천원 : " + (a / 1000) + " 장")
+		console.log("백원 : " + (a / 100) + " 장")
+		*/
+		
+		const a = prompt("금액을 입력해 주세요")
+		console.log("입력받은 금액은 : " + a + " 원")
+		console.log("십만원의 갯수는 : " + a[0] + " 장")
+		console.log("만원의 갯수는 : " + a[1] + " 장")
+		console.log("천원의 갯수는 : " + a[2] + " 장")
+		console.log("백원의 갯수는 : " + a[3] + " 개")
 		
 		
 		// 문제2 : prompt함수 로 반지름 입력받아 원 넓이 출력 
@@ -30,7 +40,7 @@
 		
 		const b = prompt("반지름을 입력하세요")
 		console.log("입력한 값 : " + b)
-		console.log("원의 넓이는 : " + b * b * 3.14 + "입니다")
+		console.log("원의 넓이는 : " + ( b * b * 3.14 ) + "입니다")
 		
 		
 		// 문제3 : prompt함수 로 숫자를 입력받아  입력받은 값이 3의 배수인지 체크
@@ -49,6 +59,7 @@
 		const d = prompt("숫자를 입력하세요")
 		console.log("입력한 값 : " + d)
 		console.log(d % 2 == 1)
+		console.log(d % 2 != 0)
 				
 		// 문제5 : 두 실수를 입력받아 앞 실수의 값이 뒤 실수의 값의 몇% 인지 출력하기 
 			// 예) 54.5    84.3 이면    결과 : 64.~~%
@@ -57,7 +68,7 @@
 		const f = prompt("두번째 숫자를 입력하세요")
 		console.log("첫번째 숫자 : " + e)
 		console.log("두번째 숫자 : " + f)
-		console.log("결과 : " + e / f *100)
+		console.log("결과 : " + ( e / f *100))
 		
 		
 		</script>
