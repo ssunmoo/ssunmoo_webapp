@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 3.박스모델 </title>
+
+	
+	<style type="text/css">
+	
+		/*  */
+	
+		p{
+			border: solid 10px green;  				/* 테두리 : 선모양 굵기 색상 */
+			margin: 50px; 							/* 바깥여백(테두리 기준) */
+			padding: 50px; 							/* 안쪽여백(테두리 기준) */
+		}
+		
+		h1{
+			border-top: solid 2px green;			/* 위 실선 */
+			border-bottom: dotted 3px red;			/* 아래 점선 */
+			border-right: double 4px skyblue;		/* 오른쪽 이중선 */
+			border-left: dashed 5px orange;			/* 왼쪽 대시선 */
+			border-radius: 20px;					/* 둥근 모서리 */
+			box-shadow: 5px 5px 2px purple;			/* 박스 그림자 */
+					/* 	x축  y축 흐림 색상  */
+		}
+	
+	
+		h2{
+			border: solid 1px green;				
+			/* 마진은 바깥 여백 */
+			margin-top: 40px;						/* 위 바깥여백 */
+			margin-right: 50px;						/* 오른쪽 바깥여백 */
+			margin-bottom: 60px;					/* 아래 바깥여백 */
+			margin-left: 70px;						/* 왼쪽 바깥여백 */
+			
+			margin: 40px 50px 60px 70px;			/* 한번에 넣어줄땐 시계방향 : 위, 오른쪽, 아래, 왼쪽 */
+			margin: 40px 50px;						/* 두번으로 넣어줄때 : 위/아래, 왼쪽/오른쪽 */
+			margin: 40px;							/* 하나만 적으면 모두 적용 */		
+			
+			/* 패딩은 안쪽 여백 */
+			padding-top: 40px;
+			padding-right: 50px;
+			padding-bottom: 60px;
+			padding-left: 30px;
+			
+			padding: 40px 50px 60px 30px;
+			padding: 40px 50px;
+			padding: 40px;
+		}
+		
+		h3{
+			border: solid 1px red;
+			width: 200px;
+			text-align: center;						/* 박스권 안에서 정렬 */
+			margin: 0 auto;							/* 박스권 가운데 정렬 */
+		}
+		
+
+	
+	
+	</style>
+	
+
+	</head>
+		<body>
+		
+			<!-- 
+				
+				박스권 모델
+				
+				1. border 			: 테두리(경계선)
+				2. margin			: 바깥여백
+				3. padding			: 안쪽여백
+				4. border-radius	: 둥근모서리
+				5. box-shadow		: 박스에 그림자 
+				
+			
+			 -->
+		
+		
+		
+			<h1> 강아지 </h1>
+			
+			<p>
+			개는 중형 동물이자 가장 널리 분포하며 개체 수가 가장 많은 지상 동물 중 하나이며 가축화한 회색늑대이다.
+			개는 인류가 최초로 가축으로 삼은 동물로 알려져 있으며, 역사적으로 반려견, 사냥견으로서 길러 왔다.
+			</p>
+			<h2> 경계선 </h2>
+			<h3> 마진 </h3>
+		
+		
+		
+
+		
+		
+		</body>
+</html>
