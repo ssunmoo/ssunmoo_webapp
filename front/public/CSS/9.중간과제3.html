@@ -16,12 +16,11 @@
 			border-top: solid 1px gray;  
 			border-bottom: solid 1px gray;
 			margin: 20px 0px;
-			padding: 30px 0px;
+			padding: 30px 30px;
 			margin: 0 auto;
 		}
 		
 
-	
 		.a{
 			width: 200px;
 			height: 30px;
@@ -31,9 +30,10 @@
 			padding: 5px 0;
 		}
 		
+		
 		.b {
 		
-			width: 250px;
+			width: 400px;
 			height: 30px;
 			
 			margin: 30px;
@@ -50,9 +50,7 @@
 		}
 		
 		
-		.d{
-			width: 250px;
-		}		
+		
 
 		.g{ width: 100px; 
 		
@@ -78,6 +76,29 @@
 			width: 100px;
 		}
 		
+		
+		.but{
+			width: 100px;
+			height: 50px;
+			
+		}
+		
+		td.d textarea{
+			width: 300px;
+		}
+		
+		.d{
+			width: 500px;
+		}		
+		
+		div{
+			text-align: right;
+			margin: 20px 0;
+			
+		}
+		
+		
+		
 	</style>
 	
 	
@@ -86,7 +107,7 @@
 		
 		<h3> 회원 가입 폼 </h3>
 
-		<div>
+	
 
 			<table>
 			
@@ -110,21 +131,25 @@
 					<td class="b"> <input type="text"> </td>
 				</tr>
 	
+	
+	
+	
 				<tr>
 					<td> 이메일 </td>
-						<td class="g">
 						
+						<td class="b">
 						<input type="text" width="30px" class="f"> @
-						
-						</td> 
-					<td>  
 							<select>
 								<option> 직접입력 </option>
 								<option> naver.com </option>
 								<option> gmail.com </option>	
 							</select>
-					</td>	
+						</td>	
 				</tr>
+				
+				
+				
+				
 				
 					<tr>
 					<td class="a" > 이메일 수신 </td>
@@ -153,8 +178,12 @@
 	
 				
 			</table>
-
-		</div>
+		
+		<div>
+				<input class="but" type="submit" value="저장하기">
+				<input class="but" type="reset" value="취소하기">
+		</div>		
+	
 		
 		</body>
 </html>
