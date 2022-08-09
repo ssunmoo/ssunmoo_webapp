@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	
+	
+	let star = prompt('입력하세요')	
+	let output =''
+
+		for(i = 1; i <= star; i++){
+			for(b = 1; b <= star-i; b++){
+				output += ' '
+			}
+			for(s = 1; s <= (i * 2 - 1); s++){
+				output += '*'					
+			}
+				output += '\n'
+		}
+		for(i = 1; i <= star; i++){
+			for(b = 1; b <= i; b++){
+				/*
+				1. 공백 b는 1부터 시작해서 1이 i값과 같아질때까지 출력
+				2. [수식확인] 첫줄 공백이 1개니까 1번돌고 나가야하기때문에
+					1보다 높은 수를 써줄 수 없음
+					i를 넣어준 이유는 줄수가 공백과 같이 1씩 증가하기 때문
+				*/
+				output += ' '
+			}
+				
+			for(s = 1; s <= ((star-i) * 2 - 1); s++){
+				/* 
+				 1. 별 s는 1부터 시작해서 1이 ((입력값-i) * 2 - 1) 값과 같아질때까지 출력
+				 2. [수식확인] 첫줄에 출력된 별 갯수가 7이니까 수식을 설정
+				 3. 입력값이 5라고 가정했을때 위에서 아래로 내려가는 것이기 때문에
+				 	정방향인 (i*2-1)에 값을 추가해줘야댐
+				 4. [정방향 첫줄] 수식은 1 * 2 - 1 = 1이됨 그러므로 s 값이 1이 -> 1이 될때까지 출력 = 1개
+				 5. [역방향 첫줄] 수식은 ((5-1)*2-1) = 7이 된다 그러므로 s값 1이 -> 7이 될때까지 출력하겠다 = 7개
+				 */
+				output += '*'
+			}
+			output += '\n'
+		}
+		console.log(output)
+
+	
+	
+	
+	
+	
+	
+	</script>
+</body>
+</html>
