@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+
+	h3{
+		text-align: center;
+	}
+	
+	tabel{
+		width: 350px;
+		margin: 0 auto;
+	
+	}
+	
+
+	.col1{
+		width: 150px;
+		height: 30px;
+	}
+	
+	.col2 input{
+		width: 150px;
+		height: 30px
+	}
+	
+	button{
+		padding: 30px 30px;
+	}
+	

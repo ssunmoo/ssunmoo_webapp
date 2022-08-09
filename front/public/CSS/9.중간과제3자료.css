@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/*
+	1. 식별자 2. 속성 	3. 값
+	식별자{속성명 = 값;}
+		식별자 종류 : 	1. * 2. 태그 3. class 4. #id
+		식별자 복수선택 : 식별자, 식별자, 식별자{ }
+		식별자의 하위식별자 : 상위식별자 하위식별자{ }
+		
+	display
+		1. inline		: 
+		
+		2. block		:
+		
+		3. inline-block	:
+		
+		4. none			:
+
+*/
+
+
+	*{ font-family: "맑은고딕"}
+
+	h3{text-align: center;}
+	
+	.signupbox{
+		width: 700px;
+		margin: 0 auto;  /* 박스 가운데 정렬*/
+		
+		border-top: solid 1px gray;
+		border-bottom:solid 1px gray;
+		
+		padding: 30px;	
+	}
+	
+	li{list-style-type: none;	/* list-style-type 글머리 종류 */
+	}
+	
+	/* class 이름이 cols 라는 식별자 하위에 포함된 모든 li 꾸미기 라는 뜻 */
+	.cols li{
+		display: inline-block;
+	}
+	
+	.col1{
+		width: 150px;
+	}	
+	
+	.col2 input{
+		width: 250px; height: 30px;
+	}
+	
+	.cols{
+		padding: 5px;
+	}
+	
+	.cols select{
+		width: 150px; height: 30px;
+	}
+	
+	
+	.hello{
+		vertical-align: top; /* 세로정렬 : vertical-align  가로정렬 : */ 
+	}
+	
+	
+	textarea{
+		resize: none; 		/* 긴글 텍스트 박스 고정 */
+	}
+	
+	
+	.buttonbox{
+		width: 550px;
+		margin: 0 auto; 	/* 박스 사이즈가 있을 경우에만 가운데 정렬*/
+		text-align : right; /* 박스 내용물 : 글자, 이미지, 버튼 등 정렬*/
+	}
+	
+	.buttonbox input{
+		padding: 10px;		/* 버튼은 width 값으로 지정하면 안됨 꼭 패딩으루 하기 */
+		margin-top: 10px;	/* 위쪽 바깥여백*/
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
