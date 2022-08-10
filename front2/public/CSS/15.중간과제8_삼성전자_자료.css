@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+*{
+	border: solid 1px blue;
+	
+}
+
+
+.hd_top{
+	
+	background-color: green;
+	width: 1280px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.hd_logo{
+	width: 200px;
+	float: left;
+	background-color: gray;	
+}
+
+.hd_menu{
+	width: 800px;
+	float: left;
+	background-color: orange;  
+}
+
+.icon{
+	width: 200px;
+	float: left;
+	background-color: gray;
+}
+
+
+.main_visual{
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.main_img{
+	width: 1200px;
+	height: 200px;
+	background-color: skyblue;
+	margin: 0 auto;
+}
+
+
+.sec_box_search{
+	width: 1280px;
+	height: 100px;
+	margin: 0 auto;
+	
+}
+
+.search_tit01, .search_search, .search_tg{
+	width: 600px;
+	height: 30px;
+	margin: 0 auto;
+	background-color: orange;
+	text-align: center;
+}
+
+
+.select_product{
+	width: 1280px;
+	height: 120px;
+	margin: 0 auto;
+}
+
+.product_tit01, .solution_tit01, .info_tit01{
+	width: 300px;
+	height: 30px;
+	margin: 0 auto;
+	
+}
+
+.product_icon{
+	width: 800px;
+	height: 80px;
+	margin: 0 auto;
+	
+}
+
+.sec_box_solution{
+	width: 1280px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+
+.solution_box{
+	width: 800px;
+	margin: 0 auto;
+	background-color: red;
+}
+
+
+.solution_box01, .solution_box02 .solution_box03{
+	width: 200px;
+	margin: 0 auto;
+	float: left;
+}
+
+
+
+
+.sec_box_info{
+	width: 1280px;
+	height: 150px;
+	margin: 0 auto;
+}
+
+
+.info_icon{
+	width: 800px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+
+.service-tip{
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.service-tip_title01{
+	width: 300px;
+	height: 30px;
+	margin: 0 auto;
+	
+}
+
+.service-tip_imgbox{
+	width: 300px;
+	
+}

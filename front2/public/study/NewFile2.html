@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	
+	
+/* 	
+	let star = prompt('입력하세요')
+	let output =''
+
+		for(i = 0; i < star; i++){
+			for(b = 0; b < i; b++){
+				output += ' '
+			}
+			for(s = 0; s <= (i * 2 + 1); s++){
+				output += '*'
+			}
+				output += '\n'
+		}
+	
+	
+
+		for(i = star-1; i > 0; i--){
+			for(b = star-1; b > 0 b--){
+				output += ' '
+			}
+			
+			for(s = i*2-1; d > 0; s--){
+				output += '*'
+			}
+			output += '\n'
+		}
+		console.log(output)
+ */
+	
+ let star = prompt('입력하세요')
+ let output =''
+//상단-중간
+ for (i = 1; i <= star ; i++) {
+	for(b = 1; b <= star-i; b++){
+		output += ' '
+	}
+	for(s = 1; s <= i * 2 - 1; s++){
+		output += '*'	
+	}
+		output += '\n'
+ }
+		
+	
+		
+ for(i = 1; i <= star; i++){
+	 for(b = 1; b <= i; b++){
+		 output += ' '
+	 }
+	 for(s = i * 2; s <9; s++){
+		 output += '*'
+	 }
+		 output += '\n'
+ }		
+ 
+ 
+ console.log(output)
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>
