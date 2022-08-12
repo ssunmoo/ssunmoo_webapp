@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+/* ----------------기본 css 제거 및 설정---------------- */
+*{
+	
+	margin: 0 auto;
+	padding: 0;
+	font-family: "맑은고딕"
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	color: gray;
+}
+
+li{
+	list-style-type: none;
+}
+
+/*----------웹폰트적용--------*/
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ----------------기본 css 제거 및 설정---------------- */
+
+
+/* ----------------헤더---------------- */
+
+
+.header{
+	height: 150px;
+}
+
+.header_box{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.logo_box{
+	float: left;
+	margin: 30px 0 0 30px;
+}
+
+.menu{
+	float: right;
+	text-align: right; 
+}
+
+.menu li{
+	display: inline;
+}
+
+.top_menu{
+	margin: 30px 0;
+}
+
+.main_menu li a{
+	font-family: "GmarketSansBold";
+	font-size: 20px;
+	margin-left: 100px;
+}
+
+/* --------------메인이미지---------------- */
+
+#main_img{
+	clear: both;
+	height: 350px;
+	background-image: url("img2/main_bg.png");
+	background-repeat: no-repeat;	/* 자동채우기 거절 */
+	background-position: top center;	/* 박스권 배경이미지 정렬 */
+	
+}
+
+/* -------------- 사이드바 ---------------- */
+
+
+#content{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+
+.sidebar{
+	float: left;
+	width: 250px;
+}
+
+.sb_title01{
+	background-color: #0ca9a3;
+	padding: 15px;
+	font-size: 20px;
+	color: white;
+}
+
+.sb_comment{
+	padding: 15px;
+	line-height: 150%;
+}
+.searchbox{
+	padding: 15px;
+}
+
+.searchbox input{
+	width: 150px;
+	height: 30px;
+}
+
+.searchbox button{
+	margin-left: 5px;
+	padding: 8px 10px;
+}
+
+.sb_title02{
+	border-top: solid 2px black;
+	border-bottom: solid 1px #eeeeee;
+	line-height: 150%;
+	padding: 5px 0 5px 5px;
+	
+}
+.sidebar .sb_list{
+
+	padding: 15px;
+}
+
+.sidebar .sb_list li{
+	padding: 10px;
+}
+
+/*----------------- 왼쪽 ------------------ */
+
+
+.main_content{
+	float: right;
+	width: 900px;
+}
+
+.left_main{
+	float: left;
+	width: 440px;
+}
+
+.right_main{
+	float: right;
+	width: 440px;
+}
+
+.left_main .main_title{
+	border-bottom: solid 2px black;
+	padding: 8px;
+	
+}
+
+.left_main .board_ul{
+	margin: 10px 0 40px 0;
+}
+
+.left_main .board_ul .items{
+	padding-bottom: 40px;
+}
+
+.items .title{
+	float: left;
+}
+
+.items .dote{
+	float: right;
+}
+
+
+/*----------------- 오른쪽 ------------------ */
+
+.right_main{
+	float: right;
+	width: 440px;
+}
+
+
+.main_title{
+	border-bottom: solid 2px black;
+	padding-bottom: 8px;
+}
+
+.right_main .product_ul{
+	float: left;
+	width: 200px;
+	margin: 20 0 0 10px;
+	padding: 10px
+}
+
+
+
+
+/*----------------푸터---------------------*/
+
+#footer{
+	clear: both;
+	background-color: #05354e;
+	height: 300px;
+	color: white;
+}
+
+.ft_box{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.ft_menu{
+	padding: 20px;
+	font-weight: bold;
+}
+
+.ft_menu li{
+	display: inline;
+	margin-right: 30px;
+} 
+
+ .ft_box .items{
+ 	float: left;
+ 	margin: 20px 50px 20px 20px;
+ }
+
+.ft_item_ul{
+	margin-top: 10px;
+}
+
+.ft_item_ul li{
+	margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

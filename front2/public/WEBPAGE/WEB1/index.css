@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/*
+	CSS : 식별자 [ 꾸미기 대상 ]
+	* 태그 개수는 한정
+	1. *{ } : 모든 곳에 적용
+	2. 태그명{ } : 해당 태그에 모두 적용
+	3. .class명{ } : 해당 클래스명 [여러번 사용 가능]
+	4. #id명{ } : 해당 id 명 [페이지당 1번씩 헤더, 푸터 등]
+		우선순위 : id > class > 태그 > *
+*/
+
+*{
+	padding: 0;
+	margin: 0;
+	
+}
+
+a{
+	text-decoration: none;
+	color: black;}
+
+a:hover{
+	color: orange;
+}
+
+/* ----------------- 헤더 시작 ------------------- */
+
+
+#header{
+	width: 1200px;
+	height: 100px;
+	margin: 0 auto;
+}
+
+.logobox{
+	float: left;
+	margin: 20px 0 0 20;
+}
+
+.menus{
+	float: right;
+}
+.top_menu{
+	text-align: right;
+	margin-top: 20px;
+}
+
+.main_menu{
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.main_menu li{
+	display: inline;
+	margin-left: 50px;
+}
+
+
+/* ----------------- 헤더 끝 ------------------- */
+
+
+
+
+#main_img{
+	clear: both;	/* 앞에서 사용한 float를 제거하겠다 */
+	width: 100%;
+	height: 250px;
+	background-image: url("img/main_img.png");
+	background-repeat: no-repeat;	/* 자동채우기 거절 */
+	background-position: top center;	/* 박스권 배경이미지 정렬 */
+}
+
+
+
+
+/* ----------------- 본문1 시작 ------------------- */
+
+
+#content{
+	width: 1200px;
+	margin: 0 auto;
+} 
+
+#content li, #footer li{
+	list-style-type: none;	/* 글머리 제거(특문)*/
+}
+
+.sub_manu{
+	float: left;
+	width: 250px;
+}
+
+.main_content{
+	float: right;
+	width: 900px;
+	margin-bottom: 30px;
+}
+
+.sub_manu h3{
+	font-size: 20px;
+	color: #55d1ae;
+	background-color: #516e7f;
+	padding: 15px;
+}
+
+.sub_manu li{
+	border-bottom: dotted 1px #eeeeee;	/* 아래 테두리 점선*/
+	padding: 10px;
+}
+
+/* ----------------- 본문1 끝 ------------------- */
+
+
+
+/* ----------------- 본문2 시작 ------------------- */
+
+
+.main_content h3{
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: solid 1px #eeeeee;
+	padding: 10px;
+}
+
+.main_content p{
+	line-height: 180%;	/* 줄간격 100% 가 기본*/
+	margin-top: 20px;
+}
+
+.content_img{
+	text-align: center;
+}
+
+.main_content li{
+	padding: 5px;
+}
+
+/* ----------------- 본문2 끝 ------------------- */
+
+
+
+/* ----------------- 푸터 시작 ------------------- */
+
+#footer{
+	clear: both;
+	background-color: #2c2a29;
+	height: 150px;
+	
+}
+
+.footer_ft_box{
+	width: 1200px;
+	height:150px;
+	margin: 0 auto;
+}
+
+.ft_logo{
+	text-align: left;
+	float: left;
+	margin: 50px 0 0 30px;
+}
+
+
+.ft_address{
+	color: white;
+	float: right;
+	margin: 50px 0 0 30px;
+}
+
+
+/* ----------------- 푸터 끝 ------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
