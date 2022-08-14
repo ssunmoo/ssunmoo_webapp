@@ -81,16 +81,20 @@ li{list-style-type: none;}
 }
 
 .banners_box{
-	margin: 0 auto;
 	width: 1200px;
-
-	
 }
 
-.banner01, .banner02{
+
+.banner01 .bn_col1, .banner02 .bn_col1{
+	width: 100px;
 	float: left;
-	width: 550px;
-	padding: 20px;
+	margin: 50px 5px;
+}
+
+.banner01 .bn_col2, .banner02 .bn_col2{
+	width: 450px;
+	float: left;
+	margin: 50px 5px;
 }
 
 

@@ -230,34 +230,26 @@ li{list-style-type: none;}
 	width: 1200px;
 	margin: 0 auto;
 	padding-top: 20px;
-	font-size: 20px;
+	font-size: 15px;
 	color: white;
-	
-	
 	
 }
 
 .fbc_01, .fbc_02, .fbc_03{
 	float: left;
-		
 }
 
 .fbc_01{
-
 	width: 300px;
-	
 }
 
 .fbc_02{
-
 	width: 500px;
-	
 }
 
 .fbc_03{
 	float: right;
 	width: 150px;
-	
 }
 
 .fbc_02{
@@ -268,22 +260,13 @@ li{list-style-type: none;}
 	border-right: solid 2px white;
 	padding-right: 10px;
 	display: inline;
-
 }
 
 .fbc_02_02{
 	margin-top: 10px;
-	
-	
 }
-
-
-
-
 
 .fbc_03 li{
-	float: left;
+	float: right;
 	padding: 5px;
 }
-
-
