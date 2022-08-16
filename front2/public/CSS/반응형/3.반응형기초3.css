@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+header, footer{
+	width: 100%;
+	height: 79px;
+	background-color: blue;
+	text-align: center;
+	color: white;
+	
+	position: fixed; /* 스크롤 내려도 고정시키는 것*/
+	z-index: 100;	/* 겹쳤을때 순서를 지정하는 속성 1부터 시작이고 숫자가 작을수록 아래 */
+}
+
+header{
+	top: 0; /* 붙을 위치 지정해주는 것 위에 있어야하니까 탑 0 */
+}
+
+footer{
+	bottom: 0;	/* 붙을 위치 지정해주는 것 아래에 있어야하니까 바텀 0 */
+}
+
+#floatingbox{
+	width: 250px;
+	height: 150px;	
+	border: solid 1px red;
+	position: absolute; /* 앱솔루트는 팝업등에 쓰는것이기 때문에 픽스드보다도 위에 노출 */
+	right: 50px;
+	top: 150px;
+	background-color: yellow;
+	
+	z-index: 10;
+	opacity: 0.8; /* 투명도 */ 
+}
+
+
+
+
+
+
+
+
+
+

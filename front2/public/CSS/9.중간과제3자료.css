@@ -8,13 +8,13 @@
 		식별자의 하위식별자 : 상위식별자 하위식별자{ }
 		
 	display
-		1. inline		: 
+		1. inline		: 한줄로 표시
+				* span
+		2. block		: 한줄차지
 		
-		2. block		:
+		3. inline-block	: 한줄차지하면서 크기 변경
 		
-		3. inline-block	:
-		
-		4. none			:
+		4. none			: 표시 숨기기
 
 */
 

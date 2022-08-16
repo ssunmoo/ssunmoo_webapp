@@ -238,13 +238,16 @@ li{
 
 .ft_item_ul{
 	margin-top: 10px;
+	width: 300px;	
 }
 
 .ft_item_ul li{
 	margin: 5px;
 }
 
-
+.ft_title{
+	color: green;
+}
 
 
 
