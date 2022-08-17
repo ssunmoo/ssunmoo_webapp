@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1.0">
+	<!-- 뷰포트 -->
+<title> 5.플렉스 </title>
+
+	<style type="text/css">
+	
+		.container{
+			height: 200px;
+			display: flex;
+		}
+		
+		.box{
+			width: 100px;
+			height: 50px;
+			background-color: blue;
+			border: solid 1px orange;
+			color: white;
+		}
+	
+		.container2{
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+		}
+	
+		.container3{
+			height: 200px;
+			display: flex;
+			flex-direction: row-reverse;
+		}
+		
+		.container4{
+			height: 200px;
+			display: flex;
+			flex-direction: column-reverse;
+		}
+			
+	</style>
+	
+</head>
+<body>
+
+	<h3> 플렉스 flex </h3>
+		<div class="container">
+			<div class="box">box1</div>
+			<div class="box">box2</div>
+			<div class="box">box3</div>	
+		</div>
+
+	<h3>[flex-direction: row; 기본값]</h3>
+		<div class="container2">
+			<div class="box">box1</div>
+			<div class="box">box2</div>
+			<div class="box">box3</div>	
+		</div>
+
+	<h3>[flex-direction: row-reverse;]</h3>
+		<div class="container3">
+			
+			<div class="box">box1</div>
+			<div class="box">box2</div>
+			<div class="box">box3</div>	
+		</div>
+	<h3>[flex-direction: column-reverse;]</h3>
+		<div class="container4">
+		
+			<div class="box">box1</div>
+			<div class="box">box2</div>
+			<div class="box">box3</div>	
+		</div>
+
+
+
+</body>
+</html>

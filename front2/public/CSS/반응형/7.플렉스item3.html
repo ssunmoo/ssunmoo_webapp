@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1.0">
+	<!-- 뷰포트 -->
+<title> 7.플렉스item3 </title>
+
+	<style type="text/css">
+
+
+		.container{
+			display: flex;
+		}
+
+		#flexbox1{
+			justify-content: flex-start; 
+		}
+		
+		#flexbox2{
+			justify-content: flex-end; 
+		}
+		
+		#flexbox3{
+			justify-content: center; 
+		}
+		
+		#flexbox4{
+			justify-content: space-between; 
+		}
+		
+		#flexbox5{
+			justify-content: space-around; 
+		}
+		
+		#flexbox6{
+			justify-content: space-evenly; 
+		}
+		
+		
+
+		.box{
+			width: 200px;
+			height: 20px;
+			background: pink;
+			border: 1px solid red;
+			color: blue;
+		}
+		
+
+
+
+	</style>
+
+
+</head>
+<body>
+
+
+	<div class="container" id="flexbox1">
+		<h3> justify-content: flex-start : 가로 왼쪽 배치</h3><p>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+	</div>
+
+	<div class="container" id="flexbox2">
+		<h3> justify-content: flex-end : 가로 오른쪽 배치 </h3><p>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+	</div>
+	
+	<div class="container" id="flexbox3">
+		<h3> justify-content: center; : 가로 가운데 배치 </h3><p>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+	</div>	
+	
+	<div class="container" id="flexbox4">
+		<h3> justify-content: space-between; : 시작과 끝을 기준으로 가운데 배치 </h3><p>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+	</div>	
+	
+	
+	<div class="container" id="flexbox5">
+		<h3> justify-content: space-around; : 컨텐츠 안쪽 여백을 균등 배분 </h3><p>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+	</div>		
+	
+	<div class="container" id="flexbox6">
+		<h3> justify-content: space-evenly; : 컨텐츠 바깥쪽부터 여백을 균등 배분 </h3><p>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+	</div>	
+	
+	
+
+</body>
+</html>

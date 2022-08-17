@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, inital-scale=1.0">
+	<!-- 뷰포트 -->
+	
+<title> 5.플렉스item </title>
+
+
+	<style type="text/css">
+	
+		/*
+		
+			개별 식별자
+				1. *{} 2. 태그명{} 3. .class{} 4. #id{}
+			
+			여러 식별자
+				식별자, 식별자, 식별자{}
+				
+			하위 식별자
+				상위식별자 하위식별자{}
+			
+			중복 이름의 식별자 선택 [index 1번부터 시작] 
+				식별자 : nth-child(5)	
+		
+		*/
+		
+		.container1, .container2, .container3,
+		.container4, .container5{
+			display: flex;
+		}
+	
+		.box{
+			border: solid 1px red;
+			background-color: green;
+			color: white;
+			margin: 10px;
+		}
+	
+		.container1 .box:nth-child(5){
+			background-color: pink;
+			order: -1;
+		}
+	
+	
+		.container1 .box:nth-child(1){
+			background-color: pink;
+			order: 6;
+		}	
+
+		
+		
+		.container2 .box{
+			flex-grow: 2;
+		}
+		
+		.container2 .box:nth-child(3){
+			flex-grow: 2;
+		}	
+	
+		.container2 .box:nth-child(5){
+			flex-grow: 3;
+		}
+			
+	
+
+
+		.container3 .box{
+			flex-grow: 1;
+		}
+	
+		.container3 .box:nth-child(3){
+			flex-shrink: 2;
+			flex-basis: 100px;	/* 크기제한 */
+		}
+		
+		.container3 .box:nth-child(5){
+			flex-shrink: 4;
+			flex-basis: 200px;	/* 크기제한 */
+		}	
+	 
+
+	
+		.container4 .box:nth-child(4){
+			flex: 1 0 200px;
+			/* flex : grow, shrink, basis 를 한번에 사용 시	 */
+		}	
+	
+	
+	
+		.container5{
+			height: 200px; border: solid 1px pink;
+		}
+		.container5 .box{
+			height: 50px;
+		}
+	
+		.container5 .box:nth-child(4){
+			align-self: center;
+		}
+	
+	
+		.container5 .box:nth-child(2){
+			align-self: flex-start;
+		}	
+	
+	
+		.container5 .box:nth-child(3){
+			align-self: flex-end;
+		}	
+	
+	
+	
+	
+	</style>
+
+
+
+
+</head>
+<body>
+
+	<h3> flex 관련된 속성들 </h3><p>
+	
+	<h5> order : 순서번호 [배치 순서 : 1 2 3 4 ~ ] -1하면 젤 왼쪽 </h5>
+	<div class="container1">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+	
+	<h5> flex-grow: : 양쪽 여백 없이 가로 자동배치[화면 내 여백이 있을 경우 여백을 나눠서 사이즈 증가] </h5>	
+	<div class="container2">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+
+	<h5> flex-shrink : 양쪽 여백 없이 가로 자동배치[화면 밖 사이즈 만큼 나눠서 사이즈 감소] <br>
+		flex-basis : 사이즈 최소 크기 제한 </h5>
+		
+	<div class="container3">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+
+
+	<h5> flex : grow, shrink, basis 를 한번에 사용 시 </h5>
+		
+	<div class="container4">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+
+
+	<h5> 세로 정렬 align-self : flex-start, flex-end, center<br>
+	상위 박스를 기준으로 정렬  </h5>
+		
+	<div class="container5">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
