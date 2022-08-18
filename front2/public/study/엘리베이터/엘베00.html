@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style type="text/css">
+	
+	*{box-sizing : border-box; padding : 0 ; margin : 0 ;}
+	.toolbox{ width : 1920px; height : 1200px; }
+	.cont_t{width : 500px; height : 50px; font-size : 25px;}
+	#ev_display{float : left ; }
+	.cont_t button{float : right ;}
+	.ct_box{width : 500px; height : 1000px; }
+	#select_floor{width : 100px; height : 1000px; float : right;}
+	
+	.ev_img{width : 300px; height : 1000px; float : left;}
+
+	
+	[class*="box_"]{width: 100px; height : 25px; margin : 0 auto;  
+	border : 1px solid black; text-align: center;}
+	
+	
+	button{ width : 50px; height : 50px; }
+	
+	
+	</style>
+
+
+	
+</head>
+<body>
+
+	<div id="toolbox">
+
+		<div class="cont_t">
+			<div id='ev_display'>  </div>
+			<button onclick='call_ev()'> EV호출 </button>		
+				
+		</div>	
+		
+		<div class='ct_box'>
+			<div id='select_floor'>
+				<button onclick='make_btn()'> 탑승 </button>
+			</div>
+			<div id="ev_img">
+				
+			
+			</div>			
+		</div>
+		
+	</div>
+		
+<script src="엘베00.js"></script>
+
+</body>
+</html>
