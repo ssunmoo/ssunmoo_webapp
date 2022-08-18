@@ -9,6 +9,8 @@ let 누른층 = 5
 function 엘베위치찍기(){ // 현재 엘베위치 표시
 	console.log(엘베)
 	document.getElementById('floor'+엘베).innerHTML ='엘베위치'
+	
+	
 	if(엘베 > 누른층) {
 		for( let i = 현재층 ; i >= 누른층 ; i-- ) { // 현재층에만 표시되게 바꿈
 			if(i == 엘베) { continue }

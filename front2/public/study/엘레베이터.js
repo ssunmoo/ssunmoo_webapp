@@ -37,6 +37,8 @@ function 하강(){	// 하강 버튼을 눌렀을때 층수가 1개씩 내려간�
 	document.getElementById('엘베위치').innerHTML = 현재엘베층수;
 	document.getElementById('내위치').innerHTML = 내위치;
 }
+
+
 /*
 
 if(현재엘베층수 < 내위치){
