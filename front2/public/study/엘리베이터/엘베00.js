@@ -5,10 +5,9 @@
  		setTimeout( 함수, 시간[밀리초] ) : 시간이후에 한번 함수 실행
  		setInterval( 함수, 시간[밀리초] ) : 매시간마다 함수 실행
  
- 
  */ 
  
-
+ 
  const li_floor = [ ]
  let rooftop = Number(prompt('최고 층수'))
  // let x = Number(prompt('목표 층수'))
@@ -62,7 +61,7 @@ function call_ev(){
 						alert('엘레베이터에 탑승해주세요.')
 					}
 					
-					}, 1*1000) 
+					}, 1*1000)
 			}else if(y>z){
 			let stop = setInterval( ()=> { 
 					let count = 0
@@ -118,7 +117,7 @@ function ev_img(){
 
 function start_ev( i ){
 			if(i<z){
-			let stop = setInterval( ()=> { 
+			let stop = setInterval( ()=> {
 					let count = 0
 					down_f() 
 					count++
