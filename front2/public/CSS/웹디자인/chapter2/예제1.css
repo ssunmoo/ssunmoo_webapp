@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+
+
+
+
+body{
+	background-image: url("images/bg1.png"), url("images/bg2.png");
+					/* 배경이미지는 , 를 이용하여 다수 이미지 적용 가능 */
+	background-position: left top, right top;
+					/* 첫번째 이미지,  두번째 이미지 */
+					
+	background-repeat: no-repeat;
+	
+	text-align: center;
+}

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+
+
+
+.container{
+	overflow: auto;
+	scroll-snap-type: y mandatory;
+	height: 100vh;
+}
+
+
+
+section{
+	scroll-snap-align: start; /* 스크롤이 멈추는 지점 */
+	
+	height: 100vh;					/* vh : 뷰포트 높이 */
+	background-size: cover;			/* 화면의 비율 유지 -> 전체 화면 채우기 */
+	background-position: center center;	
+						/*  가로   세로   / 하나만 넣으면 가로세로 같이  */
+	background-repeat: no-repeat;	/* 자동 채우기 제거 */
+}
+
+.hero{
+	background-image: url("images/bg_img.jpg");		/* 배경이미지 */
+	text-align: center;
+	padding-top: 10vh;			/* vh : 뷰포트 기준으로 10넣겠다 */
+	
+	font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+/*---- 2구역 ----*/
+
+.manu{
+	background-image: url("images/bread2.jpg");
+	display: flex;	/* 자동 왼쪽 정렬 */
+	align-items: center; /* 모델 세로 정렬 배치 */
+}
+
+.wrapper{
+	width: 900px;	/* 박스 크기 지정*/
+	margin: 0 auto; /* 지정한 박스크기만큼에서 모델 가로 정렬 배치 */
+}
+
+.menulist tr{
+	margin-bottom: 5px;
+	line-height: 2;
+}
+
+/*---- 3구역 ----*/
+
+.contact{
+	background-image: url("images/cafe.jpg");
+	text-align: center;
+	
+}
+
+.contactsns{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.contactsns li{
+	margin: 10px;
+}
+
+
+
+
+
+.fa-square-facebook{
+	color: pink;
+}
+
+
+.title{
+	font-family: 'DynaPuff', cursive;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:  7rem;
+	margin-bottom: 2rem;
+}
+
+
+
+
+
+/* 미디어 쿼리 : 디바이스 크기에 따라 css 적용 */
+
+
+@media(max-width: 700px){
+	.title{
+	font-size: 4rem;
+	color: blue;
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -31,7 +31,7 @@ function up_f(){
 	z++
 	ev_img()
 	console.log(z)
-	if(z>20){
+	if(z>rooftop){
 		alert('최고 층수 입니다.')
 		return
 	}document.getElementById('ev_display').innerHTML = `현재 엘레베이터의 위치는 ${z}층 입니다.` ;
