@@ -32,30 +32,37 @@
 
 
 function 위(){
-	엘베층++	// 엘베층에 1씩 더해줘
-	if( 전체층 > 엘베층 ){	// 엘베는 전체층을 넘지 않을때
-		alert('최상층입니다.')	
-		return
-	}	
-	document.getElementById('엘베층수보여줘').innerHTML = `현재 층수는 ${엘베층} 입니다.`
+	if( 전체층 >= 엘베층 ){	// 엘베는 전체층을 넘지 않을때
+		let 타이머 = setInterval(() => {
+			엘베층++	// 엘베층에 1씩 더해줘
+				if( 전체층 == 엘베층 ){	// 전체층이랑 엘베층이 같아졌을경우
+				clearInterval(타이머)	// 타이머 종료
+				}return	// 수식종료
+		})
+	} document.getElementById('엘베층수보여줘').innerHTML = `현재 층수는 ${엘베층} 입니다.`		
 }	
 	
 function 아래(){
-	엘베층--	// 엘베층에 1씩 빼줘
-	if( 엘베층 < 1 ){	//	엘베층이 1층보다 클경우 
-		alert('최하층입니다.')	
-		return
-	}	
-	document.getElementById('엘베층수보여줘').innerHTML = `현재 층수는 ${엘베층} 입니다.`
-}	
-	
+	if( 엘베층 <= 1 ){
+		let 타이머 = setInterval(() => {
+			엘베층--	// 엘베층에 1씩 빼줘
+				if( 엘베층 == 1 ){	// 엘베층이랑 1층이 같아졌을경우
+				clearInterval(타이머)	// 타이머 종료
+				}return	// 수식종료
+		})
+	} document.getElementById('엘베층수보여줘').innerHTML = `현재 층수는 ${엘베층} 입니다.`	
 
-// 엘베 호출할 함수+버튼 만들기
+}	
+
+
+// 엘베 호출할 함수 + 호출버튼 만들기
 // html 호출 버튼에다가 어떻게 넣더라,, html에 온클릭이름이랑 같게 만드는게 맞았나,,?
 function 엘베호출(){
 	if(엘베층 > 출발층){	// 엘베층이 출발층보다 높을때
 		아래()	// 아래로 내려가는 함수 호출
-	}
+		}else if(엘베층 < 출발층){
+		위()
+	} document.getElementById('엘베층수보여줘').innerHTML = `현재 층수는 ${엘베층} 입니다.`
 }
 
 
@@ -100,9 +107,16 @@ function 엘베호출(){
 
 
 
-
-
-
+/*
+function 아래(){
+	엘베층--	// 엘베층에 1씩 빼줘
+	if( 엘베층 <= 1 ){	//	엘베층이 1층보다 클경우 
+		alert('최하층입니다.')	
+		return
+	}	
+	document.getElementById('엘베층수보여줘').innerHTML = `현재 층수는 ${엘베층} 입니다.`
+}	
+*/
 
 
 
