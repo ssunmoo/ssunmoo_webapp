@@ -43,8 +43,12 @@ function 점수등록(){
 	name : document.getElementById('name').value ,			// 이름 속성[ 키 : 값 ]
 	kor : Number(document.getElementById('kor').value) ,	// 국어 속성
 	eng : Number(document.getElementById('eng').value) ,	// 영어 속성
-	mat : Number(document.getElementById('mat').value) 		// 수학 속성
+	mat : Number(document.getElementById('mat').value) 	// 수학 속성
+
+
 	}
+	
+
 	
 	// *배열에 저장하기전[학생등록 전]에 중복체크
 	if(이름중복체크(student.name)){	// 이름 중복체크 함수에서 결과가 true 이면
@@ -104,11 +108,11 @@ function 학생출력(){
 		
 		let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
 		let avg = sum / 3
-		
+
 		
 		// 객체에 들어있는 데이터를 html로 출력
 		html += '<tr>' + 
-					'<th>' + i + '</th>' +
+					'<th>' +  + '</th>' +
 					'<th>'+ studentlist[i].name +'</th>' +
 					'<th>'+ studentlist[i].kor +'</th>' +
 					'<th>'+ studentlist[i].eng +'</th>' +
@@ -148,10 +152,40 @@ function 학생삭제( i ){	// 저장된 학생을 삭제하는 함수 [매개�
 
 
 
+
+
+// 4트
+
+let 등수확인 = []
+let tmp = 0;
+let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
+
+등수확인.push( sum );
+
+for(i = 0; i < 등수확인[i].length-1; i++){	// 등수확인 인덱스 0부터니까 3까지일때 0 1 2
+	
+	for(j = 1; j < 등수확인[j].length; j++){
+		if(등수확인[i] > 등수확인[j]){
+			let tmp = 등수확인[j]
+			등수확인[j] = 등수확인[j]
+			등수확인[j] = tmp			
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+
+/*
 // 3트
 
 let 등수매기기 = []
-let temp = 0
+let tem = 0
 let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
 
 등수매기기.push( sum ); // sum 값을 배열에 추가
@@ -167,7 +201,7 @@ let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
 	} 
 	
 	
-
+*/
 
 
 
