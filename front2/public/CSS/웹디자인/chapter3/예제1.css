@@ -1,0 +1,15 @@
+@charset "UTF-8";
+	
+
+
+h1{
+	font-size: 2rem;
+	font-family: "맑은고딕";
+	font-weight: bold;
+	display: inline-block;
+	background-image: linear-gradient(transparent 50%, #ff6 50%);
+					/*	linear-gradient 선형 그라데이션 배경
+						transparent : 투명색
+					*/
+	padding-bottom: .25rem;	
+}
