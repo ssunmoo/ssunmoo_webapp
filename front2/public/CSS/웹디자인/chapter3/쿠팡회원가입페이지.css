@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+*:focus{ outline: none;
+	/* 커서(포커스)가 있을 경우 테두리 제거*/
+	
+}
+
+*{
+	box-sizing: border-box;
+}
+
+
+.con{
+	width: 460px;
+	margin: 0 auto;
+	
+}
+
+.logo_box{
+	width: 460px;
+	height: 95px;
+	
+}
+
+.logo{
+	margin-top: 35px;
+	text-align: center;
+}
+
+.logo img{
+	width: 195px;
+	height: 46px;
+}
+
+
+
+/* 회원정보 */
+
+.section_title_box{
+	width: 460px;
+	height: 48px;
+	padding: 15px 0;
+}
+
+
+.section_title{
+	font-size: 14px;
+	font-weight: bold;
+	
+}
+
+.section_body{
+	width: 460px;
+	height: 310px;
+}
+
+
+
+
+
+.section_box{
+	width: 460px;
+	float: left;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+
+.box_icon{
+	width: 45px;
+	height: 48px;
+	float: left;
+}
+
+.fa-envelope, .fa-lock, .fa-user-check, .fa-mobile{
+	width: 45px;
+	text-align: center;
+	padding-top: 13px;
+	font-size: 20px;
+	color: #ccc;
+}
+
+.box_text{
+	width: 413px;
+	height: 48px;
+	float: left;
+	padding-top: 13px;
+	border-left: 1px solid #ccc; 
+}
+
+.box_text input{
+	width: 413px;
+	padding-left: 10px;
+	
+}
+
+
+/* 확인안내 */
+
+.checkall{
+	width: 460px;
+	height: 80px;
+	border-top: 1px solid #ccc;
+	margin: 10px 0;
+}
+
+.checkall_box{
+	width: 455px;
+	margin-top: 10px;
+	float: left;
+	margin-right: 5px;
+}
+.check_box{
+	width: 25px;
+	height: 22px;
+	float: left;
+	padding-left: 5px;
+}
+
+.check{
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+	padding-top: 2px;
+	
+}
+
+.checkall_box2{
+	width: 434px;
+	height: 33px;
+	font-size: 12px;
+	float: right;
+	padding-top: 10px;
+
+}
+
+/* 동의체크박스 */
+
+.checkbox_body{
+	width: 460px;
+	background: #fec0c1;
+	margin: 0 auto;
+}
+
+.checkbox_body_item{
+	width: 460px;
+	float: left;
+	border: 1px solid #ccc;
+}
+
+.checkbox_item{
+	padding: 5px;
+}
+
+.item_box{
+	
+	width: 450px;
+	height: 32px;	
+}
+
+.item_box_cb{
+	float: left;
+}
+
+.item_icon{
+	float: right;
+	padding-top: 5px;
+	margin-right: 10px;
+	
+}
+
+
+.item_box_cb{
+	width: 25px;
+	height: 22px;
+	float: left;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+
+.item_text{
+	padding-top: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+
+.item_box_cb2{
+	width: 25px;
+	height: 22px;
+	float: left;
+	padding-left: 20px;
+	padding-top: 5px;
+
+}
+
+.item_text2{
+	padding-left: 20px;
+	padding-top: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+
+
+
+
+/* 버튼박스 */
+
+.but_box{
+	clear: both;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 460px;
+	padding-top: 30px; 
+	
+
+}
+.but_01{
+	height: 52px;
+	text-align: center;
+	background: #0074e9;
+	color: #fff;
+	font-weight: bold;
+	padding-top: 15px;
+	margin-bottom: 5px;
+	box-shadow: 0 3px #004890;
+	
+}
+
+.but_01:hover {
+	box-shadow: 0 -3px #004890;
+	padding-bottom: 2px;
+	
+}
+
+
+
+
+
+
+/* 카피라이트 */
+
+.copy_rights_box{
+	clear:both;
+	margin: 20px auto;
+	width: 460px;
+	text-align: center;
+
+}
+
+.copy_rights{
+	text-align: center;
+	font-size: 13px;
+	color: #969696;
+}

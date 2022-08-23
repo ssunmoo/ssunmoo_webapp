@@ -43,9 +43,9 @@ function 점수등록(){
 	name : document.getElementById('name').value ,			// 이름 속성[ 키 : 값 ]
 	kor : Number(document.getElementById('kor').value) ,	// 국어 속성
 	eng : Number(document.getElementById('eng').value) ,	// 영어 속성
-	mat : Number(document.getElementById('mat').value) 	// 수학 속성
-
-
+	mat : Number(document.getElementById('mat').value) , 	// 수학 속성
+	sum : Number(document.getElementById('kor').value) + Number(document.getElementById('eng').value) + Number(document.getElementById('mat').value) ,
+	avg : (Number(document.getElementById('kor').value) + Number(document.getElementById('eng').value) + Number(document.getElementById('mat').value))/3
 	}
 	
 
@@ -68,7 +68,7 @@ function 점수등록(){
 	document.getElementById('name').value = '' 
 	document.getElementById('kor').value = '' 
 	document.getElementById('eng').value = '' 
-	document.getElementById('mat').value = '' 	
+	document.getElementById('mat').value = '' 
 	
 	학생출력()
 } 
@@ -101,24 +101,24 @@ function 학생출력(){
 					'<th>평균</th>' +
 					'<th>비고</th>' +
 				'</tr>'
-				
+	비교값출력()			
 	// *** 배열내 객체들을 하나씩 꺼내기 -> 객체 정보를 html화 시키기
 	for(let i = 0; i < studentlist.length; i++){
 		// i는 0부터 배열내 마지막 인덱스까지[배열의 길이 -1 혹은 미만으로 조건문 쓰면됨]
 		
-		let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
-		let avg = sum / 3
+		// let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
+		// let avg = sum / 3
 
 		
 		// 객체에 들어있는 데이터를 html로 출력
 		html += '<tr>' + 
-					'<th>' +  + '</th>' +
+					'<th>' + (i+1) + '</th>' +
 					'<th>'+ studentlist[i].name +'</th>' +
 					'<th>'+ studentlist[i].kor +'</th>' +
 					'<th>'+ studentlist[i].eng +'</th>' +
 					'<th>'+ studentlist[i].mat +'</th>' +
-					'<th>'+ sum +'</th>' +
-					'<th>'+ avg +'</th>' +
+					'<th>'+ studentlist[i].sum +'</th>' +
+					'<th>'+ studentlist[i].avg +'</th>' +
 					'<th><button onclick="학생삭제('+i+')"> 삭제 </button></th>' +
 						//	버튼 눌렀을때 누구를 삭제할건지?
 				'</tr>'
@@ -126,7 +126,7 @@ function 학생출력(){
 		// 변수는 문자처리 x
 			// 변수는 앞전에 미리 정의된 단어[키워드 = 컴퓨터가 알고 있는 단어]
 	}			
-				
+			
 			
 	// 2. 해당 변수를 html에 출력하기
 	document.getElementById('listtable').innerHTML = html
@@ -152,8 +152,26 @@ function 학생삭제( i ){	// 저장된 학생을 삭제하는 함수 [매개�
 
 
 
+// 5트
+let temp = 0;
+// 인덱스에 있는 값과 비교,,,
+function 비교값출력 (){
+					// 비교할때 값을 저장하고 있을 변수 선언
+					// 대입된 값은 소멸하는게 아니고 그대로 가지고있음
+	for(i = 0; i < studentlist.length; i++ ){				// studentlist에 있는 값에서 변수 i에 저장한담에 비교
+		for(j = 1; j < studentlist.length; j++){			// studentlist에 있는 값에서 변수 j에 저장한담에 비교
+			if( studentlist[i].sum < studentlist[j].sum ){	// sum 값을 서로 비교해줄건데 j값이 더 높을경우에
+				let temp = studentlist[i]				// i를 tmp에 대입해서 가지고있기
+				studentlist[i] = studentlist[j]						// j를 i에 대입해서 가지고있기
+				studentlist[j] = temp					// tmp j에 대입해서 가지고있기...
+			}
+		}	
+	}
+}
 
 
+
+/*
 // 4트
 
 let 등수확인 = []
@@ -168,16 +186,10 @@ for(i = 0; i < 등수확인[i].length-1; i++){	// 등수확인 인덱스 0부터
 		if(등수확인[i] > 등수확인[j]){
 			let tmp = 등수확인[j]
 			등수확인[j] = 등수확인[j]
-			등수확인[j] = tmp			
+			등수확인[j] = tmp
 		}
-	}	
+	}
 }
-
-
-
-
-
-
 
 
 
@@ -205,8 +217,6 @@ let sum = studentlist[i].kor + studentlist[i].eng + studentlist[i].mat
 
 
 
-
-
 /*
 
 2트
@@ -225,7 +235,6 @@ let temp = 0
 			}
 		}
 	}
-
 
 
 1트

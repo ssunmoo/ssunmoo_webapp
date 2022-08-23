@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+
+ul li::before {
+	content:'\f004';
+	font-family: "Font Awesome 5 Pro";
+	color: #f66;
+	font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

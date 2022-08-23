@@ -67,6 +67,10 @@
 /* --------------------------------------- */
 
 
+
+
+/* ---- 가상요소 글머리 만들기 ---- */
+
 article ul li::before {
 	content: ''; 
 	width: 8px;
@@ -77,6 +81,122 @@ article ul li::before {
 	margin: 0 8px 2px 0;
 
 }
+ol li{
+	/* 요소의 연속 값을 세는 속성 : 리스트 아이템을 쓸때마다 늘어남 */
+	counter-increment: list;
+}
+
+
+article ol li::before {
+	content: counter(list);
+ 	color: #93dfb8;
+ 	display: inline-block;
+ 	margin-right: 8px;
+}
+
+
+/* ---- p. 135 인용문 ---- */
+
+article blockquote{
+	position: relative;		/* 부모 요소에 필수로 써야 자식 요소에서 앱솔루트 사용 가능  */
+	padding: 2rem;
+	margin: 20px 0;
+}
+
+article blockquote::before, article blockquote::after{
+	position: absolute;
+	font-family: 'Noto Sans KR', sans-serif;
+	
+	width: 40px;
+	height: 40px;
+
+}
+
+
+article blockquote::before {
+	content: '';	/* 아이콘 코드 */
+	border-top: 2px solid #ccc;
+	border-left: 2px solid #ccc;
+	top: 0; left: 0;	/* 왼쪽 상단에 붙이기 */
+}
+
+article blockquote::after{
+	content:'';	/* 아이콘 코드 */
+	border-bottom: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	right: 0; bottom: 0;	/* 오른쪽 하단에 붙이기 */
+}
+
+
+/* ---- p. 137 페이지네이션 ---- */
+
+.pagination{
+	display: flex;	/* 하위요소 가로 배치 */
+	justify-content: center;	/* 하위요소 가로 중앙 배치 */
+	font-family: "맑은고딕";
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.pagination a{
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	padding-top: 4px;
+	margin: 0 6px;
+	display: inline-block;
+}
+
+
+
+.pagination .current{	/* 현재 페이지 번호 강조 색상 */
+	background: #ccc;
+	color: #fff;
+}
+
+.pagination a:hover{	/* 페이지에 마우스를 올렸을때 변하는 색상 */
+	background: #93d8d0;
+	color: #fff;
+}
+
+
+/* ---- 사이드바 ---- */
+
+.side_box{
+	border: 1px solid #ccc;		/* 기본테두리 */
+	border-radius: 6px;
+	outline: 2px solid pink;	/* 바깥 테두리 */
+	outline-offset: 4px;		/* 기본 테두리와 바깥 테두리와의 간격 */
+	
+	margin-bottom: 4rem;
+	padding: 0.875rem;
+	position: relative;
+}
+
+
+.side_box::before {
+	width: 2rem;
+	height: 2rem;
+	text-align: center;
+	top: -1rem;	/* 테두리 겹치기를 위해 살짝 올린 것 */
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	background: #fff;	
+	
+	
+	content:'\f1b0';
+	font-family: "Font Awesome 5 Pro";
+	font-weight: 900;
+	position: absolute;
+	
+	color: rgb(255, 0, 128);
+}
+
+
+
+
+
 
 
 
