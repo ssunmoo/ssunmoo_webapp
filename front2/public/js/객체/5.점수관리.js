@@ -157,15 +157,15 @@ let temp = 0;
 // 인덱스에 있는 값과 비교,,,
 function 비교값출력 (){
 					// 비교할때 값을 저장하고 있을 변수 선언
-					// 대입된 값은 소멸하는게 아니고 그대로 가지고있음
-	for(i = 0; i < studentlist.length; i++ ){				// studentlist에 있는 값에서 변수 i에 저장한담에 비교
-		for(j = 1; j < studentlist.length; j++){			// studentlist에 있는 값에서 변수 j에 저장한담에 비교
-			if( studentlist[i].sum < studentlist[j].sum ){	// sum 값을 서로 비교해줄건데 j값이 더 높을경우에
-				let temp = studentlist[i]				// i를 tmp에 대입해서 가지고있기
-				studentlist[i] = studentlist[j]						// j를 i에 대입해서 가지고있기
-				studentlist[j] = temp					// tmp j에 대입해서 가지고있기...
+					// 대입된 값은 소멸하는게 아니고 그대로 가지고있다!!!!!!!!!
+	for(i = 0; i < studentlist.length; i++ ){				// 
+		for(j = 0; j < studentlist.length; j++){			// for 안에 for라서 끝나고 첫 for가 시작되면 값이 초기화돼!!!!!!!!!!
+			if( studentlist[i].sum > studentlist[j].sum ){	//
+				temp = studentlist[j]
+				studentlist[j] = studentlist[i]
+				studentlist[i] = temp
 			}
-		}	
+		}
 	}
 }
 
