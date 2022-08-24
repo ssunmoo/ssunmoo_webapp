@@ -1,8 +1,61 @@
 @charset "UTF-8";
 
 
+/* 헤더 */
+
+body{
+	color: #949087;
+	font-family: "맑은고딕";
+	background-image: url("images/bg.png");
+}
+
+header{
+	max-width: 1000px;
+	margin: 2.5rem auto 0;
+	background-image: url("images/header.svg");
+	background-repeat: no-repeat;
+	background-position: center;	/* 배경위치 */
+	background-size: cover;	/* 배경 사이즈 */
+	height: 170px;
+}
+
+
+.page_title{
+	font-size: 30px;
+	font-family: "맑은고딕";
+	text-align: center;
+	padding-top: 30px;
+}
+
+.page_desc{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+
+
+/* ---- */
+
+/* 컨테이너 */
+
+.container{
+	max-width: 1000px;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 0 0 10px 10px;
+}
+
+/* ---- */
+
+
+
+
+
+
+
 .post_title{
-	padding-bottom: 50px;	/* 선 굵기 조절 가능 */
+	padding-bottom: 10px;	/* 선 굵기 조절 가능 */
 	background-image: linear-gradient(45deg, #fff 30%, #ccc 30%, #ccc 50%,
 						#fff 50%, #fff 80%, #ccc 80%, #ccc 100%);
 						/* 배경 그라데이션 */

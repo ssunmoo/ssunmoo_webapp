@@ -1,0 +1,92 @@
+ 
+ 
+ <!--
+ 	Dom : 문서(html -> tag -> element[요소]) 객체 
+ 	1. DomContentLoaded 이벤트 사용
+ 	
+  -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+	<!--
+	<script>
+		// 콜백함수 : 인수	 => 결과값
+		const h1 = (text) => `<h1>${text}</h1>`
+	</script>
+
+	<script>
+		//	바디 전체의 html을 가져오겠다
+		document.body.innerHTML += h1('1번째 script 태그')	
+	</script>
+
+	<!--  여기까지 head안에 작성된 js는 실행x [body가 생성되기 전이라] -->
+
+
+	<script type="text/javascript">
+		// 1. 문서 읽어오는 이벤트
+		// document.addEventListener('DomContentLoaded', () => { 코드 })
+
+	 	document.addEventListener('DomContentLoaded', () => {
+	 		
+	 		const h1 = (text) => `<h1>${text}</h1>`
+	 		document.body.innerHTML += h1('DomContentLoaded 이벤트 발생')
+	 		
+	 	})
+	 	
+	 	
+	 	// 2. onLoad  p.310 
+ 		//	document.onload = function(){ 코드 }
+		document.onload = function(){
+				document.innerHTML += 'load 이벤트 발생'
+		}
+		
+	 	// 3. load
+		//document.addEventListener('load', function(){ 코드 })
+	 	document.addEventListener('load', function(){
+	 		document.innerHTML += 'load 이벤트 발생'
+	 	})
+	 	
+	 	
+	 	
+	</script>
+		
+
+
+
+</head>
+<body>
+
+	<!--  
+	
+	<script>
+		document.body.innerHTML += h1('2번째 script 태그')
+	</script>
+
+	<h1>1번째 h1 태그</h1>	
+
+	<script>
+		document.body.innerHTML += h1('3번째 script 태그')
+	</script>
+	
+	<h1>2번째 h2 태그</h1>
+	
+	-->
+
+
+	<!-- 4. body 최하단에 js 작성 : 최하단에 써주는 이유는 바디가 다 돌아가고나서 적용되야하기 때문에 -->
+
+	<script type="text/javascript">
+		document.body.innerHTML += 'body 하단 작성'
+	</script>
+
+
+
+
+</body>
+</html>
