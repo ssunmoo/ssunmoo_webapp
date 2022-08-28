@@ -210,7 +210,6 @@ timerinput.addEventListener('change', ( event ) => {
 	js 선택자
 	name => [ name = name명 ]	[복수]
 
-
 	querySelector
 
 */
