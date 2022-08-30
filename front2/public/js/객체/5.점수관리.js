@@ -48,7 +48,7 @@ function 점수등록(){
 	avg : (Number(document.getElementById('kor').value) + Number(document.getElementById('eng').value) + Number(document.getElementById('mat').value))/3
 	}
 	
-
+	
 	
 	// *배열에 저장하기전[학생등록 전]에 중복체크
 	if(이름중복체크(student.name)){	// 이름 중복체크 함수에서 결과가 true 이면
