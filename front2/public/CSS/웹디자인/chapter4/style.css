@@ -160,6 +160,9 @@ header .wrapper{
 }
 
 
+
+
+
 	
 .title{
 	font-size: 30px;
@@ -179,10 +182,6 @@ header .wrapper{
 
 
 
-
-
-
-
 /* -------------------- 본문4 -------------------------- */
 
 
@@ -197,9 +196,178 @@ header .wrapper{
 
 
 
+/* ------------- job.html ----------------- */
+
+
+.job_page{
+	background-image: url("images/bg-job.jpg");
+	background-repeat: no-repeat;
+	background-position: left 120px;
+	background-size: 70vw;	/* viewport width : 반응형 가로 */
+}
+
+
+/* ------------- job.html 타임라인 ----------------- */
 
 
 
+.timeline{
+	list-style: decimal inside;
+	font-family: "맑은고딕"
+}
+
+.timeline_item{
+	margin-bottom: 2rem;
+}
+
+.timeline_title{
+	font-size: 1.375rem;
+	display: inline-block;	/* <h3> 태그는 기본이 블럭이라서 li의 숫자기호와 같은 라인에 넣어주려면 인라인 블럭 해줘야댐 */
+	margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+/* ------------- job.html main ----------------- */
+
+.main{
+	max-width: 900px;
+	width: 90%;
+	margin: 100px auto;
+	background: #fff;
+	box-shadow: 2px 2px 5px #ccc;
+	padding: 30px;
+}
+
+.text_center{
+	text-align: center;
+}
+
+.text_center::after{		/* 기존 생성한 가상요소에서 위치만 변경해봄 */
+	margin: 30px auto;
+}
+
+
+
+
+/* ------------- job.html 테이블 ----------------- */
+
+table{
+	width: 100%;
+	margin: 3.5rem 0;
+}
+
+th{
+	background: #f8f6f2;
+	padding: 1rem;
+	vertical-align: middle;	/* 텍스트 세로정렬 */
+	font-weight: normal;
+}
+
+td{
+	padding: .75rem 1rem 1.75rem;
+}
+
+th, td{
+	display: block;
+}
+
+
+
+
+
+
+/* ------------- form.html ----------------- */
+
+.form_page{
+	background-image: url("images/bg-form.jpg");
+	background-repeat: no-repeat;
+	background-position: right 120px;
+	background-size: 70vw;
+}
+
+
+/* --------------플레이스 폴더 셀렉터-------------------- */
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+input[type='url']::placeholder,
+textarea::placeholder{
+	color: #bbb;
+}
+
+input[type='checkbox']{
+	opacity: 0;			
+	appearance: none;						/* 기본 스타일 제거 */
+	position: absolute;
+}
+
+
+/* 인접 형제 셀럭터 [ + ] */
+input[type='checkbox'] + span::before{
+	display: inline-block;
+	width: 1.5rem;
+	height: 1.5rem;
+	content: '';
+	border: 1px solid #bbb;
+	background: #fff;
+	margin: -.125rem .5rem 0 0;
+	vertical-align: middle;
+
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 900;
+	padding: 0 2px;
+	line-height: 1.5;
+	
+}
+
+/* 체크했을때 이벤트 */
+input[type='checkbox']:checked + span::before{
+	
+	content: '\f00c';
+	
+}
+
+
+/* 목록상자 아이콘 만들기 */
+.select_box{
+	position: relative;
+	
+}
+ 
+.select_box::after{
+	display: inline-block;
+	position: absolute;
+	top: .625rem;
+	right: 1rem;
+	
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 900;
+	content: '\f078';		/* 아래방향 화살표 아이콘 */
+	color: #bbb;
+}
+
+
+
+/*  */
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+select,
+textarea{
+	border: 1px solid #bbb;
+	background: #fff;
+	padding: 10px;
+	width: 100%;
+}
+
+textarea{
+	height: 250px;
+}
 
 
 
@@ -224,21 +392,13 @@ footer{
 }
 
 .footer_nav{
+	padding-top: 50px;
 	color: #fff;
 }
 
 .footer_nav li{
 	padding-top: 10px;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -259,13 +419,9 @@ footer{
 	
 	
 	/* 현재페이지의 메뉴버튼 강조 */
-	.main_nav li:nth-child(1)::after{
-		content: '';
-		width: 40px;
-		height: 5px;
-		background: #0080c0;
-		display: block;
-		margin-top: 5px;
+	.main_nav .current{
+		border-bottom: 2px solid #000080;
+		padding: 5px;
 	}
 	
 
@@ -311,13 +467,107 @@ footer{
 	}
 	
 
-
 	
 	/* 모바일 메뉴에 적용된 아이콘 삭제 */
 	.main_nav a::before{
 		content: '';
 	}
 
+
+	/* ------------- job.html ----------------- */
+
+	.main{
+		padding: 4rem;
+	}
+	
+	
+	/* ------------- job.html 타임라인 ----------------- */
+
+	.timeline_item{
+		display: flex;
+		margin-bottom: 0;			/* 테두리 연결을 위해 마진 ㅈㅔ거 */
+	}
+	
+	.timeline_title{
+		width: 24%;
+		text-align: right;
+		padding: 2rem 2.5rem 2rem 0;
+	}
+	
+	.timeline_content{
+		width: 76%;
+		border-left: 5px solid #ccc;
+		padding: 1.5rem 0 1.5rem 2.5rem;
+		position: relative;		/* 가상요소 절대위치 배치 부모속성 */
+	}
+	
+	.timeline_content::before{
+		position: absolute;
+		top: 1.5rem;
+		left: -1.3rem;
+		display: block;
+		width: 2.25rem;
+		height: 2.25rem;
+		background: #d0bea2;
+		text-align: center;
+		padding: .1rem;
+		
+		font-family: 'Font Awesome 5 Pro';
+		font-weight: 900;
+		color: #fff;
+		font-size: 1.25rem;
+		
+	}
+	
+	.icon_file::before{
+		content: '\f56e';
+		padding: 7px;
+	}
+	
+	.icon_code::before{
+		content: '\f121';
+		padding: 6px;
+	}
+	
+	.icon_chat::before{
+		content: '\f086';
+		padding: 6px;
+	}
+	
+	.icon_hands::before{
+		content: '\f2b5';
+		padding: 6px;
+	}
+	
+	
+	
+	/* ------------- job.html 테이블 ----------------- */
+	
+	
+	th, td{
+		display: table-cell;
+		
+	}
+	
+	tr:nth-child(odd){
+		background: #f8f6f2;
+	}
+	
+	tr:nth-child(even) th{
+		background: #fff;
+	}
+	
+	th {
+		width: 25%;
+	}
+	
+	td{
+	
+		width: 75%;
+	}
+	
+
+	
 	
 	
 	/* ------------------푸터 ------------------- */
@@ -326,7 +576,7 @@ footer{
 	.footer_nav{
 		display: flex;
 		justify-content: center;
-		margin-top: 50px;
+		margin-top: 20px;
 	}
 	
 	

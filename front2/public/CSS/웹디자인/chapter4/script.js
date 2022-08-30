@@ -1,4 +1,5 @@
 
+
 /* chartist.js 이용한 차트 구현 */
 /*
 	변수 = 값
@@ -11,7 +12,8 @@
  */
 
 
-/* 파이차트[원형차트] 데이터 객체 선언 */
+
+/* 파이차트[원형차트] 데이터 객체 선언 
 let pieData = {
 	
 	// 항목의 이름
@@ -36,9 +38,8 @@ new Chartist.Pie('.pie_chart', pieData, pieOptions)
 
 
 
-
 /* 막대차트 */
-
+/*
 
 let barData = {
 	lables : ['2018년', '2019년', '2020년'],
@@ -85,7 +86,7 @@ new Chartist.Bar('.bar_chart', barData, barOption)
 
  */
 
-
+/*
 	
 	// 막대차트
 let barData2 = {
@@ -124,15 +125,71 @@ function 차트그리기(){
 	
 }
 	
+*/	
+
+
+
+
+
+
+let 지원자리스트 = []
+
+function 지원자등록(){
+
+
+	let 입력리스트 = document.querySelectorAll('input')
+	let 목록상자 = document.querySelector('select')
+	let 긴글상자 = document.querySelector('textarea')
+
+	console.log(입력리스트)
+	console.log(목록상자)
+	console.log(긴글상자)
+
 	
+	let 지원자 = {
+		성명 : 입력리스트[0].value,
+		영문명 : 입력리스트[1].value,
+		메일주소 : 입력리스트[2].value,
+		포트폴리오 : 입력리스트[3].value,
+		희망근무지 : 입력리스트[4].value, 
+		현재상태 : 긴글상자.value,
+		자기소개 : 긴글상자.value,
+	}
+	console.log(지원자)
+	지원자리스트.push(지원자)
+	console.log(지원자리스트)
+
+}
+	
+	
+	
+	
+/*	
+function 지원자출력(){
+	
+	post = 
+			'<tr>'+
+				'<th>'+'</th>'+'<th>'+'</th>'+'<th>'+'</th>'+
+				'<th>'+'</th>'+'<th>'+'</th>'+'<th>'+'</th>'+
+			'</tr>'	
+			
+			
+			
+	for(i = 0; i < listget.length; i++){
+			
+	post += 
+			
+			'<tr>'+
+				'<th>'+ listget[i].name +'</th>'+'<th>'+listget[i].egname+'</th>'+'<th>'+listget[i].email+'</th>'+
+				'<th>'+listget[i].url+'</th>'+'<th>'+listget[i].workplace+'</th>'+'<th>'+listget[i].option+'</th>'+
+			'</tr>'	
+			
+		}	
+			
+}
 
 
-
-
- 
-
-
-
+*/
 
 
 
