@@ -176,7 +176,7 @@ public class EX2_자료형 {
  			1. 정수타입
  				1. byte			1바이트		+- 100정도
  				2. char			2바이트		유니코드[영/한] 한문자
- 					문자열 : string 클래스
+ 					*문자열 : String 클래스
  				3. short		2바이트		+- 3만정도
  				*4. int 		4바이트		+- 20억정도
  				5. long			8바이트		+- 20억이상정도
@@ -187,6 +187,7 @@ public class EX2_자료형 {
  				1. boolean		1바이트		true, false
  			
  			
+ 		** 클래스명 입력할때 첫글자는 무조건 대문자로 쓰기
  			
  			
  			
