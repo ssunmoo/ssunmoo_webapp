@@ -2,7 +2,7 @@ package java1.c조건문반복문;
 
 import java.util.Scanner;
 
-public class test {
+public class Ttest {
 
 	public static void main(String[] args) {
 		
