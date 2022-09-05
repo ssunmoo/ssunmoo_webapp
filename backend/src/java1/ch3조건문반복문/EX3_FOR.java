@@ -1,4 +1,4 @@
-package java1.c조건문반복문;
+package java1.ch3조건문반복문;
 
 public class EX3_FOR {
 
@@ -118,21 +118,23 @@ public class EX3_FOR {
 
 
 /*
-  	반복문 : 조건이 true이면 실행문 반복
-  		// 조건 반복
+ 
+
+  	반복문 : 조건이 true이면 실행문 반복  
   
-  	
-  	[ while ]
+  	[ for ] : (초기값; 조건문; 증감식) { 실행문 }
+  		
+  	[ while ] : 무한 루프일때만 사용
   	* break : 반복문 종료 키워드 [ 가장 가까운 반복문 탈출 ]
   	* continue : 반복문으로 이동 키워드 [ 증감식 이동 ]
-  
-  
-  
-  
-  
-  
-  
-  
+  		while (true) { 실행문 }
+  	
+		초기값
+		while (조건문) {
+			실행문
+			증감식
+		}
+
   
  */
 

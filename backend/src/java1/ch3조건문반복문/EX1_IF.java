@@ -1,4 +1,4 @@
-package java1.c조건문반복문;
+package java1.ch3조건문반복문;
 
 public class EX1_IF {
 
@@ -92,8 +92,7 @@ public class EX1_IF {
 }
 
 /*
-	if문 : 
-		조건식 : true / false		[ 비교연산자, 논리연산자, 함수, 변수] : 값에 true,false가 있으면 들어갈 수 있음
+	if문 : 조건식 : true / false		[ 비교연산자, 논리연산자, 함수, 변수] : 값에 true,false가 있으면 들어갈 수 있음
  	
  	
  	if 형태
@@ -127,6 +126,8 @@ public class EX1_IF {
  				}
  			}
  	
+ 	
+ 	whitch문 : 데이터(값)제어
  	
  	
  	

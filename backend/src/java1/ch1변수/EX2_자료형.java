@@ -1,4 +1,4 @@
-package java1.a변수;
+package java1.ch1변수;
 
 public class EX2_자료형 {
 
@@ -69,7 +69,7 @@ public class EX2_자료형 {
 		System.out.println("인트변수1 : " + 인트변수1);
 			// int 인트변수2 = 3000000000; --> 오류발생 : 저장범위 초과
 		
-		System.out.println("---------------------------------------");
+
 		System.out.println("long변수");
 		
 		// 5. long [ 입력 숫자뒤에 L 추가해서 가능 ] : int 이상
@@ -83,14 +83,8 @@ public class EX2_자료형 {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		System.out.println("---------------------------------------");
+
+	
 		System.out.println("int : 10진수 정수를 저장하는 자료형[상자]");
 	
 		

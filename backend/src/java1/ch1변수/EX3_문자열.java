@@ -1,4 +1,4 @@
-package java1.a변수;
+package java1.ch1변수;
 
 public class EX3_문자열 {
 	public static void main(String[] args) {
@@ -38,7 +38,7 @@ public class EX3_문자열 {
 }
 /*
  	문자[ 한글자 ]			: char		: ' ' 작은 따옴표
- 	문자열[ 두글자이상 ]	: String	: " " 큰 따옴표
+ 	문자열[ 두글자이상 ]		: String	: " " 큰 따옴표
  
  	- console 화면에 출력 함수	
 	 	print()		: 출력

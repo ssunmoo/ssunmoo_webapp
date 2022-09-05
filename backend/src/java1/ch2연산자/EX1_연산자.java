@@ -1,4 +1,4 @@
-package java1.b연산자;
+package java1.ch2연산자;
 
 public class EX1_연산자 {
 	public static void main(String[] args) {
