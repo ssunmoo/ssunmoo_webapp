@@ -1,33 +1,33 @@
 package java1.ch1변수;
 
-public class EX2_자료형 {
+// 1. 모든 코드는 클래스 안에서 작성
+public class EX2_자료형 {	// 클래스 시작
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { // 메인 시작
 		
-		
-		
-		
-		
+
 		// p.61
-		// 정수 타입 [ 10진수 ] : 소수점이 없음
+		// 0. int : 10진수 정수를 저장하는 자료형[상자] 
+		int var1 = 0b1011; 	// 2진수 [ 0b: 2진수 작성 가능 ]
+		System.out.println(" 2진수[ 1011 --int(10진수)--> 11 ] : " + var1 );
+		int var2 = 0206;	// 8진수 [ 0 : 8진수 작성 가능 ]
+		System.out.println(" 8진수[ 206 --int(10진수)--> 134 ] : " + var2 );
+		int var3 = 365;
+		System.out.println(" 10진수[ 365 --int(10진수)--> 365 ] : " + var3 );
+		int var4 = 0xb3;	// 16진수 [ 0x : 16진수 작성 가능 ]
+		System.out.println(" 16진수[ b3 --int(10진수)--> 179 ] : " + var4);		
+	
+		
+		// 정수 타입 [ 10진수 ]
 		// 1. byte -128 ~ +127까지 저장 가능한 상자
-		System.out.println("byte변수");
 		
 		byte 바이트변수1 = -128;
 		System.out.println("바이트변수1 : " + 바이트변수1);
 		
 		byte 바이트변수2 = 127;
 		System.out.println("바이트변수2 : " + 바이트변수2);
-		
-			// byte 바이트변수3 = 128;		범위 초과로 인한 오류 발생
-		
-		
-		
-		System.out.println("---------------------------------------");
-		System.out.println("char변수");
-		
-		
-		
+		// byte 바이트변수3 = 128;		범위 초과로 인한 오류 발생
+
 		
 		// 2. char[ 한글자 ] : 유니코드
 			// 문자[1개] 입력시 : ' ' 작은따옴표
@@ -38,20 +38,14 @@ public class EX2_자료형 {
 		char 문자변수2 = 'A';
 		System.out.println("문자변수2 : " + 문자변수2);
 		
-		int 문자변수3 = 'A';										// int로 예시 보여주기
+		int 문자변수3 = 'A';	// int로 예시 보여주기
 		System.out.println("문자변수3 : " + 문자변수3);
 		
 		char 문자변수4 = '가';
 		System.out.println("문자변수4 : " + 문자변수4);
 		
-		int 문자변수5 = '가';										// int로 예시 보여주기
+		int 문자변수5 = '가';	// int로 예시 보여주기
 		System.out.println("문자변수5 : " + 문자변수5);
-		
-		
-		
-		
-		System.out.println("---------------------------------------");
-		System.out.println("short변수");
 		
 		
 		// 3. short [ 10진수 ] : +-3만정도
@@ -59,18 +53,11 @@ public class EX2_자료형 {
 		short 쇼트변수1 = 30000;
 		System.out.println("쇼트변수1 : " + 쇼트변수1);
 			// short 쇼트변수1 = 40000;
-		
-		
-		System.out.println("---------------------------------------");
-		System.out.println("int변수");
-		
+
 		// 4. int [ * 정수 기본 자료형 ] : +-20억정도
 		int 인트변수1 = 1000000000;
 		System.out.println("인트변수1 : " + 인트변수1);
 			// int 인트변수2 = 3000000000; --> 오류발생 : 저장범위 초과
-		
-
-		System.out.println("long변수");
 		
 		// 5. long [ 입력 숫자뒤에 L 추가해서 가능 ] : int 이상
 		long 롱변수1 = 1000000000;
@@ -79,73 +66,33 @@ public class EX2_자료형 {
 		// 5-1. long [ 입력숫자뒤에 + L]  
 		long 롱변수2 = 3000000000L;
 		System.out.println("롱변수2 : " + 롱변수2);
-		
-		
-		
-		
 
-	
-		System.out.println("int : 10진수 정수를 저장하는 자료형[상자]");
-	
-		
-		// 1. int : 10진수 정수를 저장하는 자료형[상자]
-		
-		int var1 = 0b1011;	// 2진수	[ 0b : 2진수 작성 가능 ]
-		System.out.println("2진수[1011 -- int(10진수) --> 11] : "+ var1);
-		
-		int var2 = 0206;	// 8진수 [ 0 : 8진수 작성 가능 ]
-		System.out.println("8진수[206 -- int(10진수) --> 134] " + var2);
-		
-		int var3 = 365;	
-		System.out.println("10진수[365 -- int(10진수) --> 365] " + var3);
-		
-		int var4 = 0xb3;	
-		System.out.println("16진수[b3 -- int(10진수) --> 179] " + var4);
-		
-	
-		System.out.println("---------------------------------------");
-		System.out.println("실수타입");
-		
-		
 		
 		// 실수타입
 		// 1. float		[ 입력 숫자 뒤에 F,  소수점 7자리 ]	
 		// 2. double	[ * 실수 기본 자료형, 소수점 15자리 ]
-		
 		float 실수1 = 3.14F;
 		System.out.println("실수1 : " + 실수1);
+		
 		float 실수2 = 0.123456789123456789123456F;
 		System.out.println("실수2 : " + 실수2);
 		
 		double 실수3 = 3.14;
 		System.out.println("실수3 : " + 실수3);
+		
 		double 실수4 = 0.123456789123456789123456;
 		System.out.println("실수4 : " + 실수4);
-		
-		System.out.println("---------------------------------------");
-		System.out.println("논리변수 boolean ");
-		
 		
 		// 논리 타입
 			// 1. boolean : true 혹은 false
 		boolean 논리변수1 = true;
 		System.out.println("논리변수1 : "+논리변수1);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	}
+		// boolean 논리변수2 = 10;	// 오류발생 [범위초과]
 	
-}
+	}	// 메인 끝
+}	// 클래스 끝
+
+
 /*
  
  		[ 진수 : 표현단위 ]
@@ -179,13 +126,6 @@ public class EX2_자료형 {
  				*2. double		8바이트		소수점 17자리
  			3. 논리타입			
  				1. boolean		1바이트		true, false
- 			
- 			
- 		** 클래스명 입력할때 첫글자는 무조건 대문자로 쓰기
- 			
- 			
- 			
- 			
- 			
+
   
 */

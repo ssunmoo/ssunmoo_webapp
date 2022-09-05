@@ -40,6 +40,8 @@ public class EX3_틱택토 {
 		Scanner scan = new Scanner(System.in);
 		Random ran = new Random();
 		
+		int count = 0;
+		
 		System.out.println("★ 게임시작 ★\n");
 		
 		while (true) {	// 와일1 시작
@@ -51,7 +53,11 @@ public class EX3_틱택토 {
 					System.out.println();
 				} // if 2 끝
 			} // for 1 끝
-		
+			
+			if( count == 4) {
+				System.err.println("안내) 무승부입니다.");
+				break;
+			}
 
 			// 2. 사용자 위치 선택
 			while (true) {	// 와일2 시작
@@ -81,12 +87,14 @@ public class EX3_틱택토 {
 				}
 				if( 게임판[위치].equals("[ ]") ) {	// 게임판 위치가 공백일경우 
 					게임판[위치] = "[X]";			// 게임판 위치에 X로 표시
+					count++;	// count 값을 더해서 count가 4가되면 무승부
 					break;						// 알을 두면 무한루프 종료
 				}
 			} // 와일3 끝
 			
 			
-			// 4. 승리판단	--> 가로 0 1 2, 3 4 5, 
+			// 4. 승리판단	--> 가로 0 1 2, 3 4 5, 6 7 8
+			
 			if( 게임판[0].equals("[O]")) {	// 게임판 위치에 O 값이 들어있을때
 				if( 게임판[0].equals(게임판[1]) && 게임판[1].equals(게임판[2]) ) {
 					System.err.println("★★승리★★");
@@ -105,7 +113,6 @@ public class EX3_틱택토 {
 				}
 			}
 			
-			
 			// 4. 승리판단 --> 세로	0 3 6, 1 4 7, 2 5 8
 			if( 게임판[0].equals("[O]")) {
 				if( 게임판[0].equals(게임판[3]) && 게임판[3].equals(게임판[6]) ) {
@@ -119,7 +126,7 @@ public class EX3_틱택토 {
 				}
 			}	
 				
-			if( 게임판[2].equals("[O]")) {
+			if( 게임판[2].equals("[O]")) { 
 				if( 게임판[2].equals(게임판[5]) && 게임판[5].equals(게임판[8]) ) {
 					System.err.println("★★승리★★");
 				}
@@ -127,7 +134,7 @@ public class EX3_틱택토 {
 			
 			// 4. 승리판단 --> 대각선 0 4 8 , 2 4 6
 			if( 게임판[0].equals("[O]")){
-				if( 게임판[0].equals(게임판[4]) && 게임판[4].equals(게임판[8]) ) {
+				if( 게임판[0].equals(게임판[4]) && 게임판[4].equals(게임판[8]) ) { 
 					System.err.println("★★승리★★");
 				}
 			}
@@ -137,32 +144,6 @@ public class EX3_틱택토 {
 					System.err.println("★★승리★★");
 				}
 			}
-			
-			
-			
-			
-			// 무승부
-			// 승리자가 안나올경우 
-			// if( 게임판[] )
-			
-			
-			
-				
-			
-			
-//				if( 게임판[3].equals("[O]") && 게임판[4].equals("[O]") && 게임판[5].equals("[O]") ) {
-//					System.err.println("★★승리★★");
-//				}
-//				
-//				if ( 게임판[6].equals(게임판[7]) && 게임판[7].equals(게임판[8]) ) {
-//					System.err.println("★★승리★★");
-//				}
-//				
-//			} // if1 끝
-		
-			
-			
-			
 		} // 와일1 끝
 		
 			
