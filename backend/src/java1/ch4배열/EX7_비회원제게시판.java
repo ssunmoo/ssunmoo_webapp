@@ -45,12 +45,12 @@ public class EX7_비회원제게시판 {
 		System.out.println("번호\t작성자\t제목 ");
 		
 		for( int i = 0; i < 글저장.length; i++) {
-			if( 글저장[i][0] != null) {
+			if( 글저장[i][0] != null ) {
 				// 저장된 글이 있을때
 				System.out.println( i + "\t" + 글저장[i][2] + "\t" + 글저장[i][0] );
 			}
 		}
-		System.out.println("------------------------------");	
+		System.out.println("-----------------------------");	
 		
 		
 		System.out.println(" 선택 >> 1. 글쓰기 2. 글보기");
@@ -121,7 +121,7 @@ public class EX7_비회원제게시판 {
 								글저장[a][1] = 글저장[a+1][1];
 								글저장[a][2] = 글저장[a+1][2];
 								글저장[a][3] = 글저장[a+1][3];
-								if( 글저장[i+1][0] == null ) {
+								if( 글저장[a+1][0] == null ) {
 									// 저장된 배열에 null 값이 발견되면 끝내
 									System.err.println("[알림] 게시글 삭제 완료");
 									break;

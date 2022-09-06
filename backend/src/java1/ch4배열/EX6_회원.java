@@ -95,7 +95,7 @@ public class EX6_회원 {
 												memberlist[j][1] = memberlist[j+1][1];
 												memberlist[j][2] = memberlist[j+1][2];
 												memberlist[j][3] = memberlist[j+1][3];
-												if( memberlist[i+1][0] == null ) {
+												if( memberlist[j+1][0] == null ) {
 													// 다음 인덱스의 값이 null 이면 [ 회원이 없다는 뜻 ]
 													break;
 												} // if 종료
