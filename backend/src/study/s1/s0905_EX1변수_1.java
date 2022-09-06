@@ -1,4 +1,4 @@
-package study;	// 패키지명
+package study.s1;	// 패키지명
 
 public class s0905_EX1변수_1 {	// 전범위에서 클래스 실행
 

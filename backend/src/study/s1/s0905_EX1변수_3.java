@@ -1,4 +1,4 @@
-package study;
+package study.s1;
 
 public class s0905_EX1변수_3 {
 	/*

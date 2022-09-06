@@ -25,9 +25,7 @@ public class EX5_입출력 {
 			String name = "홍길동";
 			String job = "도적";
 			System.out.printf("%6d | %-10s | %10s\n", 1, name, job);
-			
-			
-			
+
 			
 			// 입력 객체(클래스) 선언
 			Scanner 입력객체 = new Scanner( System.in );
@@ -39,9 +37,7 @@ public class EX5_입출력 {
 			
 			String 입력문자열 = 입력객체.next();
 			System.out.println("입력 받은 문자열 : " + 입력문자열);
-			
-			
-			
+
 			
 			System.out.println("------------------------------------\n");
 			
@@ -63,17 +59,7 @@ public class EX5_입출력 {
 			System.out.println("------------- 개인정보 ---------------\n");
 			System.out.printf("%5s \t %5s \t %5s\n", "이름", "나이", "키");
 			System.out.printf("%5s \t %5d \t %5.1f", 이름, 나이, 키);
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 		}
 }
 

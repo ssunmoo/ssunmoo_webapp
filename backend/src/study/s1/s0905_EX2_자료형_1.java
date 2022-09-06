@@ -1,4 +1,4 @@
-package study;
+package study.s1;
 //1. 모든 코드는 클래스 안에서 작성
 public class s0905_EX2_자료형_1 {	// 클래스 시작
 

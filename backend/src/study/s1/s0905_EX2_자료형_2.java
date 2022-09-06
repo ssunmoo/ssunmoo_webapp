@@ -1,4 +1,4 @@
-package study;
+package study.s1;
 
 public class s0905_EX2_자료형_2 {	// 클래스 시작
 	public static void main(String[] args) {	// 메인 시작
