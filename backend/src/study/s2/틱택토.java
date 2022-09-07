@@ -79,12 +79,10 @@ public static void main(String[] args) {
             break;
          }
          else {
-            
             if( userWin == 1 ) {
                System.err.println("★★승리★★");
                break;
             }
- 
             else if ( computerWin == 1 ) {
                System.err.println("★★패배★★");
                break;
@@ -123,7 +121,7 @@ public static void main(String[] args) {
             if( 게임판[위치].equals("[ ]") ) {	// 게임판 위치가 공백일경우 
                게임판[위치] = "[X]";         	// 게임판 위치에 X로 표시
                
-               count++;      // count값을 증가시켜서 종료할 구간을 설정 합니다.
+               count++;      // 종료 조건을 주기위해 추가
                break;        // 알을 두면 무한루프 종료
             }
          } // 와일3 끝
@@ -153,7 +151,6 @@ public static void main(String[] args) {
         	if(게임판[i].equals("[O]") && 게임판[i].equals(게임판[i+3]) && 게임판[i+3].equals(게임판[i+6])) {
         					// 게임판 i가 O이면서 i와 i+3과 i+6이 모두 동일할때
         		userWin++;	// 유저 변수에 카운트 1더하기
-        		
         	} // if 종료
         	
 			else if(게임판[i].equals("[X]") && 게임판[i].equals(게임판[i+3]) && 게임판[i+3].equals(게임판[i+6])) {
@@ -164,8 +161,7 @@ public static void main(String[] args) {
 
          
         // 4. 승리판단 --> 대각선 0 4 8 , 2 4 6
-        
-        // 대각선 승리 판단의 경우 대각선의 종류가 하나씩밖에 없기 때문에 for말고 if하기
+        // 대각선 승리 판단의 경우 대각선의 종류가 하나씩밖에 없기 때문에 for사용 안해두됨
         
         //대각선 1 검증 시작 ( 0, 4 ,8 )
         if( 게임판[0].equals("[O]") && 게임판[0].equals(게임판[4]) && 게임판[4].equals(게임판[8])) {
