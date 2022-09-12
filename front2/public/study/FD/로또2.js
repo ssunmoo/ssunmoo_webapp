@@ -1,0 +1,30 @@
+/*
+
+
+	1. 로또 시작하기 버튼을 눌렀을때 로또 버튼 45개 출력
+	2. 45개 버튼 중 선택한 번호가 누적되어 출력되도록
+	3. 중복 숫자는 누를 수 없음
+	4. 6개까지만 선택 가능
+		- 번호 추첨
+	5. 당첨번호 6개가 랜덤으로 출력되도록(6개 한번에, 6개 까지만)
+	6. 중복 숫자는 출력될 수 없음
+	7. 내가 선택한 번호와 추첨된 번호 비교
+	8. 당첨된 번호가 어떤 것인지 출력
+	9. 당첨자 발표(1등. 22억! 2등. 3천만원! 3등. 100만원 4등. 5만원 5등. 5천원 꽝!)
+
+*/
+
+let btn_box = []
+
+function lottostart(){
+	for(let i = 1; i < 46; i++){
+		btn_box += `<button onclick="${i}"> ${i} </button>`
+		
+		if( i % 5 == 0 ){
+			btn_box += `<br>`
+		}
+	}
+	document.getElementById('lottostart').innerHTML = btn_box
+	console.log(btn_box)
+}
+
