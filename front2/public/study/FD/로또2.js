@@ -16,6 +16,7 @@
 
 let btn_box = []
 
+// 로또 버튼 출력하기
 function lottostart(){
 	for(let i = 1; i < 46; i++){
 		btn_box += `<button onclick="${i}"> ${i} </button>`
@@ -26,5 +27,14 @@ function lottostart(){
 	}
 	document.getElementById('lottostart').innerHTML = btn_box
 	console.log(btn_box)
+	
+	
 }
+
+// 로또 숫자 고르기
+function lotto_select( i ){
+
+	
+}
+
 
