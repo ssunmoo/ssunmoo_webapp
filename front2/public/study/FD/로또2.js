@@ -14,10 +14,13 @@
 
 */
 
-let btn_box = []
+let btn_select_box = [];
+
 
 // 로또 버튼 출력하기
 function lottostart(){
+	
+	let btn_box = '';
 	for(let i = 1; i < 46; i++){
 		btn_box += `<button onclick="${i}"> ${i} </button>`
 		
@@ -32,9 +35,30 @@ function lottostart(){
 }
 
 // 로또 숫자 고르기
-function lotto_select( i ){
+function btn_select( i ){
 
+	// 고른 숫자가 저장되기 위해 함수 밖에다가 변수를 배열로 추가하기
+	if ( btn_select_box.indexOf(i) == -1 ){
+		// 선택한 수가 배열에 존재하지 않을 경우
+		// -1은 없다 0이상은 있다는 뜻 
 	
-}
+		if( btn_select_box.length == 6 ){
+			// 6개가되면 멈추기
+			alert("더이상 선택할 수 없습니다")
+			console.log(i)
+			return;
+		} // if 종료
+		
+	} // if 종료
+	else{ // 선택한 수가 배열에 있을 경우
+		alert("이미 선택된 번호입니다")
+		btn_select_box.splice(i, 1)
+		// 선택했던 번호를 빼주기
+		
+		btn_select_box.push(i);
+	} // else 종료
+	
+	document.getElementById('select_box').innerHTML = btn_select_box;	
+} // 함수 종료 
 
 
