@@ -4,15 +4,9 @@ import java.util.Scanner;
 
 public class EX2_연산자문제 {
 	public static void main(String[] args) {
-
-		
-
 	
 		
-		
-		
 /*
-		 
 		문제1 : 급여 계산 
 			[조건] 입력받기 : 기본급 , 수당 
 			[출력] 실수령액 = 기본급 + 수당 - 세금[기본급10%]
@@ -216,22 +210,39 @@ public class EX2_연산자문제 {
 //
 //		
 
-// 문제15 :  정수3개 입력받아 오름차순 출력 
- 	
-		System.out.println("정수1을 입력하세요 : ");
-		int a = scan.nextInt();
-		
-		System.out.println("정수2을 입력하세요 : ");
-		int b = scan.nextInt();
-		
-		System.out.println("정수3을 입력하세요 : ");
-		int c = scan.nextInt();
-		
-		int temp = 0;
-		
-		// a과 b를 비교 --> 나온 값을 c과 비교
-		// 비교된 값들을 오름차순으로 정렬
-		// 
+//// 문제15 :  정수3개 입력받아 오름차순 출력 
+// 	
+//		System.out.println("정수1을 입력하세요 : ");
+//		int a = scan.nextInt();
+//		
+//		System.out.println("정수2을 입력하세요 : ");
+//		int b = scan.nextInt();
+//		
+//		System.out.println("정수3을 입력하세요 : ");
+//		int c = scan.nextInt();
+//		
+//		int temp = 0;
+//		
+//		if( a > b ) {
+//			temp = a;
+//			a = b;
+//			b = temp;
+//		}
+//		
+//		if(a > c) {
+//			temp = a;
+//			a = c;
+//			c = temp;
+//		}
+//		
+//		if(b > c) {
+//			temp = b;
+//			b = c;
+//			c = temp;
+//		}
+//		
+//		System.out.println(a + " " + b + " " + c);
+
 		
 		
 		
@@ -254,7 +265,7 @@ public class EX2_연산자문제 {
 		int 문제16비교2 = 문제16비교1 > 문제16정수3 ? 문제16비교1 : 문제16정수3;
 		int 문제16결과 = 문제16비교2 > 문제16정수4 ? 문제16비교2 : 문제16정수4;
 		System.out.println("결과 : " + 문제16결과);
-		
+
 	}
 }
 
