@@ -16,8 +16,8 @@
 
 
 let 로또번호저장 = [];		// 빈칸으로 만들었다가 배열로 수정
+let 난수저장 = [];
 let count = 0;
-
 
 // 로또 버튼 45개 만들기
 function 로또버튼생성(){
@@ -26,6 +26,9 @@ function 로또버튼생성(){
 	for( let i = 1; i < 46; i++ ){	// 
 		로또판생성 += `<button id=${i} onclick=선택(${i})> ${i} </button>`					
 								// 온클릭에 function 이름을 넣어서 바로 실행되도록
+		if( i % 5 == 0 ){
+			로또판생성 += `<br>`
+		}						
 	} // for 종료
 	document.getElementById('로또판생성').innerHTML = 로또판생성 // 저장된 버튼들을 html에 있는 로또판생성에 보내줌
 }// f 종료
@@ -34,14 +37,7 @@ function 로또버튼생성(){
 
 // 로또 숫자를 눌렀을때 실행
 function 선택( i ){
-	/*
-	if( count == 6 ){	// 카운트가 6이되면 멈추기
-		alert("번호 선택이 완료되었습니다.")					// 6개가 눌리는 순간 딱! 멈추고 싶은데 7번째를 눌러야 실행됨 ㅠㅠㅠ
-		컴퓨터선택()
-		return;
-		// 조건이 맞지 않을때 나가서 for문 실행
-	}
-	*/
+
 	for ( let j = 0; j < 6; j++ ){
 		if ( 로또번호저장[j] == null ){	// 로또번호저장 배열[j]번째가 값이 없을 경우
 			로또번호저장[j] = `${ i }`
@@ -49,13 +45,12 @@ function 선택( i ){
 			console.log(로또번호저장)
 			
 			중복검사()
-			console.log(중복검사())
-			
 			count++;
 			
 			if ( count == 6 ){
 				alert("번호 선택이 완료되었습니다.")
 				컴퓨터선택()
+				console.log(난수저장)
 				return;
 			} // if 종료
 			return;
@@ -67,69 +62,43 @@ function 선택( i ){
 // 랜덤함수 => 컴퓨터 턴
 
 function 컴퓨터선택( ){ // 내가 선택하면 컴퓨터가 난수 하나씩 선택해줌 근데 배열에 담겨지지 않음
-	let 난수 = [];
-	for( let i = 0; i < 6; i++ ){
-		난수[i] = Math.floor(Math.random()*45+1);		// Math 함수를 사용해서 랜덤 숫자를 출력 
-	// 기준 값 : 0보다 같거나 크고 1미만 --> 기준 값 때문에 0부터 시작하는데 난 숫자를 1부터 받아야되서 +1 해줌
-	}
-	document.getElementById('당첨번호출력').innerHTML = 난수
-	console.log( 난수 )
-	return;						// 7번째 번호를 다시 누르면 또 실행됨 어디서 제한을 줘야하는지 모르겠음 ㅠㅠ
-}
 
+	while( true ){
+		let 랜덤출력 = Math.floor(Math.random()*45+1);		// Math 함수를 사용해서 랜덤 숫자를 출력 
+		console.log(랜덤출력)
+		let 난수번호 = 난수저장.indexOf( 랜덤출력 );
+		if( 난수번호 == -1 ){ // 존재하지않으면
+			if( 난수저장.length == 6 ){ 
+				break; // 6개까지 저장하고 종료
+			}
+			else{
+				난수저장.push( 랜덤출력 )
+			}
+		}
+	document.getElementById('당첨번호출력').innerHTML = 난수저장					
+	} // for 종료
+} // 함수 종료
 
 // 중복검사 함수써서 같은 값이 있는지
-/*
-function 중복검사( i ){
-	for ( let j = 0; j < 6; j++){
-		
+
+
+function 중복검사(){
+	
+	for ( let i = 0; i < 로또번호저장.length; i++){
 		if( 로또번호저장[i] == i ){	// 선택한 숫자가 동일할 경우
 		로또번호저장[i] = null	// 이미 값을 저장했으니 비워줘야함
+		count--;
 		alert("이미 선택한 번호입니다. 다시 선택해주세요.")
-		
-		return;
-		}
-	}
-}
-*/
-
-
-function 중복검사( i ){
-	
-	let index = 로또번호저장.indexOf(로또번호저장[i])		// 로또번호저장 배열에있는 인덱스 번호 중
-	if( index == i ){
-		
-		alert("이미 선택된 번호 입니다. [ 취소합니다 ]")
-		// 로또번호저장.splice( index, 1 )
-		
-	}
-}
-
-
+		continue;
+		} // if 종료
+	} // for 종료
+} // 함수 종료
 
 
 
 
 
 // 함수 쓴거는 선택할때마다 확인해야되니까 for 넣어줘야댐 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
