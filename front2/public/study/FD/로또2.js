@@ -30,8 +30,6 @@ function lottostart(){
 	}
 	document.getElementById('lottostart').innerHTML = btn_box
 	console.log(btn_box)
-	
-	
 }
 
 // 로또 숫자 고르기

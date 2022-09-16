@@ -1,0 +1,46 @@
+
+JDBC [ 자바와 DB 연동 ]
+
+	1. Connection : DB 연동 인터페이스
+		- con = DriverManager.getConnection( DB주소, 계정명, 비밀번호 );
+		* DriverManager : DB 연동 클래스
+
+	2. prepareStatement : 연결된 DB에 SQL 연결/조작
+		- 연동된 DB에 SQL 연결 ps = con.prepareStatement ( sql )
+		- 조작 메소드 : 만일 sql에 ? 가 있을경우 : ps.get자료형( ?위치, 데이터값 ) 
+			1. ps.setInt ( ? 위치, 데이터값 ) / ps.setString ( ? 위치, 문자열데이터값 )
+			2. ps.executeUpdate( )	: insert, update, delete	: 해당 SQL 실행
+			3. rs = ps.execyteQuery( )	: select				: 해당 SQL 실행 결과물 rs에 대입
+
+
+	3. ResultSet : SQL 결과[쿼리] 조작 
+		* rs 기본값 : null
+		* null -- next( ) --> 결과의 첫번째 레코드 -- next( ) --> 검색 결과의 두번째 레코드 --> false까지 반복
+		1. rs.next( ) : (행이동) 다음 레코드가 [ 있으면 true 없으면 false ] 
+		2. rs.getInt( 필드번호/필드명 ) : 현재 레코드[행] 해당 필드의 데이터 호출
+		
+SQL
+
+	DML
+		SELECT * FROM 테이블명 WHERE 조건
+			[ 모든필드 확인 ] SELECT * FROM 테이블명
+			[ 레코드 수 확인 ] SELECT COUNT(*) FROM 테이블명
+			[ 특정조건 ] SELECT *FROM 테이블명 WHERE 필드명 = 조건값
+
+		INDERT INTO 테이블명 VALUES( 데이터1, 데이터2, 데이터3 )
+			[ 모든 필드 추가 ] INSERT INTO 테이블명 VALUES ( 값1, 값2, 값3 )
+			[ 특정 필드 추가 ] INSERT INTO 테이블명 ( 필드명1, 필드명2 ) VALUES ( 값1, 값2 )
+
+		UPDATE 테이블명 SET 필드명 = 새로운데이터 WHERE 조건
+			[ 특정조건 ] UPDATE 테이블명 필드명 = 새로운데이터, 필드명2 = 새로운데이터 WHERE 필드명 = 조건값
+
+		DELETE FROM 테이블명 WHERE 조건
+			[ 특정조건] DELETE FROM 테이블명 WHERE 필드명 = 조건값
+	
+		
+	
+	
+
+
+
+

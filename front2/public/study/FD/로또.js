@@ -1,6 +1,5 @@
 /*
 
-
 	1. 로또 시작하기 버튼을 눌렀을때 로또 버튼 45개 출력
 	2. 45개 버튼 중 선택한 번호가 누적되어 출력되도록
 	3. 중복 숫자는 누를 수 없음
@@ -16,8 +15,9 @@
 
 
 let 로또번호저장 = [];		// 빈칸으로 만들었다가 배열로 수정
-let 난수저장 = [];
 let count = 0;
+let 난수저장 = [];
+let 당첨박스 = [];
 
 // 로또 버튼 45개 만들기
 function 로또버튼생성(){
@@ -42,7 +42,6 @@ function 선택( i ){
 		if ( 로또번호저장[j] == null ){	// 로또번호저장 배열[j]번째가 값이 없을 경우
 			로또번호저장[j] = `${ i }`
 			document.getElementById('내번호출력').innerHTML = 로또번호저장
-			console.log(로또번호저장)
 			
 			중복검사()
 			count++;
@@ -50,11 +49,10 @@ function 선택( i ){
 			if ( count == 6 ){
 				alert("번호 선택이 완료되었습니다.")
 				컴퓨터선택()
-				console.log(난수저장)
 				return;
 			} // if 종료
 			return;
-		}// if 종료	
+		}// if 종료
 	}//for 종료
 }// f 종료
 
@@ -63,27 +61,26 @@ function 선택( i ){
 
 function 컴퓨터선택( ){ // 내가 선택하면 컴퓨터가 난수 하나씩 선택해줌 근데 배열에 담겨지지 않음
 
-	while( true ){
+	while( 난수저장.length < 6 ){ // 난수저장.length < 6 랭스가 6미만까지 
 		let 랜덤출력 = Math.floor(Math.random()*45+1);		// Math 함수를 사용해서 랜덤 숫자를 출력 
-		console.log(랜덤출력)
-		let 난수번호 = 난수저장.indexOf( 랜덤출력 );
-		if( 난수번호 == -1 ){ // 존재하지않으면
-			if( 난수저장.length == 6 ){ 
-				break; // 6개까지 저장하고 종료
-			}
-			else{
-				난수저장.push( 랜덤출력 )
-			}
+		
+		if ( 난수저장.indexOf( 랜덤출력 ) > 0 ) { // 값이 있을때
+			난수저장.push( 랜덤출력 )
+			console.log( 난수저장 )
+			break;
 		}
-	document.getElementById('당첨번호출력').innerHTML = 난수저장					
-	} // for 종료
+		else {
+			break;
+		}
+	} // while 종료
+	당첨()
+	console.log(당첨박스)
 } // 함수 종료
 
 // 중복검사 함수써서 같은 값이 있는지
 
 
 function 중복검사(){
-	
 	for ( let i = 0; i < 로또번호저장.length; i++){
 		if( 로또번호저장[i] == i ){	// 선택한 숫자가 동일할 경우
 		로또번호저장[i] = null	// 이미 값을 저장했으니 비워줘야함
@@ -96,9 +93,27 @@ function 중복검사(){
 
 
 
+function 당첨 ( ){
+	for( let i = 0; i < 6; i++ ){
+		for (let j = 0; j < 6; j++ ){
+			if( 로또번호저장[i] == 난수저장[j] ){
+				당첨박스 = j;
+			} // if 종료
+		} // for 종료
+	} // for 종료
+	document.getElementById('결과').innerHTML = 당첨박스
+} // 함수 종료
 
 
-// 함수 쓴거는 선택할때마다 확인해야되니까 for 넣어줘야댐 
+
+
+
+
+
+
+
+
+
 
 
 
