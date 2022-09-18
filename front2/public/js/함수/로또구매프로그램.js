@@ -52,6 +52,7 @@ function btn_click(i){
 		// 선택한 번호 배열에 저장
 		select_numbers.push(i) // 배열명.push(데이터) : 배열의 데이터 추가
 	}
+	
 	document.getElementById('selectbox').innerHTML = select_numbers;
 }	
 		
@@ -89,6 +90,7 @@ function lotto_number(){
 			if(lotto_numbers.length == 6){	// 배열내 수가 6개이면 종료
 				break	// 가장 가까운 반복문 끝내기
 			}else{	// 배열수가 6개가 아니면 해당 난수를 배열에 저장
+			
 			lotto_numbers.push( rand )
 			} // else e
 		}
@@ -108,7 +110,11 @@ function lotto_result(){
 	// 3. 세번째 방법. 두 배열간 교집합 함수
 	// filter( ) : 새로운 배열 생성[return true인 경우]
 	// 배열명.includes(값) : 해당 배열에 값이 존재하면 true
-	let result_numbers = select_numbers.filter((value) => lotto_numbers.includes(value))
+	let result_numbers = select_numbers.filter((value) => {
+	lotto_numbers.includes(value)
+
+	})
+	
 	count = result_numbers.length
 	let msg = '' // 출력할 메시지를 저장하는 변수
 	
