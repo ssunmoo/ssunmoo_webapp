@@ -601,7 +601,7 @@ public class DAO {
 				ResultDto dto = new ResultDto();
 				
 				dto.mem_id = rs.getString(1);
-				dto.value = rs.getInt(2);
+				dto.value = rs.getDouble(2);
 				list.add(dto);
 			}
 			return list;
@@ -632,7 +632,7 @@ public class DAO {
 				ResultDto dto = new ResultDto();
 				
 				dto.mem_id = rs.getString(1);
-				dto.value = rs.getInt(2);
+				dto.value = rs.getDouble(2);
 				list.add(dto);
 			}
 			return list;

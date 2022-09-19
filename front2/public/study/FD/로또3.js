@@ -28,10 +28,18 @@ function btn_create() {
 		}
 	}
 	document.getElementById('btn_box').innerHTML = btn_box
+	
+	if( select_box.length > 0 ){
+		document.getElementById('btn_box').innerHTML = '';
+		document.getElementById('select_box').innerHTML = '';
+		select_box = [];
+	} // if 종료
 } // 함수 종료
 
 
 function btn_select( i ) {
+
+	
 	if ( select_box.length < 6 ){	
 		select_box.push( i )
 	}	// if 종료
@@ -40,12 +48,16 @@ function btn_select( i ) {
 		return;
 	} // else 종료
 	document.getElementById('select_box').innerHTML = select_box
+	
 } // 함수 종료
 
 
 
 
 function com_select(){
+	
+	document.getElementById('draw_box').innerHTML = '';
+	
 	if( select_box.length < 6 ) {
 		alert("번호를 6개 모두 선택해주세요")
 	}
@@ -76,11 +88,10 @@ function lotto_result() {
 
 	let count = 0;
 	
-	let result_num = select_box.filter( ( i ) => {
+	let result_num = select_box.filter( ( i ) => 
 		com_select_box.includes( i )
-		return;	
 		
-	})
+	)
 	
 	count = result_num.length;
 	

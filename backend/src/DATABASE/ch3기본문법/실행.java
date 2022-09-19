@@ -207,8 +207,8 @@ public class 실행 {
 			
 			
 			if( ch == 18 ) {
-				ArrayList< MemberDto > list = dao.예제18결과();
-				for( MemberDto dto : list ) {
+				ArrayList< ResultDto > list = dao.예제18결과();
+				for( ResultDto dto : list ) {
 					System.out.println( dto.mem_id + "\t" );
 					System.out.println( dto.value + "\n");
 				}
@@ -219,7 +219,7 @@ public class 실행 {
 				ArrayList< ResultDto > list = dao.예제19결과();
 				for( ResultDto dto : list ) {
 					System.out.println( dto.mem_id + "\t" );
-					System.out.println( dto.value(avg(amount)) + "\n");
+					System.out.println( dto.value + "\n");
 				}
 				
 			} // if 종료				
