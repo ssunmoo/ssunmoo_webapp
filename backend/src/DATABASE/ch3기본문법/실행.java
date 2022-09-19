@@ -168,39 +168,59 @@ public class 실행 {
 			} // if 종료	
 			
 			if( ch == 14 ) {
-				ArrayList< MemberDto> list = dao.예제14결과();
-				for( MemberDto dto : list ) {
-					System.out.print( dto.mem_id + "\t");
-					System.out.print( dto.value + "\n" );
+				ArrayList< BuyDto> list = dao.예제14결과();
+				for( BuyDto dto : list ) {
+					System.out.print( dto.mem_id + "\t" );
+					System.out.print( dto.amount + "\n" );
 				} // for 종료
-			} // if 종료				
+			} // if 종료			
 			
 			
 			if( ch == 15 ) {
-				
+				ArrayList< BuyDto > list = dao.예제15결과();
+				for( BuyDto dto : list ) {
+					System.out.println( dto.mem_id + "\t" );
+					System.out.println( dto.amount + "\n");
+				}
 				
 			} // if 종료				
 
 			
 			if( ch == 16 ) {
-				
+				ArrayList< BuyDto > list = dao.예제16결과();
+				for( BuyDto dto : list ) {
+					System.out.println( dto.mem_id + "\t" );
+					System.out.println( dto.amount + "\n" );
+				}
 				
 			} // if 종료				
 			
 			
 			if( ch == 17 ) {
-				
+				ArrayList< MemberDto > list = dao.예제17결과();
+				for( MemberDto dto : list ) {
+					System.out.println( dto.mem_id + "\t" );
+					System.out.println( dto.phone1 + "\n");
+				}
 				
 			} // if 종료				
 			
 			
 			if( ch == 18 ) {
-				
+				ArrayList< MemberDto > list = dao.예제18결과();
+				for( MemberDto dto : list ) {
+					System.out.println( dto.mem_id + "\t" );
+					System.out.println( dto.value + "\n");
+				}
 				
 			} // if 종료				
 			
 			if( ch == 19 ) {
-				
+				ArrayList< ResultDto > list = dao.예제19결과();
+				for( ResultDto dto : list ) {
+					System.out.println( dto.mem_id + "\t" );
+					System.out.println( dto.value(avg(amount)) + "\n");
+				}
 				
 			} // if 종료				
 			
