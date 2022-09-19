@@ -1,6 +1,5 @@
 /*
 
-
 	1. 로또 시작하기 버튼을 눌렀을때 로또 버튼 45개 출력
 	2. 45개 버튼 중 선택한 번호가 누적되어 출력되도록
 	3. 중복 숫자는 누를 수 없음
@@ -35,13 +34,11 @@ function btn_create() {
 function btn_select( i ) {
 	if ( select_box.length < 6 ){	
 		select_box.push( i )
-		console.log(select_box)
 	}	// if 종료
 	else {
 		alert("더 이상 선택할 수 없습니다.")
 		return;
 	} // else 종료
-	
 	document.getElementById('select_box').innerHTML = select_box
 } // 함수 종료
 
@@ -49,7 +46,6 @@ function btn_select( i ) {
 
 
 function com_select(){
-	let random = '';
 	if( select_box.length < 6 ) {
 		alert("번호를 6개 모두 선택해주세요")
 	}
@@ -69,18 +65,21 @@ function com_select(){
 
 
 function lotto_result() {
-	
+
 /*	
 	let count = 0;
 	// let result_number = [];
 	if ( select_box.indexOf( com_select_box ) ){
-		
-		
+
 	}
 */
 
+	let count = 0;
+	
 	let result_num = select_box.filter( ( i ) => {
 		com_select_box.includes( i )
+		return;	
+		
 	})
 	
 	count = result_num.length;
