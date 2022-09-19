@@ -29,8 +29,7 @@ function btn_create() {
 		}
 	}
 	document.getElementById('btn_box').innerHTML = btn_box
-}
-
+} // 함수 종료
 
 
 function btn_select( i ) {
@@ -71,16 +70,25 @@ function com_select(){
 
 function lotto_result() {
 	
+/*	
 	let count = 0;
-	 
-	let result_num = select_box.filter( ( i ) => {
+	// let result_number = [];
+	if ( select_box.indexOf( com_select_box ) ){
 		
-		com_select_box.includes( i )
+		
+	}
+*/
 
+	let result_num = select_box.filter( ( i ) => {
+		com_select_box.includes( i )
 	})
 	
 	count = result_num.length;
-	console.log(result_num)
+	
+	console.log( select_box )
+	console.log( com_select_box )
+	console.log( result_num )
+	
 	
 	if( count == 6 ) {
 		alert( `[1등] 6개 맞았습니다! 당첨금액 : 22억원 ${result_num}` )
