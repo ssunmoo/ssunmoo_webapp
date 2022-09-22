@@ -29,7 +29,7 @@ public class AdminView {
 				int ch = scan.nextInt();
 				
 				if ( ch == 1 ) {
-					inMenu();		// 메소드 호출
+					inMenu( );		// 메소드 호출
 				}
 				else if ( ch == 2 ) {
 					inProduct();	// 메소드 호출
