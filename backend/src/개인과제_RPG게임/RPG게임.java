@@ -15,7 +15,7 @@ public class RPG게임 {
 			int exp = 0;
 			int gold = 0;
 			int attack = 0;
-			int lv = 1;
+			int lv = 5;
 			int dm = 2;
 			int ran = 0;
 			int 전사스킬 = 5;
