@@ -19,11 +19,12 @@ public class Ex4_달력DAO {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private static Ex4_달력DAO dao = new Ex4_달력DAO();	// 싱글톤
-		// 싱글톤을 외부로 호출시키는 메소드
-		public static Ex4_달력DAO getInstance() {
-			return dao;
-		}
-	
+		
+	// 싱글톤을 외부로 호출시키는 메소드
+	public static Ex4_달력DAO getInstance() {
+		return dao;
+	}
+
 	
 	// 2. 생성자 [ 싱글톤용 생성자 ]
 	private Ex4_달력DAO() {
@@ -46,7 +47,6 @@ public class Ex4_달력DAO {
 	
 	boolean 일정추가( String c_date , String c_comment ) {
 		
-		
 		String sql = "insert into calender values( null , ? , ? )";
 		try {
 			
@@ -60,9 +60,6 @@ public class Ex4_달력DAO {
 		catch (Exception e) {
 			System.out.println(e);
 		} return false;
-		
-		
-		
 	}
 	
 	
