@@ -2,7 +2,7 @@ package java1.ch12_스레드;
 
 import java.util.Scanner;
 
-public class EX4_예제1 {
+public class EX4_예제1_음악재생 {
 
 	public static void main(String[] args) {
 	
