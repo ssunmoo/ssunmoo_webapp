@@ -155,6 +155,7 @@ public class BoardDao {
 					board = new BoardDto( rs.getInt(1), rs.getString(2),
 							rs.getString(3), rs.getString(4), rs.getString(5),
 							rs.getInt(6));
+					// System.out.println("board에 들어있는거 : " + board);
 				} // if 종료
 				
 			} // try 종료
