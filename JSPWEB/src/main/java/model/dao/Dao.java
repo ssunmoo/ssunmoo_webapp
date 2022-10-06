@@ -13,8 +13,8 @@ public class Dao {
 	
 	public Dao() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection(		// 실제로 연결해주는 문법
+			Class.forName("com.mysql.cj.jdbc.Driver"); 	// 안넣으면 연동안됨
+			con = DriverManager.getConnection(			// 실제로 연결해주는 문법
 					"jdbc:mysql://localhost:3306/jspweb",
 					"root",
 					"1234");
