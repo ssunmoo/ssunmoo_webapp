@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.MemberDao;
 import model.dao.MemberDao2;
+import model.dto.MemberDto2;
 
 /**
  * Servlet implementation class login
@@ -22,25 +24,36 @@ public class login extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		MemberDao2 dao2 = new MemberDao2();
+		
+//		boolean result = dao2.login(mid, mpw);
+//		response.getWriter().print(result);
+
+		// db메소드 반환 결과를 js ajax에게 응답
+		int result = dao2.login(mid, mpw);
+		response.getWriter().print(result);
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		// 1. form 내 input 태그로 부터 변수 요청
-		String mid = request.getParameter("mid");
-		String mpw = request.getParameter("mpw");
-		
-		MemberDao2 dao2 = new MemberDao2();
-		
-		boolean result = dao2.login(mid, mpw);
-		if( result ) {
-			response.sendRedirect("/JSPWEB/member/index.jsp");
-		}
-		else {
-			response.sendRedirect("/JSPWEB/member/login.jsp");
-		}
+//		// 1. form 내 input 태그로 부터 변수 요청
+//		String mid = request.getParameter("mid");
+//		String mpw = request.getParameter("mpw");
+//		
+//		MemberDao2 dao2 = new MemberDao2();
+//		
+//		boolean result = dao2.login(mid, mpw);
+//		if( result ) {
+//			response.sendRedirect("/JSPWEB/member/index.jsp");
+//		}
+//		else {
+//			response.sendRedirect("/JSPWEB/member/login.jsp");
+//		}
 		
 	}
 

@@ -25,7 +25,7 @@ public class test3 {
 
 			if (i >= 1) {
 				if (friendlist[i].equals(friendlist[i-1])) {
-					System.out.println("중복입니다 다시쓰세오");
+					System.out.println("[중복입니다 다시쓰세오]");
 					// System.out.println("i:" + friendlist[i]); // 잘들어가는지 확인용
 					// System.out.println("i-1:" + friendlist[i-1]); // 잘들어가는지 확인용
 					i--;

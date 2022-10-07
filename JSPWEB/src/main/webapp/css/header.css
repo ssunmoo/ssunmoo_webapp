@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+/* 단감체 */
+@font-face {
+    font-family: 'CWDangamAsac-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 해피니스 산스체 */
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+	list-style: none;
+	color: #000;
+	font-family: "맑은고딕";
+}
+
+
+.webbox{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* ---- 상단 헤더 ---- */
+
+.hd_top{
+	height : 90px;
+	display: flex; 
+	justify-content: space-between;
+	margin: 20px 0px 20px 0px;
+	border-bottom: 1px solid #ccc;
+	align-items: center;
+}
+
+.hd_sub{
+	display: flex;
+	font-size: 13px;
+	align-items: center;
+}
+
+.hd_sub li{
+	margin-right: 20px;
+}
+
+.hd_title a{
+	font-family: CWDangamAsac-Bold;
+	font-size: 30px;
+	margin-left: 10px;
+	color: #363636;
+}
+
+
+
+/* ---- 하단 헤더 ---- */
+
+.hd_menu {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+.serch_box input {
+	border: none;
+}
+
+.serch_box span {
+	border-bottom: 2px solid #505050;
+	margin-left: 50px;
+}
+
+.fa-shopping-cart:before {
+    content: "\f07a";
+    padding-left: 10px;
+}
+
+.fas-search, .fas fa-shopping-cart{
+	font-size: 15px;
+}
+
+.hd_menu li:nth-child(1) a{
+	color: red;
+	font-weight: bold;
+}
+
+.hd_menu li:nth-child(3) a{
+	color: orange;
+	font-weight: bold;
+}
+
+
+
