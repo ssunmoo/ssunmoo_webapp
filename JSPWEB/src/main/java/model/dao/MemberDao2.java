@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.io.Console;
+import java.util.ArrayList;
 
 import model.dto.MemberDto2;
 
@@ -103,7 +104,7 @@ public class MemberDao2 extends Dao {
 			System.out.println(e);
 		}
 		return null;
-	}
+	} // findid 메소드 종료
 	
 	
 	// 4. 비밀번호 찾기 [ 임시 비밀번호 발급하기 ]
@@ -118,7 +119,7 @@ public class MemberDao2 extends Dao {
 			if( rs.next() ) return true;
 		}catch (Exception e) { System.out.println(e); }
 		return false;
-	}
+	} // findpw 메소드 종료
 	
 	
 	// 5. 임시 비밀번호 업데이트
@@ -137,16 +138,91 @@ public class MemberDao2 extends Dao {
 			System.out.println(e);
 		}
 		return false;
-	}
+	} // pwchange 메소드 종료
 
 
+	// 6. 회원 정보 호출
+	public MemberDto2 getinfo( String mid ) {
+		MemberDto2 dto2 = new MemberDto2();
+		
+		String sql = "select * from member where mid = ? ";
+		// "select * from member where mid = '"+ mid +"' ";
+		// mid 변수명으로 넣어주고싶으면 '' 작은따옴표 처리도 해줘야함
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs = ps.executeQuery();
+			if ( rs.next() ) { 
+				
+				// 1. 풀생성자 사용
+				dto2 = new MemberDto2(
+						rs.getInt(1), rs.getString(2), null,
+						rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7),
+						rs.getString(8), rs.getInt(9));
+				//System.out.println("아래" + dto2.toString());
+//				// 2. 빈생성자 사용
+//				dto2.setMno(rs.getInt(1));
+//				dto2.setMid(rs.getString(2));
+//				dto2.setMname(rs.getString(4));
+//				dto2.setMphone(rs.getString(5));
+//				dto2.setMemail(rs.getString(6));
+//				dto2.setMaddress(rs.getString(7));
+//				dto2.setMdate(rs.getString(8));
+//				dto2.setMpoint(rs.getInt(9));
+//				System.out.println("아래" + dto2.toString());
+				return dto2;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return dto2;
+	} // getinfo 메소드 종료
 	
 	
+	// 7. 모든 회원 호출
+	public ArrayList< MemberDto2 > getinfolist(){
+		
+		ArrayList< MemberDto2 > list = new ArrayList<>();
+		String sql = " select * from member";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while ( rs.next() ) {
+				MemberDto2 dto2 = new MemberDto2(
+						rs.getInt(1), rs.getString(2),
+						null, rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7),
+						rs.getString(8), rs.getInt(9));
+				list.add(dto2);
+			}
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return list;
+	} // getinfolist 메소드 종료
 	
 	
-	
-	
-	
+	// 8. 회원 탈퇴
+	public boolean mdelete( String mid, String mpw ) {
+		String sql = "delete from member where mid = ? and mpw = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.setString(2, mpw);
+			int count = ps.executeUpdate();
+			// count 삭제가 몇개됐는지 카운트 보기( 삭제 레코드 수 반환 )
+			if( count == 1 ) {
+				// 1이면 성공, 0이면 삭제된 값 없음 성공시에만 true 반환
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	} // delete 메소드 종료
 	
 	
 	

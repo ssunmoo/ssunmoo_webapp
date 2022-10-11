@@ -21,4 +21,10 @@ select * from member;
 select * from member where mid = "aaa" and mpw = "aaa"; 
 -- 존재하면 레코드 1개 검색, 존재하지 않으면 레코드 검색 x
 
+select * from member where mname = "aaa" and memail = "aaa";
 
+-- 회원정보 호출
+select * from member where mid = 'aaa';
+
+-- 회원 삭제
+delete from member where mid = '11' and mpw = '11';

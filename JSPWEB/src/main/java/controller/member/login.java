@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.MemberDao;
 import model.dao.MemberDao2;
@@ -32,8 +33,17 @@ public class login extends HttpServlet {
 //		boolean result = dao2.login(mid, mpw);
 //		response.getWriter().print(result);
 
-		// db메소드 반환 결과를 js ajax에게 응답
+		
 		int result = dao2.login(mid, mpw);
+		// **** 만약에 로그인 성공하면 세션 할당 
+				if( result == 1 ) {
+					HttpSession 세션 = request.getSession(); // 1. 세션 객체 선언 
+					세션.setAttribute( "mid", mid );			// 2. 세션 생성[ 세션 메모리 할당 ]
+						// setAttribute( "식별자" , 데이터 );
+				}
+		
+		
+		// db메소드 반환 결과를 js ajax에게 응답
 		response.getWriter().print(result);
 		
 		
