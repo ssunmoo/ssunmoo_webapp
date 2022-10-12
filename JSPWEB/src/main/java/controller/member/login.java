@@ -35,12 +35,13 @@ public class login extends HttpServlet {
 
 		
 		int result = dao2.login(mid, mpw);
+		
 		// **** 만약에 로그인 성공하면 세션 할당 
-				if( result == 1 ) {
-					HttpSession 세션 = request.getSession(); // 1. 세션 객체 선언 
-					세션.setAttribute( "mid", mid );			// 2. 세션 생성[ 세션 메모리 할당 ]
-						// setAttribute( "식별자" , 데이터 );
-				}
+		if( result == 1 ) {
+			HttpSession 세션 = request.getSession();	// 1. 세션 객체 선언 
+			세션.setAttribute( "mid", mid );			// 2. 세션 생성[ 세션 메모리 할당 ]
+				// setAttribute( "식별자" , 데이터 );
+		}
 		
 		
 		// db메소드 반환 결과를 js ajax에게 응답

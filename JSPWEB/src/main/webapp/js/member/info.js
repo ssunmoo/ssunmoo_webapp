@@ -9,22 +9,27 @@ function getmember(){
 		url : "/JSPWEB/member/info" ,
 		success : function( result ) {
 	
-			// HTTP 스트림[바이트단위] json 형식의 문자타입을 json 타입으로 형변ㅂ환
-			let member = JSON.parse( result )
-			
+			// HTTP 스트림[바이트단위] json 형식의 문자타입을 json 타입으로 형변환
 			//alert ( member.maddress )
 						// 객체.속성
-				
+			let member = JSON.parse( result )
 			document.querySelector("#mno").innerHTML = member.mno
 			document.querySelector("#mid").innerHTML = member.mid
-			document.querySelector("#mname").innerHTML = member.mname
-			document.querySelector("#mphone").innerHTML = member.mphone
-			document.querySelector("#memail").innerHTML = member.memail
-			document.querySelector("#maddress").innerHTML = member.maddress
 			document.querySelector("#mdate").innerHTML = member.mdate
 			document.querySelector("#mpoint").innerHTML = member.mpoint
+			
+			document.querySelector("#mname").value = member.mname
+			document.querySelector("#mphone").value = member.mphone
+			document.querySelector("#memail").value = member.memail
+			
+			document.querySelector("#sample4_postcode").value = member.maddress.split(",")[0]
+			document.querySelector("#sample4_roadAddress").value = member.maddress.split(",")[1]
+			document.querySelector("#sample4_jibunAddress").value = member.maddress.split(",")[2]
+			document.querySelector("#sample4_detailAddress").value = member.maddress.split(",")[3]
+			
+			
 		
-			getmemberlist(); // 모든 회원 호출 메소드 
+			// getmemberlist(); // 모든 회원 호출 메소드 
 		}
 	});
 } // getmember 메소드 종료
@@ -122,6 +127,39 @@ function mdelete(){
 } // mdeldte 메소드 종료
 
 
+let buttons = document.querySelectorAll("button")
+// 현재 페이지의 모든 버튼 출력
+
+function update_action(){
+	let mname = document.querySelector("#mname");
+	// 입력한 데이터를 가지고옴
+	
+	if( buttons[1].innerHTML === "확인" ){
+	// 버튼이 확인일 경우 클릭하면 수정을 전송하는 아래 코드 실행!
+
+		$.ajax({
+			url : "/JSPWEB/member/update",
+			data : { "mname" : mname.value },
+			success : function( re ){
+				if( re == "true" ){
+					alert("수정 성공")
+				}
+				else{
+					alert("수정 실패")
+				}
+			}
+		})
+		buttons[1].innerHTML = "수정"
+		mname.readOnly = true;	// 버튼 누르면 수정할 수 있도록 열어줌
+		location.reload;	// 새로고침
+	}
+	else{
+		alert("수정 완료 후 확인 버튼 클릭 시 수정이 완료됩니다");
+		mname.readOnly = false;	// 수정못하게 닫기
+		buttons[1].innerHTML = "확인"
+	}
+	
+}
 
 
 

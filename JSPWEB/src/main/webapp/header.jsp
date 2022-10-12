@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Dangam </title>
+<title> The Music </title>
 	<!-- 뷰포트 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/JSPWEB/css/header.css">
@@ -18,15 +18,15 @@
 		<div class ="hd_top"> <!-- 상단 헤더 -->
 			<div> <!-- 로고 -->
 				<span class = "hd_title"> 
-					<a href="/JSPWEB/index.jsp"> Dangam </a>
+					<a href="/JSPWEB/index.jsp"> The Music </a>
 				</span>		
 			</div>
 				
 			<!-- 세션 호출 [ JSP방식 = 템플릿마다 다름 ( JSP vs 리액트 ) -->
 			<%
-				// JSP 스크립트 태그 ( 태그안에 JAVA 문법 작성 가능 )
-				String loginid = (String)session.getAttribute("mid"); 	
-							// 형변환 : 세션자료형 = object// jsp 기본 객체로 세션 제공
+			// JSP 스크립트 태그 ( 태그안에 JAVA 문법 작성 가능 )
+			String loginid = (String)session.getAttribute("mid"); 	
+						// 형변환 : 세션자료형 = object// jsp 기본 객체로 세션 제공
 			%>
 			<ul class="hd_sub">	<!--  상단 메뉴 -->
 			
@@ -51,16 +51,16 @@
 		
 		<ul class = "hd_menu"> <!-- 하단 헤더 -->
 			<li> <a href = "#"> NEW! </a> </li>
-			<li> <a href = "#"> 1+1 이벤트 </a> </li>
-			<li> <a href = "#"> 아우터 </a> </li>
-			<li> <a href = "#"> 상의 </a> </li>
-			<li> <a href = "#"> 바지 </a> </li>
-			<li> <a href = "#"> 슈즈 </a> </li>
-			<li> <a href = "#"> 악세사리 </a> </li>
-			<li> <a href = "#"> BEST </a> </li>
-			<li> <a href = "#"> 트레이닝 </a> </li>
-			<li> <a href = "#"> SALE </a> </li>
-			<li> <a href = "#"> MUSCLE-FIT </a> </li>
+			<li> <a href = "#"> 건반악기 </a> </li>
+			<li> <a href = "#"> 현악기 </a> </li>
+			<li> <a href = "#"> 전자드럼 </a> </li>
+			<li> <a href = "#"> 기타 </a> </li>
+			<li> <a href = "#"> 우쿨렐레 </a> </li>
+			<li> <a href = "#"> 관악기 </a> </li>
+			<li> <a href = "#"> 칼림바 </a> </li>
+			<li> <a href = "#"> 미디/음향 </a> </li>
+			<li> <a href = "#"> 개인결제창 </a> </li>
+			<li> <a href = "#"> 이벤트 </a> </li>
 			<li class="serch_box">
 				<span>
 					<input>

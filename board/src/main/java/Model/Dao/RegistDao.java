@@ -52,17 +52,45 @@ public class RegistDao extends Dao {
 				object.put("b_view", rs.getInt(7));
 				
 				list.add(object);
-				// System.out.println(list);
 			}
 			return list;
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return list;
-		
 	} // board_list 메소드 종료
 	
 	
+	// 선택한 게시글 상세보기 
+	public JSONArray select_view() {
+		JSONArray list = new JSONArray();
+		String sql = "select * from board";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) { 
+				
+				JSONObject object = new JSONObject();
+				object.put("b_no", rs.getString(1));
+				object.put("b_title", rs.getString(2));
+				object.put("b_content", rs.getString(3));
+				object.put("b_name", rs.getString(4));
+				object.put("b_date", rs.getString(6));
+				object.put("b_view", rs.getInt(7));
+				
+				list.add(object);
+				System.out.println("다오리스트"+list);
+			}
+			System.out.println("다오리스트"+list);
+			return list;
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return list;
+			
+	} // board_list 메소드 종료
 	
 	
 	

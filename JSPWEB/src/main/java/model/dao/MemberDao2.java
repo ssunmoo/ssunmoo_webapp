@@ -225,13 +225,62 @@ public class MemberDao2 extends Dao {
 	} // delete 메소드 종료
 	
 	
+	// 9. 아이디 중복체크
+	public boolean idcheck( String mid ) {
+		String sql = "select * from member where mid = ?";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid );
+			rs = ps.executeQuery();
+			
+			if( rs.next() ) {
+				return true;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	} // idcheck 메소드 종료
 	
 	
+	// 10. 이메일 중복 체크
+	public boolean emilcheck( String memail ) {
+		String sql = "select * from member where memail = ?";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, memail );
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	} // emilcheck 메소드 종료
 	
 	
-	
-	
-	
+	// 11. 회원 정보 수정
+	public boolean update( String mid, String mname ) {
+		
+		String sql = "update member set mname = ? where mid = ?";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mname);
+			ps.setString(2, mid);
+			ps.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+		
+	} // update 메소드 종료
 	
 	
 	

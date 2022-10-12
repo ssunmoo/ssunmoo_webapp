@@ -16,6 +16,15 @@
     font-style: normal;
 }
 
+/* 넥센 타이어 */
+@font-face {
+    font-family: 'NEXEN_TIRE_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 *{
 	margin: 0px;
 	padding: 0px;
@@ -37,7 +46,7 @@
 	height : 90px;
 	display: flex; 
 	justify-content: space-between;
-	margin: 20px 0px 20px 0px;
+	margin: 50px 0px 20px 0px;
 	border-bottom: 1px solid #ccc;
 	align-items: center;
 }
@@ -53,7 +62,7 @@
 }
 
 .hd_title a{
-	font-family: CWDangamAsac-Bold;
+	font-family: NEXEN_TIRE_Bold;
 	font-size: 30px;
 	margin-left: 10px;
 	color: #363636;
