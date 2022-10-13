@@ -32,7 +32,7 @@ public class board_list extends HttpServlet {
 		JSONArray list = rdao.board_list();
 		
 		response.setCharacterEncoding("UTF-8");
-		System.out.println(list);
+		//System.out.println(list);
 		response.getWriter().print( list );
 	
 	}

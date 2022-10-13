@@ -43,7 +43,7 @@
 			
 			<!--  공통 메뉴  -->
 				<li> <a href="/JSPWEB/member/info.jsp">마이쇼핑</a> </li>
-				<li> <a href="#">고객센터</a> </li>
+				<li> <a href="/JSPWEB/board/list.jsp">게시판</a> </li>
 				
 			</ul> <!--  상단 메뉴 end  -->
 			

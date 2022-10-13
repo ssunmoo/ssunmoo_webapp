@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.container{
+	width: 1400px;
+	height: 800px;
+	margin: 0 auto;
+	border: 1px #dadada solid;
+	padding: 20px;
+	
+	
+}
+
+.box1, .box2, .box3{
+	margin: 5px;
+	float: left;
+}
+
+.box1{
+	width: 300px;
+	background: #f1f1f1;
+}
+
+.box2{
+	width: 400px;
+	background: #f1f1f1;
+}
+
+.box3{
+	width: 600px;
+	background: #f1f1f1;
+}
+
+
+button{
+	border: none;
+	background: #120253;
+	color: #fff;
+	width: 100px;
+	height: 40px;
+	font-weight: bold;
+
+}

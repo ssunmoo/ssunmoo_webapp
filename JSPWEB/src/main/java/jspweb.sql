@@ -28,3 +28,48 @@ select * from member where mid = 'aaa';
 
 -- 회원 삭제
 delete from member where mid = '11' and mpw = '11';
+
+drop table if exists category;
+create table category(
+	
+    cno int auto_increment primary key ,										-- 카테고리 번호
+	cname varchar(100)
+);
+select * from category;
+
+drop table if exists board;
+-- 게시판 테이블 생성
+create table board(
+
+	bno			int primary key auto_increment,		-- 게시글 번호
+	btitle 		varchar(1000) ,						-- 제목
+    bcontent 	longtext,							-- 내용
+    bfile		longtext,							-- 파일첨부 [ 게시물 1개당 첨부파일 1개 ]
+    bdate		datetime default now(),				-- 작성일 : 기본 값 현재 시스템 날짜
+    bview		int default 0,						-- 조회수 : 기본 값 0
+    cno			int,								-- 카테고리 번호 fk
+    mno 		int,								-- 작성자
+     constraint bcno_fk foreign key ( cno ) references category ( cno ),
+    constraint bmno_fk foreign key ( mno ) references member ( mno )
+);
+
+
+select * from board;
+
+insert into board(btitle, bcontent) value( "aa", "aa");
+select * from member where mid = "ㅇㅇㅇ";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

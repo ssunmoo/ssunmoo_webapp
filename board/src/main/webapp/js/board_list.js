@@ -33,8 +33,9 @@ function board_list() {
 		}
 	});
 	
-} // board_list 메소드 종료	
-	
+} // board_list 메소드 종료
+
+
 function select_view( i ){
 	// 등록된 게시글 보여주는거니까 가져오기만
 	// console.log(i)
@@ -55,14 +56,18 @@ function select_view( i ){
 				+ '<th> 조회수 </th>'
 				+ '</tr>'	
 				+ '<tr>'
-				+ '<td>' + s.b_no + '</td>'
+				+ '<td id ='+ s.b_no +'>' + s.b_no + '</td>'
 				+ '<td>' + s.b_title + '</td>'
 				+ '<td>' + s.b_content + '</td>'
 				+ '<td>' + s.b_name + '</td>'
 				+ '<td>' + s.b_date + '</td>'
 				+ '<td>' + s.b_view + '</td>'
-				+ '</tr>';
-				
+				+ '</tr>'
+				+ '<br>'
+				+ '비밀번호 : <input type="password" id="b_pw2">'
+				+ '<button onclick="board_delete()"> 글삭제 </button>'
+				//+ '<div id = "delete_btn"> </div>';
+			//count++;
 			document.querySelector("#b_select_view").innerHTML = tag;
 		}
 	})

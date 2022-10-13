@@ -81,9 +81,9 @@ public class RegistDao extends Dao {
 				object.put("b_view", rs.getInt(7));
 				
 				list.add(object);
-				System.out.println("다오리스트"+list);
+				// System.out.println("다오리스트"+list);
 			}
-			System.out.println("다오리스트"+list);
+			// System.out.println("다오리스트"+list);
 			return list;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -93,7 +93,28 @@ public class RegistDao extends Dao {
 	} // board_list 메소드 종료
 	
 	
-	
+	// 게시글 삭제
+	public boolean board_delete( String b_pw2 , int b_no){
+		
+		//String sql = "delete from board where b_pw = ?";
+		String sql = "delete from board where b_pw = ? and b_no = ?";
+		
+		int count = 0;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, b_pw2 );
+			ps.setInt(2, b_no);
+			ps.executeUpdate();
+			System.out.println("비번 : " + b_pw2 );
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+		
+	} // board_delete 메소드 종료
 	
 	
 	

@@ -155,8 +155,9 @@ sample4_detailAddress.addEventListener( "change", address_check)
 /* ---- 회원가입 전송 확인 ---- */
 function form_submit(){
 	
-	// 1. 아이비 ~ 주소 모두 유효성 검사 검토
+	// 1. 아이디 ~ 주소 모두 유효성 검사 검토
 	// col3[0] : 아이디 ~~ col3[5] : 주소
+	// HTML에 6개의 sicon( 통과한 표시 )가 있는지 체크
 	for( let i = 0; i <= 5; i++ ){
 		if( col3[i].innerHTML !== sicon ){
 			alert("입력이 되지 않은 정보가 있습니다")

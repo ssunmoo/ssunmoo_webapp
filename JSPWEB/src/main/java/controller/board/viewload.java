@@ -1,4 +1,4 @@
-package board.Controller.Member;
+package controller.board;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,32 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import Model.Dao.RegistDao;
-
-/**
- * Servlet implementation class b_select_view
- */
-@WebServlet("/Board/board_select_view")
-public class board_select_view extends HttpServlet {
+@WebServlet("/board/viewload")
+public class viewload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public board_select_view() {
+    public viewload() {
         super();
-        // TODO Auto-generated constructor stub
     }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// 1. 요청 [ 클릭한 게시물의 번호 저장 = backend ]
+		// ** 세션 : 웹서버에 저장할 수 있는 메모리 공간 -> 브라우저 마다 할당
+			// 서버가 종료, 시간 타이머, 브라우저 종료
+		int bno = Integer.parseInt(request.getParameter("bno"));
+		request.getSession().setAttribute("bno", bno);
 	
-		RegistDao rdao = new RegistDao();
-		JSONArray list = rdao.select_view();
-		
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(list);
-		
-		//System.out.println("서블릿리스트"+list);
-	
+		System.out.println("비넘버: "+bno);
 	
 	}
 

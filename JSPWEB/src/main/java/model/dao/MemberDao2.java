@@ -283,6 +283,49 @@ public class MemberDao2 extends Dao {
 	} // update 메소드 종료
 	
 	
+	// 12. 회원아이디 --> 회원 번호 반환
+	public int getMno( String mid ) {
+		String sql = "select * from member where mid = ?";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs = ps.executeQuery();
+			
+			// if (1개) while (여러개)
+			if( rs.next() ){
+				return rs.getInt(1);
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		} return 0;		
+				
+				
+				
+				
+	} // getMno 메소드 종료
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

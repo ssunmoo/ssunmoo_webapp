@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Dao.RegistDao;
+import Model.Dto.RegistDto;
+
 /**
  * Servlet implementation class board_delete
  */
@@ -14,28 +17,40 @@ import javax.servlet.http.HttpServletResponse;
 public class board_delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public board_delete() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		request.setCharacterEncoding("UTF-8");
+		String b_pw2 = request.getParameter("b_pw2");
+		int b_no = Integer(request.getParameter("b_no"));
+		
+		RegistDao dao = new RegistDao();
+		boolean result = dao.board_delete(b_pw2, b_no);
+		
+		System.out.println("서블릿 b_pw : "+b_pw2);
+		response.getWriter().print(result);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private int Integer(String parameter) {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		return 0;
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }
