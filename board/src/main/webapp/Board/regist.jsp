@@ -11,27 +11,38 @@
 
 	<div class="container">
 		<div class = "box1">
-			<h3> [ 게시판 ] </h3>
-			▮ 제목	: <input type="text" id="b_title"><br>
-			▮ 내용	: <input type="text" id="b_content"><br> 
-			▮ 이름	: <input type="text" id="b_name"><br> 
-			▮ 비밀번호	: <input type="password" id="b_pw"><br><br>
-			<button onclick="regist()"> 글등록 </button>
+			<h3> 게시판 </h3>
+			<table>
+				<tr>
+					<td> 제목 </td> <td> <input type="text" id="b_title"> </td>
+				</tr>
+				<tr>	
+					<td > 내용 </td> <td> <input type="text" id="b_content"> </td>
+				</tr>
+				<tr>
+					<td> 이름 </td> <td> <input type="text" id="b_name"> </td>
+				</tr>
+				<tr>
+					<td> 비밀번호 </td> <td> <input type="password" id="b_pw"> </td>
+				</tr>
+				
+			</table>
+			<button onclick="regist()" class = "box1_btn"> 글등록 </button>
 		</div>		
 		
 		<div class = "box2">
-			<h3> [ 글목록 ] </h3>
+			<h3> 글목록 </h3>
 			<table id = "board_list">
 			</table>
 		</div>
 		
 		<div class = "box3">	
-			<h3> [ 글 상세보기 ] </h3>
-			<table id = "b_select_view">
-			</table>
+			<h3> 글 상세보기 </h3>
+			<div id = "b_select_view">
+			
+			</div>
+		
 		</div>
-		
-		
 		
 
 		

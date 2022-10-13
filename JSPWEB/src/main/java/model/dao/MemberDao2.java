@@ -79,7 +79,7 @@ public class MemberDao2 extends Dao {
 		} catch (Exception e) {
 			System.out.println(e);
 			return 3;
-			// 데이터페이스 오류 3
+			// 데이터베이스 오류 3
 		} 
 		return 0;
 		// 아이디 없음 0

@@ -47,7 +47,8 @@ function select_view( i ){
 		
 		let s = select_view[i];
 		// console.log(select_view)
-		let tag = '<tr>'
+		let tag = '<table>'
+				+ '<tr>'
 				+ '<th> 번호 </th>'
 				+ '<th> 제목 </th>'
 				+ '<th> 내용 </th>'
@@ -56,16 +57,20 @@ function select_view( i ){
 				+ '<th> 조회수 </th>'
 				+ '</tr>'	
 				+ '<tr>'
-				+ '<td id ='+ s.b_no +'>' + s.b_no + '</td>'
+				// + '<td id ='+ s.b_no +'>' + s.b_no + '</td>'
+				+ '<td id="b_no">' + s.b_no + '</td>'
 				+ '<td>' + s.b_title + '</td>'
 				+ '<td>' + s.b_content + '</td>'
 				+ '<td>' + s.b_name + '</td>'
 				+ '<td>' + s.b_date + '</td>'
 				+ '<td>' + s.b_view + '</td>'
 				+ '</tr>'
-				+ '<br>'
-				+ '비밀번호 : <input type="password" id="b_pw2">'
-				+ '<button onclick="board_delete()"> 글삭제 </button>'
+				+ '</table>'
+				+ '</div>'
+				+ '<div class = "box3_pw">'
+				+ '비밀번호 <input type="password" id="b_pw2">'
+				+ '</div>'
+				+ '<button onclick="board_delete()" class = "box3_btn"> 글삭제 </button>'
 				//+ '<div id = "delete_btn"> </div>';
 			//count++;
 			document.querySelector("#b_select_view").innerHTML = tag;

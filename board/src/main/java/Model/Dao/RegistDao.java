@@ -99,14 +99,13 @@ public class RegistDao extends Dao {
 		//String sql = "delete from board where b_pw = ?";
 		String sql = "delete from board where b_pw = ? and b_no = ?";
 		
-		int count = 0;
-		
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, b_pw2 );
 			ps.setInt(2, b_no);
 			ps.executeUpdate();
 			System.out.println("비번 : " + b_pw2 );
+			System.out.println("비넘버 : " + b_no );
 			return true;
 			
 		} catch (Exception e) {
