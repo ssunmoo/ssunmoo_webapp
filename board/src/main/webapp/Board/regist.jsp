@@ -41,10 +41,9 @@
 			<div id = "b_select_view">
 			
 			</div>
-		
 		</div>
 		
-
+		
 		
 	</div>
 	

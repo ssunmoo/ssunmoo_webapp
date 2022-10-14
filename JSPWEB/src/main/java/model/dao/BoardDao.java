@@ -13,14 +13,15 @@ public class BoardDao extends Dao {
 	
 	
 	// 1. 글 등록
-	public boolean write ( String btitle, String bcontent, int mno) {
+	public boolean write ( String btitle, String bcontent, int mno, String bfile) {
 		
-		String sql = "insert into board(btitle, bcontent, mno) value( ?, ?, ? )";
+		String sql = "insert into board(btitle, bcontent, mno, bfile) value( ?, ?, ?, ?)";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, btitle);
 			ps.setString(2, bcontent);
 			ps.setInt(3, mno);
+			ps.setString(4, bfile);
 			ps.executeUpdate();
 			return true;
 			
@@ -92,12 +93,44 @@ public class BoardDao extends Dao {
 	}
 	
 	
+	// 4. 글 삭제
+	public boolean bdelete( int bno ) {
+		
+		String sql = "delete from board where bno = "+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			// 삭제 갯수를 통제해서 삭제가 1개 됐으면 true
+			int count = ps.executeUpdate();
+			if( count == 1 )
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+		
+	}
 	
 	
 	
+	// 5. 조회수 증가
+	public void view_plus( int b_no ){
 	
-	
-	
+		String sql = "update board set b_view = b_view+1 where b_no = ? ";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, b_no );
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		
+		
+		
+	}
 	
 	
 	

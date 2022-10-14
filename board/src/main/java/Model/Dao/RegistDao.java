@@ -103,10 +103,13 @@ public class RegistDao extends Dao {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, b_pw2 );
 			ps.setInt(2, b_no);
-			ps.executeUpdate();
-			System.out.println("비번 : " + b_pw2 );
-			System.out.println("비넘버 : " + b_no );
-			return true;
+			int count = ps.executeUpdate();
+			if ( count == 1) {
+				return true;
+			}
+			System.out.println("다오 비번 : " + b_pw2 );
+			System.out.println("다오 비넘버 : " + b_no );
+			
 			
 		} catch (Exception e) {
 			System.out.println(e);

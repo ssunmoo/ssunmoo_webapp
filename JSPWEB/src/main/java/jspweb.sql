@@ -43,13 +43,13 @@ create table board(
 
 	bno			int primary key auto_increment,		-- 게시글 번호
 	btitle 		varchar(1000) ,						-- 제목
-    bcontent 	longtext,							-- 내용
+    bcontent 	longtext,							-- 내용	[ 썸머노트 이용하여 사진/영상 대용량 추가 ]
     bfile		longtext,							-- 파일첨부 [ 게시물 1개당 첨부파일 1개 ]
     bdate		datetime default now(),				-- 작성일 : 기본 값 현재 시스템 날짜
     bview		int default 0,						-- 조회수 : 기본 값 0
     cno			int,								-- 카테고리 번호 fk
     mno 		int,								-- 작성자
-     constraint bcno_fk foreign key ( cno ) references category ( cno ),
+    constraint bcno_fk foreign key ( cno ) references category ( cno ),
     constraint bmno_fk foreign key ( mno ) references member ( mno )
 );
 
@@ -60,14 +60,17 @@ insert into board(btitle, bcontent) value( "aa", "aa");
 select * from member where mid = "ㅇㅇㅇ";
 
 
+-- 두개 테이블 검색 [ 1번 테이블 레코드 수 x 2번 테이블 레코드 수 ]
+select * from member, board;	
 
+-- 조건 [ pk - fk 일치한 경우만 표시 ]
+select b.bno, b.btitle, b.bcontent, b.bfile, b.bdate, b.bview, b.cno, b.mno, m.mid  from member as m, board as b where m.mno = b.mno;
 
+-- 5. 모든 글 출력
+select b.*, m.mid  from member as m, board as b where m.mno = b.mno;
 
-
-
-
-
-
+-- 6. 개별 글 출력
+select b.*, m.mid  from member as m, board as b where m.mno = b.mno and bno =1;
 
 
 

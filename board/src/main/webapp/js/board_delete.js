@@ -21,14 +21,13 @@ console.log("b_pw2 : " + b_pw2 );
 		success : function(re){
 			alert("ajax안 :" +b_no)
 			alert(re)
-			if( re === 'true' ){
+			if( re === '1' ){
 				alert('삭제 완료')
 				//console.log(re);
 				//console.log("b_pw2 : "+b_pw2);
 				console.log("b_pw : "+b_pw);
 				location.reload();
 			}
-			
 			else {
 				alert('삭제 실패')
 				//console.log(re);

@@ -32,7 +32,6 @@ function board_list() {
 			document.querySelector("#board_list").innerHTML = tag;
 		}
 	});
-	
 } // board_list 메소드 종료
 
 
@@ -63,7 +62,7 @@ function select_view( i ){
 				+ '<td>' + s.b_content + '</td>'
 				+ '<td>' + s.b_name + '</td>'
 				+ '<td>' + s.b_date + '</td>'
-				+ '<td>' + s.b_view + '</td>'
+				+ '<td id="v_plus">' + s.b_view + '</td>'
 				+ '</tr>'
 				+ '</table>'
 				+ '</div>'
@@ -76,9 +75,30 @@ function select_view( i ){
 			document.querySelector("#b_select_view").innerHTML = tag;
 		}
 	})
-} // b_ch 메소드 종료
+	
+} // select_view 메소드 종료
 
 
+function view_plus(){
+	
+	let v_plus = document.querySelector("#v_plus").innerHTML
+	console.log()
+	$.ajax({
+		url : "/board/board/view_plus",
+		data : { "v_plus" : v_plus },
+		success : function( re ){
+		
+		
+		
+		}
+	})
+	
+	
+	
+	
+	
+	
+} // view_plus 메소드 종료
 
 
 	
