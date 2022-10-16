@@ -1,41 +1,42 @@
 package board.Controller.Member;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import Model.Dao.RegistDao;
-import Model.Dto.RegistDto;
 
 /**
- * Servlet implementation class board_list
+ * Servlet implementation class view_reply
  */
-@WebServlet("/Board/board_list")
-public class board_list extends HttpServlet {
+@WebServlet("/Board/view_reply")
+public class view_reply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public board_list() {
+    public view_reply() {
         super();
+        // TODO Auto-generated constructor stub
     }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
 		RegistDao rdao = new RegistDao();
-		JSONArray list = rdao.board_list();
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print( list );
+		
+		
+	
+	
+	
+	
+	
 	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

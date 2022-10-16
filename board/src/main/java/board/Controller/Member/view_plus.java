@@ -7,10 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Dao.RegistDao;
+
 /**
  * Servlet implementation class view_plus
  */
-@WebServlet("/board/view_plus")
+@WebServlet("/Board/view_plus")
 public class view_plus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,20 +24,17 @@ public class view_plus extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+		int b_no = Integer.parseInt(request.getParameter("b_no"));
+		RegistDao rdao = new RegistDao();
+		boolean result = rdao.view_plus(b_no);
+		response.getWriter().print(result);
+	
+	
+	
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

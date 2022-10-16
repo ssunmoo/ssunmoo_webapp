@@ -1,5 +1,6 @@
 
 board_list()
+view_reply()
 
 function board_list() {
 	
@@ -42,8 +43,6 @@ function select_view( i ){
 		url : "/board/Board/board_select_view",
 		success : function( list ){
 		let select_view = JSON.parse( list );
-		console.log(select_view)
-		
 		let s = select_view[i];
 		// console.log(select_view)
 		let tag = '<table>'
@@ -63,43 +62,50 @@ function select_view( i ){
 				+ '<td>' + s.b_name + '</td>'
 				+ '<td>' + s.b_date + '</td>'
 				+ '<td id="v_plus">' + s.b_view + '</td>'
-				+ '</tr>'
+				+ '</tr>'			
 				+ '</table>'
 				+ '</div>'
 				+ '<div class = "box3_pw">'
 				+ '비밀번호 <input type="password" id="b_pw2">'
 				+ '</div>'
 				+ '<button onclick="board_delete()" class = "box3_btn"> 글삭제 </button>'
+				+ '<button onclick="view_reply()" class = "reply_btn"> 댓글달기 </button>'
 				//+ '<div id = "delete_btn"> </div>';
 			//count++;
 			document.querySelector("#b_select_view").innerHTML = tag;
 		}
 	})
-	
+	view_plus()
 } // select_view 메소드 종료
 
 
 function view_plus(){
 	
-	let v_plus = document.querySelector("#v_plus").innerHTML
-	console.log()
+	let b_no = document.querySelector("#b_no").innerHTML;
 	$.ajax({
-		url : "/board/board/view_plus",
-		data : { "v_plus" : v_plus },
+		url : "/board/Board/view_plus",
+		data : { "b_no" : b_no },
 		success : function( re ){
-		
-		
-		
+			// console.log(re)
+			alert('되냐' +b_no)
+			document.querySelector("#v_plus").innerHTML = b_no;
+			location.reload();
+		}
+	})
+} // view_plus 메소드 종료
+
+	
+function view_reply(){
+	
+	let b_no = document.querySelector("#b_no").innerHTML;
+	$.ajax({
+		url : "/board/Board/view_reply",
+		data : { "b_no" : b_no },
+		success : function( re ){
+			alert(re)
+
 		}
 	})
 	
-	
-	
-	
-	
-	
-} // view_plus 메소드 종료
-
-
-	
+}	
 	

@@ -119,7 +119,20 @@ public class RegistDao extends Dao {
 	} // board_delete 메소드 종료
 	
 	
-	
+	public boolean view_plus( int b_no ) {
+		String sql = "update board set b_view = b_view+1 where b_no = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, b_no);
+			ps.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+		
+	}
 	
 	
 	

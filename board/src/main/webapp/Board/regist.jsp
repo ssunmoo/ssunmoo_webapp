@@ -39,11 +39,23 @@
 		<div class = "box3">	
 			<h3> 글 상세보기 </h3>
 			<div id = "b_select_view">
-			
+				
 			</div>
+			
+			<div class = "box4">
+				<div class ="box4_title">↪ Re.</div>
+				<div class = "box4_con">
+					<div id = "view_reply">
+						임시댓그으으을1<br>
+						임시댓그으으을2<br>
+						임시댓그으으을3
+					</div>	
+				</div>	
+					
+			</div>
+			
 		</div>
-		
-		
+
 		
 	</div>
 	
