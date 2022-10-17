@@ -15,14 +15,10 @@ function board_delete(){
 		success : function(re){
 			if( re === '1' ){
 				alert('삭제 완료')
-				//console.log(re);
-				//console.log("b_pw2 : "+b_pw2);
 				location.reload();
 			}
 			else {
 				alert('삭제 실패')
-				//console.log(re);
-				//console.log("b_pw2 : "+b_pw2);
 				location.reload();
 			}
 		}

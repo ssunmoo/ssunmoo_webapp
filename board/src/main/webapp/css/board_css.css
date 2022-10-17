@@ -122,33 +122,47 @@ button{
 }
 
 
-.box4{
+.box5{
+	
 	margin-top: 70px;
 	margin-left: 25px;
 	width: 550px;
 	height: 120px;
 	border: 1px solid #e5e5e5;
+	
 }
+
 .box4_title{
+	
 	background: #f1f1f1;
 	height: 30px;
 	line-height: 30px;
 	padding-left: 10px;
 	font-weight: bold;
+	font-size: 14px;
+
 }
 
-#view_reply{
+#r_reply{
+	
 	height: 70px;
 	margin-top: 10px;
 	margin-left : 20px;
 	margin-right : 20px;
 	margin-bottom: 8px;
+	font-size: 13px;
+	border: none;
+	width: 500px;
+	outline: none;
+	padding-left: 10px;
 	
 }
 
-
-
-
+.reply_up_btn{
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+}
 
 
 

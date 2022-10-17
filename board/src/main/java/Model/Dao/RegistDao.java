@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import Model.Dto.RegistDto;
+import Model.Dto.ReplyDto;
 
 public class RegistDao extends Dao {
 	
@@ -89,7 +90,6 @@ public class RegistDao extends Dao {
 			System.out.println(e);
 		}
 		return list;
-			
 	} // board_list 메소드 종료
 	
 	
@@ -107,24 +107,25 @@ public class RegistDao extends Dao {
 			if ( count == 1) {
 				return true;
 			}
-			System.out.println("다오 비번 : " + b_pw2 );
-			System.out.println("다오 비넘버 : " + b_no );
-			
 			
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 		return false;
-		
 	} // board_delete 메소드 종료
 	
 	
+	// 조회수 증가
 	public boolean view_plus( int b_no ) {
 		String sql = "update board set b_view = b_view+1 where b_no = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, b_no);
 			ps.executeUpdate();
+			
+			String sql2 ="select * from board";
+			ps = con.prepareStatement(sql2);
+			ps.executeQuery();
 			return true;
 			
 		} catch (Exception e) {
@@ -132,7 +133,63 @@ public class RegistDao extends Dao {
 		}
 		return false;
 		
+	} // view_plus 메소드 종료
+	
+	
+	// 댓글 등록
+	public boolean reply_up( String r_reply, int b_no ) {
+
+		String sql = "insert into reply values(null, ?, 0, ? )";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, r_reply);
+				ps.setInt(2, b_no);
+				ps.executeUpdate();
+				return true;
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			return false;
 	}
+	
+	// 댓글 출력
+	public JSONArray reply_view() {
+		
+		JSONArray array = new JSONArray();
+		String sql = "select * from reply";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while ( rs.next() ) {
+				JSONObject object = new JSONObject();
+				object.put("r_reply", rs.getString(2));
+				array.add(object);
+			}
+			return array;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return array;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

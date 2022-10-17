@@ -1,6 +1,5 @@
 
 board_list()
-view_reply()
 
 function board_list() {
 	
@@ -33,9 +32,11 @@ function board_list() {
 			document.querySelector("#board_list").innerHTML = tag;
 		}
 	});
+	
 } // board_list 메소드 종료
 
 
+// 게시글 상세보기
 function select_view( i ){
 	// 등록된 게시글 보여주는거니까 가져오기만
 	// console.log(i)
@@ -95,17 +96,77 @@ function view_plus(){
 } // view_plus 메소드 종료
 
 	
+// 댓글 등록 창 출력	
 function view_reply(){
 	
 	let b_no = document.querySelector("#b_no").innerHTML;
 	$.ajax({
-		url : "/board/Board/view_reply",
+		url : "",
 		data : { "b_no" : b_no },
 		success : function( re ){
-			alert(re)
-
-		}
-	})
 	
-}	
+		let tag = '<div class = "box5">'
+				+ '<div class ="box4_title">↪ 댓글을 입력하세요 </div>'
+				+ '<div class = "box4_con">'
+				+ '<input type ="text" id = "r_reply">'
+				+ '</div>'
+				+ '</div>'
+				+ '<button onclick="reply_up()" class = "reply_up_btn"> 댓글등록 </button>'
+		document.querySelector(".box4").innerHTML = tag
+		}
+		
+	})
+} // view_reply 메소드 종료
+
+
+// 댓글 등록
+function reply_up(){
+	
+	let b_no = document.querySelector("#b_no").innerHTML;
+	let r_reply = document.querySelector("#r_reply").value;
+	
+	
+	$.ajax({
+		url : "/board/Board/reply_up",
+		data : { "b_no" : b_no, "r_reply" : r_reply },
+		success : function( re ){
+			alert("댓글 등록 완료")
+			reply_view();	
+		}
+	})		
+}
+
+// 댓글 출력
+function reply_view(){
+	$.ajax({
+		url : "/board/Board/reply_view",
+		success : function( array ){
+			
+			let reply_view = JSON.parse( array );
+			for( let i = 0; i < reply_view.length; i++ ){
+				let rv = reply_view[i];
+
+			let tag = '<div class = "box5">'
+					+ '<div class ="box4_title">↪ Re.</div>'
+					+ '<div class = "box4_con">'
+					+ '<div id = "r_reply">' + rv.r_reply + '</div>'
+					+ '</div>'
+					+ '</div>'
+					//+ '<button onclick="" class = ""> 댓글삭제 </button>';	
+			
+			document.querySelector(".box6").innerHTML = tag
+			}
+		}
+	})		
+}
+
+
+
+
+
+
+
+
+
+
 	

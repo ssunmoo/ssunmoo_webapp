@@ -43,16 +43,20 @@
 			</div>
 			
 			<div class = "box4">
-				<div class ="box4_title">↪ Re.</div>
-				<div class = "box4_con">
-					<div id = "view_reply">
-						임시댓그으으을1<br>
-						임시댓그으으을2<br>
-						임시댓그으으을3
-					</div>	
-				</div>	
-					
+			<!-- 
+				<div class = "box5">
+					<div class ="box4_title">↪ Re.</div>
+					<div class = "box4_con">
+						<input type ="text" id = "view_reply">
+					</div>
+				</div>
+			
+			 -->
+				
 			</div>
+			<div class = "box6">
+			</div>
+			
 			
 		</div>
 

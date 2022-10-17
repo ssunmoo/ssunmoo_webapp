@@ -27,13 +27,9 @@ public class board_delete extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String b_pw2 = request.getParameter("b_pw2");
 		int b_no = Integer.parseInt(request.getParameter("b_no"));
-		System.out.println("번호를찾습니다.. : "+b_no);
 		
 		RegistDao dao = new RegistDao();
 		boolean result = dao.board_delete(b_pw2, b_no);
-		
-		System.out.println("서블릿 b_pw : "+b_pw2);
-		System.out.println("서블릿 b_no : "+b_no);
 		response.getWriter().print(result);
 	
 	

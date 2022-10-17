@@ -7,36 +7,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+
 import Model.Dao.RegistDao;
 
 /**
- * Servlet implementation class view_reply
+ * Servlet implementation class reply_view
  */
-@WebServlet("/Board/view_reply")
-public class view_reply extends HttpServlet {
+@WebServlet("/Board/reply_view")
+public class reply_view extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public view_reply() {
+    public reply_view() {
         super();
-        // TODO Auto-generated constructor stub
     }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int b_no = Integer.parseInt(request.getParameter("b_no"));
+		
 		RegistDao rdao = new RegistDao();
+		JSONArray array = rdao.reply_view();
 		
-		
-	
-	
-	
-	
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print( array );
+
 	
 	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
