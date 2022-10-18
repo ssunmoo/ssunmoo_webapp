@@ -20,7 +20,7 @@ function bview( bno ){
 				<a href="URL?변수명.데이터"> : get 메소드로 해당 URL에 데이터 전송
 			*/
 			if( board.bfile ){ // 데이터 없는 경우 0, null
-				alert('not null')
+				// alert('not null')
 				let filelink = '<a href="../board/filedown?bfile='+ board.bfile +'">'+ board.bfile +'</a>';
 				
 				document.querySelector('.bfile').innerHTML = filelink;
@@ -32,12 +32,11 @@ function bview( bno ){
 			if( board.btnaction == true ){
 				// 삭제버튼 활성화
 				let deletebtn = '<button onclick="bdelete('+ board.bno +')"> 삭제 </button>';
-					btnbox.innerHTML += deletebtn;
-			}
+				btnbox.innerHTML += deletebtn;
 				// 수정버튼 활성화
-			let updatebtn =  '<button "><a > 삭제 </a></button>';
-			btnbox.innerHTML += updatebtn;
-			
+				let updatebtn =  '<button><a href="/JSPWEB/board/update.jsp" > 수정 </a></button>';
+				btnbox.innerHTML += updatebtn;
+			}
 		}
 	})
 	

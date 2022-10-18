@@ -34,6 +34,10 @@
 			<h3> 글목록 </h3>
 			<table id = "board_list">
 			</table>
+			<br>
+			<div class="pagebox">
+			</div>
+			
 		</div>
 		
 		<div class = "box3">	

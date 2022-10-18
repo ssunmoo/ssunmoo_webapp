@@ -21,15 +21,18 @@
 	<!-- 로그인이 안되어있을 경우 로그인 페이지로 전환 -->
 	<% if( loginid == null ) response.sendRedirect("/JSPWEB/member/login.jsp");%>
 	
-
+	
 		<form> 
-			제목 : <input type="text" id = "btitle" name ="btitle"> <br>
-			
+			제목 : <input type="text" name ="btitle" class = "btitle"> <br>
 			<!-- 썸머노트 -->
-		  	<textarea id="summernote" name="bcontent"></textarea>
-			<!-- 내용 : <input type="text" id = "bcontent" name ="bcontent"> <br>  --> 
-			첨부파일 : <input type="file" name ="bfile"> <br>
-			<button type="button" onclick="bupdate()"> 글수정 </button>
+		  	<textarea id="summernote" name="bcontent" class = "bcontent"></textarea>
+			첨부파일 : <input type="file" name ="bfile" class = "bfile"> <br>
+			
+			<!-- 기존 첨부파일 이름과 첨부파일 삭제 버튼 표시 -->
+			<div class = "oldfilebox" id = "oldfilebox"> </div>
+			
+			<!-- form 태그 안에서 button 사용시에는 type 필수 넣기 -->
+			<button type="button" onclick="bupdate()"> 수정완료 </button>
 		</form>
 	</div>
 

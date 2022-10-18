@@ -1,14 +1,23 @@
-
 board_list()
+
+let page_info = {
+	
+	list_size : 3,	// 한페이지에 표시할 게시물 개수
+	page : 1		// 현재 페이지 번호
+	
+}
 
 function board_list() {
 	
 	$.ajax({
 		url : "/board/Board/board_list",
-		// data : { },
+		data : page_info,
 		success : function( list ){
+			alert('d')
 			let board_list = JSON.parse( list );
+			
 			console.log(board_list)
+			
 			let tag = '<tr>'
 				+ '<th> 번호 </th>'
 				+ '<th> 제목 </th>'
@@ -30,6 +39,16 @@ function board_list() {
 				+ '</tr>';
 			} // for 종료
 			document.querySelector("#board_list").innerHTML = tag;
+			
+			let pagehtml = '';
+		
+			pagehtml += '<button type="button"> 이전 </button>';
+			
+			pagehtml += '<button type="button"> 중간숫자들~~ </button>';
+			
+			pagehtml += '<button type="button"> 다음 </button>';
+			
+			document.querySelector(".pagebox").innerHTML = pagehtml;
 		}
 	});
 	

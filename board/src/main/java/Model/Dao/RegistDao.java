@@ -13,6 +13,7 @@ import Model.Dto.ReplyDto;
 public class RegistDao extends Dao {
 	
 	public boolean regist( String b_title, String b_content, String b_name, String b_pw ) {
+		
 		String sql = "insert into board( b_title, b_content, b_name, b_pw) values(?, ?, ?, ?)";
 		
 		try {
@@ -35,6 +36,7 @@ public class RegistDao extends Dao {
 	
 	// 모든 게시글 출력
 	public JSONArray board_list() {
+		
 		JSONArray list = new JSONArray();
 		String sql = "select * from board";
 		//String sql = "select b_no, b_title, b_content, b_name, b_date, b_view from board";
@@ -64,6 +66,7 @@ public class RegistDao extends Dao {
 	
 	// 선택한 게시글 상세보기 
 	public JSONArray select_view() {
+		
 		JSONArray list = new JSONArray();
 		String sql = "select * from board";
 		
@@ -117,6 +120,7 @@ public class RegistDao extends Dao {
 	
 	// 조회수 증가
 	public boolean view_plus( int b_no ) {
+		
 		String sql = "update board set b_view = b_view+1 where b_no = ?";
 		try {
 			ps = con.prepareStatement(sql);
@@ -151,7 +155,7 @@ public class RegistDao extends Dao {
 				System.out.println(e);
 			}
 			return false;
-	}
+	} // reply_up 메소드 종료
 	
 	// 댓글 출력
 	public JSONArray reply_view() {
@@ -172,11 +176,25 @@ public class RegistDao extends Dao {
 			System.out.println(e);
 		}
 		return array;
-	}
+	} // reply_view 메소드 종료
 	
 	
 	
-	
+	// 전체 게시물 수 출력
+	public int get_total_size() {
+		
+		String sql = "select count(*) from board";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				return rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
+	} // get_total_size 메소드 종료
 	
 	
 	

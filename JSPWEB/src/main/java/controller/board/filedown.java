@@ -32,8 +32,11 @@ public class filedown extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");			// 한글인코딩
 		String bfile = request.getParameter("bfile");	// 다운로드할 파일 요청
 		
-		// 2. [ 업로드 된 경로 + 파일명 ]으로 해당 파일위치 찾기
-		String uploadpath = "C:\\Users\\504\\git\\ssunmoo_webapp\\JSPWEB\\src\\main\\webapp\\upload\\"+bfile;
+//		// 2. [ 업로드 된 경로 + 파일명 ]으로 해당 파일위치 찾기
+//		String uploadpath = "C:\\Users\\504\\git\\ssunmoo_webapp\\JSPWEB\\src\\main\\webapp\\upload\\"+bfile;
+
+		// 2. [ 서버에 업로드된 경로 + 파일명 ]으로 해당 파일위치 찾기
+		String uploadpath = request.getSession().getServletContext().getRealPath("/upload"+bfile);
 		
 		// System.out.println(bfile);
 		// 3. 해당 경로의 파일을 객체화 [ java에서 File 클래스 지원 ]

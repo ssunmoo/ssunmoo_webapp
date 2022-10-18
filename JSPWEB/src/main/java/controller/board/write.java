@@ -65,9 +65,15 @@ public class write extends HttpServlet {
 		// new MultipartRequest( 1.요청방식, 2.파일저장경로, 3.최대용량범위(바이트), 4.인코딩타입, 5.기타(보안기능))
 				// 1비트( 0, 1 ) -> 1바이트( 01011111 : 8비트 ) -> 1kb(1024b) --> 1mb ( 1024kb)
 		
-		// 1. 저장 경로 [ 프로젝트 저장 ]
-		String uploadpath = "C:\\Users\\504\\git\\ssunmoo_webapp\\JSPWEB\\src\\main\\webapp\\upload";
+//		// 1. 저장 경로 [ 개발중인 프로젝트 폴더에 저장 ]
+//		String uploadpath = "C:\\Users\\504\\git\\ssunmoo_webapp\\JSPWEB\\src\\main\\webapp\\upload";
 		
+		
+		// 1. 저장 경로 [ 배포된 프로젝트 서버 폴더에 저장 ]
+			// 1. 현재 배포된 프로젝트의 경로 찾기
+			// String uploadpath = request.getSession().getServletContext().getRealPath("/"); // ("/") -> 최상위 경로 [ 프로젝트 폴더명 ]
+		String uploadpath = request.getSession().getServletContext().getRealPath("/upload");
+	
 		
 		// 2. Multipart 객체 생성
 		MultipartRequest multi = new MultipartRequest(
@@ -83,14 +89,14 @@ public class write extends HttpServlet {
 		
 		// 4. 나머지 데이터를 직접 요청
 		String btitle = multi.getParameter("btitle");	// request -> multi 파트 사용
-		System.out.println(btitle); // 확인용
+		//System.out.println(btitle); // 확인용
 	
 		String bcontent = multi.getParameter("bcontent");	// request -> multi 파트 사용
-		System.out.println(bcontent); // 확인용
+		//System.out.println(bcontent); // 확인용
 		
 		// DB에 저장할 파일을 식별하기 위해 첨부파일 경로/이름 호출
 		String bfile = multi.getFilesystemName("bfile"); // 첨부된 파일 이름 호출시 getFilesystemName 
-		System.out.println(bfile);
+		//System.out.println(bfile);
 		
 		// 5. 회원아이디 --> 회원번호로 호출
 		MemberDao2 mdao = new MemberDao2();
