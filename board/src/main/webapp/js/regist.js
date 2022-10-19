@@ -10,7 +10,7 @@ function regist(){
 		b_pw : document.querySelector("#b_pw").value
 		
 	}
-	console.log( info );
+	// console.log( info );
 	
 	$.ajax({
 		url: "/board/Board/regist",
@@ -25,5 +25,4 @@ function regist(){
 			}
 		}
 	});
-	
 } // regist 메소드 종료

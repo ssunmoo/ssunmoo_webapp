@@ -72,19 +72,22 @@ public class board_list extends HttpServlet {
 		
 		// * 페이징 처리에 필요한 정보를 담을 제이슨 오브젝트 선언하기 * 
 		JSONObject boards = new JSONObject();
-		
-		
 		JSONArray list = rdao.board_list();
 		
+		boards.put("total_page", total_page);
 		boards.put("data", list);
-		
-		
+		boards.put("start_btn", start_btn);
+		boards.put("end_btn", end_btn);
+		boards.put("total_size", total_size);
+				
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print( boards );
+		System.out.println("서블릿 boards : "+boards);
 	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
 }

@@ -13,42 +13,11 @@
 
 	<%@include file="../header.jsp" %>
 	
-	<%-- <%
-		//int bno = Integer.parseInt(request.getParameter("bno"));
-		//BoardDto dto = BoardDao.getInstance().getboard(bno);
-	 %>	
-	
-	<div class="webbox">
-		<h3> 글 조회 </h3>
-		<table>
-			<tr>
-				<td> 번호 </td>
-				<td> <%= dto.getBno() %> </td>
-			</tr>
-			
-			<tr>	
-				<td> 제목 <td>
-				<td> <%= dto.getBtitle() %> </td>
-			</tr>
-			
-			<tr>	
-				<td> 내용 </td>
-				<td> <%= dto.getBcontent() %> </td>
-			</tr>
-			
-			<tr>	
-				<td> 작성자 </td>
-				<td> <%= dto.getMno() %> </td>
-			</tr>
-		</table>
-
-	</div> --%>
-	
 	<div class="webbox">
 		<h3> 글 조회 </h3>
 		<table class="table">
 			<tr>
-				<td> 번호 </td> <td class = "bno"></td>
+				<td> 번호 </td> <td class = "bno"> </td>
 			</tr>
 			<tr>	
 				<td> 제목 </td> <td class = "btitle"> </td>
@@ -66,12 +35,33 @@
 		
 		<div class="btnbox">
 			<a href = "list.jsp"> 목록보기 </a>
-			<!-- <button onclick="bremove()"> 수정 </button>  -->
-			
 		</div>
+		
+		<!-- 댓글 작성할 수 있는 틀 구성 -->
+		<div class="replybox">
+			<textarea rows="" cols="" class="rcontent"></textarea>
+			<button type="button" onclick="rwrite()"> 댓글작성 </button>
+		</div>
+		
+		<!-- 댓글을 출력할 수 있는 틀 -->
+		<div class="replylist">
+					
+		</div>
+		
 		
 
 	</div> 
+
+
+
+
+
+
+
+
+
+
+
 
 
 	

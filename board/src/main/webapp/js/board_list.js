@@ -1,4 +1,4 @@
-board_list()
+
 
 let page_info = {
 	
@@ -7,15 +7,21 @@ let page_info = {
 	
 }
 
-function board_list() {
+board_list()
+
+// 전체 게시글 출력
+function board_list( page ) {
+	
+	page_info.page = page;
 	
 	$.ajax({
 		url : "/board/Board/board_list",
 		data : page_info,
 		success : function( list ){
-			alert('d')
-			let board_list = JSON.parse( list );
+		alert(list)
+			let boards = JSON.parse( list );
 			
+			let board_list = boards.data;
 			console.log(board_list)
 			
 			let tag = '<tr>'
@@ -31,13 +37,13 @@ function board_list() {
 				
 				tag += '<tr>'
 				+ '<td>' + b.b_no + '</td>'
-				// + '<td onclick="select_view()">' + b.b_title + '</td>'
 				+ '<td onclick="select_view('+i+')" id ='+i+'>' + b.b_title + '</td>'
 				+ '<td>' + b.b_name + '</td>'
 				+ '<td>' + b.b_date + '</td>'
 				+ '<td>' + b.b_view + '</td>'
 				+ '</tr>';
 			} // for 종료
+			
 			document.querySelector("#board_list").innerHTML = tag;
 			
 			let pagehtml = '';
@@ -51,7 +57,6 @@ function board_list() {
 			document.querySelector(".pagebox").innerHTML = pagehtml;
 		}
 	});
-	
 } // board_list 메소드 종료
 
 
@@ -98,7 +103,7 @@ function select_view( i ){
 	view_plus()
 } // select_view 메소드 종료
 
-
+// 조회수 증가
 function view_plus(){
 	
 	let b_no = document.querySelector("#b_no").innerHTML;
@@ -107,7 +112,7 @@ function view_plus(){
 		data : { "b_no" : b_no },
 		success : function( re ){
 			// console.log(re)
-			alert('되냐' +b_no)
+			// alert('되냐' +b_no)
 			document.querySelector("#v_plus").innerHTML = b_no;
 			location.reload();
 		}
@@ -133,7 +138,6 @@ function view_reply(){
 				+ '<button onclick="reply_up()" class = "reply_up_btn"> 댓글등록 </button>'
 		document.querySelector(".box4").innerHTML = tag
 		}
-		
 	})
 } // view_reply 메소드 종료
 
@@ -153,7 +157,7 @@ function reply_up(){
 			reply_view();	
 		}
 	})		
-}
+} // reply_up e
 
 // 댓글 출력
 function reply_view(){
@@ -177,7 +181,7 @@ function reply_view(){
 			}
 		}
 	})		
-}
+} // reply_view e
 
 
 

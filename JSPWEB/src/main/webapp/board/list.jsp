@@ -46,10 +46,26 @@
 		</table>
  --%>	
 		
-		<!-- 2. js로 테이블 표시 [ HTML(jsp) -> js -> 서블릿 -> Dao ] -->
+		<!-- js로 테이블 표시 [ HTML(jsp) -> js -> 서블릿 -> Dao ] -->
+		
+		<!-- 5. 게시물 수 표시 -->
+		<div> 게시물 수 : <span class="totalsize"> </span> </div>
+		
+		<!-- 6. 화면에 표시할 게시물 수 -->
+		<div>
+			<select class="listsize" onchange="blistsize()">
+				<option vlaue="5"> 5 </option>
+				<option vlaue="10"> 10 </option>
+				<option vlaue="15"> 15 </option>
+				<option vlaue="20"> 20 </option>
+			</select>
+		</div>
+		
+		<!-- 1. 게시물 출력 부분  -->
 		<table class = "btable table" >
 			<tr>
 				<th> 번호 </th>
+				<!-- 제목 클릭 시 페이지 이동 -->
 				<th> 제목 </th>
 				<th> 작성자 </th>
 				<th> 작성일 </th>
@@ -58,8 +74,20 @@
 			
 		</table>
 		
-		<div class="pagebox">
+		<!-- 페이징 처리 출력 부분 -->
+		<div class="pagebox"> 
+		</div>
 		
+		
+		<!-- 4. 검색 처리 출력 부분 -->
+		<div> 
+			<select class="key">
+				<option value="b.btitle"> 제목 </option>
+				<option value="b.bcontent"> 내용 </option>
+				<option value="m.mid"> 작성자 </option>
+			</select>
+			<input class="keyword" type="text" placeholder="검색어">
+			<button type="button" onclick="bsearch()"> 검색 </button>
 		</div>
 		
 	</div>

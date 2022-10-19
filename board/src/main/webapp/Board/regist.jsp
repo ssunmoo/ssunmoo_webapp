@@ -34,7 +34,9 @@
 			<h3> 글목록 </h3>
 			<table id = "board_list">
 			</table>
+			
 			<br>
+			<!-- 페이징처리 출력 박스 -->
 			<div class="pagebox">
 			</div>
 			
