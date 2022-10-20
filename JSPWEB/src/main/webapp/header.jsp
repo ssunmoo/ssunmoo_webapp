@@ -61,6 +61,7 @@
 			<li> <a href = "#"> 미디/음향 </a> </li>
 			<li> <a href = "#"> 개인결제창 </a> </li>
 			<li> <a href = "#"> 이벤트 </a> </li>
+			<li> <a href = "/JSPWEB/board/chatting.jsp"> 채팅방 </a> </li>
 			<li class="serch_box">
 				<span>
 					<input>
