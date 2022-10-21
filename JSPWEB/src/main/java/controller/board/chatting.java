@@ -52,7 +52,7 @@ public class chatting {
 	@OnOpen	// 서버 소켓에 들어왔을 때 [ Session = 클라이언트 소캣 = 접속된 유저 ]
 	public void onOpen( Session session , @PathParam("mid") String mid ) throws IOException {	// @PathParam(경로상의 변수명) : 경로상의 변수 호출
 		
-		clients.put( session, mid );		// 접속된 클라이언트 소켓을 저장
+		clients.put( session, mid ); // 접속된 클라이언트 소켓을 저장
 		sendmsg( jsonAlarm( mid + " 님이 들어오셨습니다." ) );
 
 	} // onOpen e
