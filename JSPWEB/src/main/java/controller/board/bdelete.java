@@ -17,7 +17,7 @@ import model.dto.BoardDto;
 @WebServlet("/board/bdelete")
 public class bdelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     public bdelete() {
         super();
     }

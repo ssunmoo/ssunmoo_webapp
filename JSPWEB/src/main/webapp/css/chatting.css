@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+
+
+/* 사용자 정의 css */
+
+.chattingbox{
+	border: 3px solid #f9f9f9;
+}
+
+.contentbox{	/* 채팅창 */
+	background: #bacee0;
+	height: 700px;
+	
+	/* 내용이 상자 크기보다 커지면 스크롤 생기도록*/
+	overflow-y: scroll;	/* 세로 스크롤 */ 
+	
+	/* 텍스트가 가로 사이즈보다 넘어가면 자동으로 줄바꿈 */
+	word-break : break-all;
+	
+}
+
+.secontent{	/* 메세지 전송 시 */
+	text-align: right;
+}
+
+.secontent .content{
+	background: #ffeb33;
+}
+
+.content{	/* 메세지 내용 */
+	background: #fff;
+	border-radius: 15px 15px 0px 15px;
+	padding: 10px;
+	max-width: 70%;
+	word-break : break-all;	/* 박스권 사이즈보다 텍스트가 더 길어지면 자동 줄 바꿈 */
+	display: inline-block;
+	font-size: 12px;
+	margin: 5px;
+}
+
+.date{	/* 날짜 */
+	font-size: 1px;
+	margin: 5px 2px;
+}
+
+.alarm{ /* 알림 메세지 표시 */
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 5px;
+	padding: 2%;
+	background: #a9bdce;
+}
+
+.name{
+	font-size: 12px;
+}
+
+.msgbox{ /* textarea 사이즈 변경 막기 */	
+	resize: none;	
+}
+
+.dropdown-menu{
+	/* 내용이 상자 크기보다 커지면 스크롤 생기도록*/
+	overflow-y: scroll;	/* 세로 스크롤 */ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

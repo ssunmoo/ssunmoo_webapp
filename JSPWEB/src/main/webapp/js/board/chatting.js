@@ -47,24 +47,28 @@ else{	// 로그인이 안되어있으면
 
 // 2. 메소드 구현 [ 1. 접속했을 때 2. 나갔을 때 3. 메세지를 보냈을 때 4. 메세지를 받았을 때 ]
 
-function onopen(e){	// 접속했을 때
-	alert("채팅방에 들어왔습니다"+e)
+// 접속했을 때
+function onopen(e){	
+	
+}
+// 나갔을 때
+function onclose(e){
+	
 }
 
-function onclose(e){ // 나갔을 때
-	alert("채팅방에서 나갔습니다"+e )
-}
+// 메세지 전송
+function send(){
 
-function send(){ // 메세지를 보냈을 때
-
-	// 1. 보낼 데이터 객체 구성
-	let mag = {	// 객체 = { 속성 : 값 }
-		content : document.querySelector('.msgbox').value,	// 보낸 내용
-		mid : mid,	// 보낸시간 아이디
-		date : new Date().toLocaleTimeString()				// js 현재 시간
+	// 1. 보낼 데이터 객체 구성	// 객체 = { 속성 : 값 }
+	let msg = { // 전송할 데이터 객체
+		type : "msg" ,  // 일반메시지
+		content : document.querySelector('.msgbox').value , // 작성내용
+		mid : mid ,  // 보낸 사람 
+		date : new Date().toLocaleTimeString(), // 날짜 
+		img : '프로필.png' // 사진
 	}
 	// 입력된 메세지 전송
-	websocket.send( JSON.stringify(mag) ); 
+	websocket.send( JSON.stringify(msg) ); 
 	// JSON --> 문자열 변환 : JSON.stringify()
 	// 문자열 --> JSON 변환 : JSON.parse()
 
@@ -72,18 +76,155 @@ function send(){ // 메세지를 보냈을 때
 	document.querySelector('.msgbox').value = '';
 }
 
-function onmessage(e){ // 메세지를 받았을 때 
-	// console.log("아이디 :"+ from)
-	// console.log(e.data)
-	
-	let msg = JSON.parse(e.data)
-	
+
+// 이모티콘 전송
+function emosend( i ){
+
+	let msg = {
+		type : "emo" ,  // 이모티콘
+		content : i , // 이미지번호
+		mid : mid , // 보낸 사람
+		date : new Date().toLocaleTimeString() , // 날짜 
+		img : '프로필.png'
+	}
+	websocket.send( JSON.stringify(msg) )
+} // emosend e
+
+
+
+
 	// alert(e);
 	// e : 서버 소캣으로 부터 받은 정보가 담겨져있음
 	
 	// e.data : 받은 정보의 메세지
 	// alert("e.data"+ e.data);
+
+function onmessage(e){ // 메세지를 받았을 때 
 	
+	let msg = JSON.parse(e.data) // 받은 데이터 객체
+	
+	// 전송 타입이 일반 메세지이면
+	if( msg.type == "msg" ){ 
+		
+		// 내가 보낸 메세지면
+		if( msg.mid == mid ){ // 보낸 사람 아이디와 접속된 아이디가 동일하면
+			let html = document.querySelector('.contentbox').innerHTML;
+			
+			html += '<div class="secontent my-3">'
+					+ '<span class="date">'+ msg.date +'</span>'		
+					+ '<span class="content">'+ msg.content +'</span>'		
+					+ '</div>'	
+					
+			document.querySelector('.contentbox').innerHTML = html
+		}	
+		// 상대방이 보낸 메세지면
+		else{	
+			let html = document.querySelector('.contentbox').innerHTML;
+			
+			html +=  '<div class="row g-0 my-3"> '+
+					'<div class="col-sm-1 mx-2">'+
+					'	<img width="100%" class="rounded-circle" alt="" src="/JSPWEB/img/망곰이.png">'+
+					'</div> '+
+					'<div class="col-sm-9">'+
+					'	<div class="recontent">'+
+					'		<div class="name">'+ msg.mid +'</div>'+
+					'		<span class="content">'+ msg.content +'</span>'+
+					'		<span class="date">'+ msg.date +'</span>'+
+					'	</div>'+
+					'</div> '+
+					'</div>';
+			document.querySelector('.contentbox').innerHTML = html		
+		}
+	}
+	// 전송 타입이 이모티콘 이면
+	else if( msg.type == "emo" ){
+		
+		// 내가 보낸 이모티콘이면
+		if( msg.mid == mid ){
+			
+			let html = document.querySelector('.contentbox').innerHTML;
+			
+			html += '<div class="secontent my-3">'
+					+ '<span class="date">'+ msg.date +'</span>'		
+					+ '<img src="/JSPWEB/img/imoji/emo'+ msg.content +'.gif" width:"90px">'	
+					+ '</div>'	
+					
+			document.querySelector('.contentbox').innerHTML = html
+		}
+		// 상대방이 보낸 이모티콘이면
+		else{
+			let html = document.querySelector('.contentbox').innerHTML;
+			
+			html += '<div class="row g-0 my-3">'
+					+ '<div class="col-sm-1 mx-2">'
+				 	+ '<img width="100%" class="rounded-circle" alt="" src="/JSPWEB/img/망곰이.png">'
+					+ '</div>'
+					+ '<div class="col-sm-9">'
+					+ '<div class="recontent">'
+					+ '<div class="name">'+ msg.mid +'</div>'
+					+ '<img src="/JSPWEB/img/imoji/emo'+ msg.content +'.gif" width:"90px">'
+					+ '<span class="date">'+ msg.date +'</span>'
+					+ '</div>'
+					+ '</div>'
+					+ '</div>';
+			document.querySelector('.contentbox').innerHTML = html
+		}
+	} // else if e
+	
+	// 채팅방에 들어오고 나가기
+	else if( msg.type == "alarm" ){
+		let html = document.querySelector('.contentbox').innerHTML;
+		
+		html += '<div class="alarm">'
+				+ '<span> '+ msg.content +'</span>'		
+				+ '</div>'	
+		document.querySelector('.contentbox').innerHTML = html		
+	}
+	
+	// 스크롤을 하단으로 내리기 //
+	document.querySelector('.contentbox').scrollTop = document.querySelector('.contentbox').scrollHeight;
+	////////////////////
+	
+} // onmessage e
+
+function onerror(e){
+	alert(e)
+}
+
+
+emoview()
+// 이모티콘 호출
+function emoview(){
+
+	let html = "";
+	for(let i = 1; i <= 43; i++ ){
+		html += 
+		'<img src="/JSPWEB/img/imoji/emo'+i+'.gif" width="70px" onclick="emosend('+i+')">'
+	}
+	document.querySelector('.dropdown-menu').innerHTML = html	
+	
+} // emoview e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 	// 1. 출력 구역 호출
 	let contentbox = document.querySelector('.contentbox')
 	
@@ -97,12 +238,16 @@ function onmessage(e){ // 메세지를 받았을 때
 	
 	// 3. 받은 메세지를 HTML에 출력
 	contentbox.innerHTML += html;
+	*/
 
-}
 
-function onerror(e){
-	alert(e)
-}
+
+
+
+
+
+
+
 
 
 
