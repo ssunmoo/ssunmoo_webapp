@@ -8,6 +8,7 @@
 	<!-- 뷰포트 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/JSPWEB/css/header.css">
+	
 	<!-- 폰트어썸 -->	
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 	
@@ -63,8 +64,8 @@
 			<li> <a href = "#"> 관악기 </a> </li>
 			<li> <a href = "#"> 칼림바 </a> </li>
 			<li> <a href = "#"> 미디/음향 </a> </li>
-			<li> <a href = "#"> 개인결제창 </a> </li>
 			<li> <a href = "#"> 이벤트 </a> </li>
+			<li> <a href = "/JSPWEB/board/api.jsp"> 공공데이터 </a> </li>
 			<li> <a href = "/JSPWEB/board/chatting.jsp"> 채팅방 </a> </li>
 			<li class="serch_box">
 				<span>
@@ -80,7 +81,46 @@
 	<!-- 부트스트랩 JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	
-	<!--  헤더 제리쿼리 -->
+	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 </body>
 </html>
+
+
+
+<!-- 
+
+		헤더파일 [ 모든 페이지에서 호출되는 파일 ] 
+		경로 : 상대경로x 절대경로로 작성 [ 사용하는 곳 마다 경로가 다르기 때문 ]
+	 	
+	 	1. 경로 중 맨앞 / 는 최상위 경로 : /JSPWEB/board/api.jsp
+	 		localhost:8080/JSPWEB/board/api.jsp [o]
+	 	2. 현재 경로 : JSPWEB/board/api.jsp
+	 		현재 경로/JSPWEB/board/api.jsp [x]	
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
