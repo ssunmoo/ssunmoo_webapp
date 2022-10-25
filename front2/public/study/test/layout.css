@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+
+.container{
+	
+	width: 1200px;
+	height: 900px;
+	background: #ccc;
+	margin: 100px auto;
+	
+}
+
+.sign_up_box{
+	
+	width: 600px;
+	height: 100%;
+	background: pink;
+	margin: 0 auto;
+	padding-top: 100px; 
+	
+}
+
+.su_title{
+	
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
