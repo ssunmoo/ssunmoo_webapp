@@ -1,0 +1,43 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	
+}
+
+/* 사이드 바 */
+.sideber{
+	
+	background: #000;
+	color: #fff;
+	width: 200px;
+	position: absolute;
+	top: 0px;			/* 위(기준 : body)에서 0만큼 떨어짐 */
+	bottom: 0px; 		/* 바닥에서 0만큼 떨어짐 */
+	left: -170px; 		/* 메뉴바 숨기기 */
+	transition : 1s;	/* 트랜지션[애니메이션효과] : css의 변경 시간(초)를 바꿔서 부드럽게 바꿔 줌 */
+	
+}
+
+/* 사이드 바 목록 */
+.side_menu{
+	padding: 50px;
+}
+
+.side_item{	/* 사이드바 목록 여백 */
+	margin: 30px 0;
+}
+
+.side_menu li{	/* 글머리 제거 */
+	list-style: none;
+}
+
+.side_item a{	/* 링크 색상, 링크 밑줄 제거 */
+	color: #fff;
+	text-decoration: none;
+}
+
+.sideber h1{
+	padding: 20px 0px 20px 50px;
+}
+
+
