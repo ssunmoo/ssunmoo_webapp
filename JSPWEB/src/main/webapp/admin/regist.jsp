@@ -6,34 +6,39 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
+<link href="../css/regist.css" rel="stylesheet">
 </head>
 <body>
 
 	<div class="container"> <!-- 부트스트랩 -->
+	
+	<section class="section01">
 		<h3> 제품 등록 </h3>
 		<form>
 		
-			제품명 <input type="text" name="pname"><br>
-			설명 <textarea rows="" cols="" name="pcomment"></textarea><br>
-			가격 <input type="text" name="pprice"><br>
-			할인율 <input type="text" name="pdiscount"><br>
-			카테고리 <button type="button" onclick="pcategoryview()"> 카테고리 추가 </button><br>
-				<span class="pcategoryaddbox"> <!-- 카테고리 추가 구역 -->
+			제품명 	<input type="text" name="pname"><br>
+			설명 		<textarea rows="" cols="" name="pcomment"></textarea><br>
+			가격 		<input type="text" name="pprice"><br>
+			할인율 	<input type="text" name="pdiscount"><br>
+			카테고리 	<button type="button" onclick="pcategoryview()"> 카테고리 추가 </button><br>
 					
-				</span>
-				<div class="pcategorybox"> <!-- 카테고리 목록 구역 -->
-			
-				</div>
+					<span class="pcategoryaddbox"> <!-- 카테고리 추가 구역 -->
+					</span>
+					
+					<div class="pcategorybox"> <!-- 카테고리 목록 구역 -->
+					</div>
+					
 			상품대표이미지 <input type="file" id="pimg" name="pimg"><br>
-			<button type="reset"> 취소 </button>
-			<button type="button" onclick="regist()"> 등록 </button>
+					<button type="reset"> 취소 </button>
+					<button type="button" onclick="regist()"> 등록 </button>
 		
 		</form>
-			
+	</section>
+	<section class="section02">	
 		<div> <!-- 등록된 첨부파일[이미지만 가능] 미리보기 -->
 			<img alt="" src="" id="pimgpre">
 		</div>
+	</section>	
 		
 	</div>
 	

@@ -14,8 +14,14 @@ function regist(){
 		processData : false, 
 		contentType : false, 
 		success : function( re ){
-								
 			
+			if( re == 'true' ){
+				alert('제품 등록 성공')
+				location.reload();
+			}	
+			else{
+				alert('제품 등록 실패')
+			}
 		}
 	})
 } // regist e
@@ -75,25 +81,24 @@ function setpcategory(){
 } // pcategoryadd e
 
 getpcategory()
+// 5. 카테고리 생성
 function getpcategory(){
-	$.ajax({
+	$.ajax({	// 서버랑 연결
 		url : "/JSPWEB/board/pcategory",
 		type : "get",
-		success : function( re ){
-			let json = JSON.parse(re);	
+		success : function( re ){		// 성공 시 스트림 언어로 받아오기
+			let json = JSON.parse(re);	// 스트림 언어를 제이슨 언어로 변환 
 			
 			let html = '';
 			for( let i = 0; i < json.length; i++ ){
-				let categroy = json[i];
-				
+				let categroy = json[i];	// json 객체의 i 번째에 있는 정보를 담기
 				html += '<input type="radio" name="pcno" value="'+ categroy.pcno +'">' + categroy.pcname;
+																	// 카테고리 번호		// 카테고리 이름
 			}
 		document.querySelector('.pcategorybox').innerHTML = html
 		}
 	})	
 }// getpcategory() e
-
-
 
 
 

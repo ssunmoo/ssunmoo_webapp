@@ -1,15 +1,21 @@
 package controller.admin;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import model.dao.ProductDao;
 import model.dto.ProductDto;
 
 /**
@@ -24,11 +30,38 @@ public class regist extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    // 제품 출력 : GET 사용
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		ArrayList< ProductDto > list = new ProductDao().getProductlist();
+		
+		// ArrayList -> JSON로 변환
+		JSONArray array = new JSONArray();
+		for( int i = 0; i < list.size(); i++ ) {
+			JSONObject object = new JSONObject();
+			
+			object.put("pno", list.get(i).getPno());
+			object.put("pname", list.get(i).getPname());
+			object.put("pcomment", list.get(i).getPcomment());
+			object.put("pprice", list.get(i).getPprice());
+			object.put("pdiscount", list.get(i).getPdiscount());
+			object.put("pactive", list.get(i).getPactive());
+			object.put("pimg", list.get(i).getPimg());
+			object.put("pdate", list.get(i).getPdate());
+			object.put("pcno", list.get(i).getPcno());
+			array.add(object);
+		}
+		
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(array);
+		
+		
+		
+		
 	}
 
+	// 제품 등록 : POST 사용
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 첨부파일이 있을 경우에만 사용 [ 업로드용 ]
@@ -45,13 +78,13 @@ public class regist extends HttpServlet {
 		float pdiscount = Float.parseFloat(multi.getParameter("pdiscount"));
 		String pimg = multi.getFilesystemName("pimg");	// 첨부파일이어서 getparameter 안됨
 		
-		ProductDto dto = new ProductDto(0, pname, pcomment, pprice, pdiscount, (byte)0, pimg, null, 0);
-		System.out.println( dto.toString());
-		System.out.println(pname);
-		System.out.println(pcomment);
-		System.out.println(pdiscount);
-		System.out.println(pimg);
+		int pcno = Integer.parseInt(multi.getParameter("pcno"));
 		
+		ProductDto dto = new ProductDto(0, pname, pcomment, pprice, pdiscount, (byte)0, pimg, null, pcno );
+		// System.out.println( dto.toString());
+
+		boolean result = new ProductDao().setProduct(dto);
+		response.getWriter().print(result);
 		
 		
 	}
