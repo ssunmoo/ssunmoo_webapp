@@ -12,7 +12,6 @@ public class ProductDto {
 	private String pdate;					// 등록 날짜
 	private int pcno;						// 제품 카테고리 번호 FK		
 	
-	
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}

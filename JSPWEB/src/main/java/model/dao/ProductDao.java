@@ -55,7 +55,7 @@ public class ProductDao extends Dao {
 			ps.setFloat(4, dto.getPdiscount());
 			ps.setString(5, dto.getPimg());
 			ps.setInt(6, dto.getPcno());
-			ps.executeLargeUpdate();
+			ps.executeUpdate();
 			return true;
 					
 		} catch (Exception e) {
@@ -109,10 +109,54 @@ public class ProductDao extends Dao {
 	
 	
 	
+	// 6. 제품 개별 출력
+	public ProductDto getProduct( int pno ) {
+		String sql ="select * from product where pno =" +pno;
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if( rs.next() ) {
+				ProductDto dto = new ProductDto(
+					rs.getInt(1),	rs.getString(2),
+					rs.getString(3),rs.getInt(4),
+					rs.getFloat(5), rs.getByte(6),
+					rs.getString(7),rs.getString(8),
+					rs.getInt(9));
+					return dto;
+			}
+		}	
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	} // getProduct e
 	
 	
-	
-	
+	// 7. 제품 수정
+		public boolean updateproduct( ProductDto dto ) {
+			String sql = "update product set pname = ?, pcomment = ?, pprice = ?, pdiscount = ?, pactive = ?, pimg = ?, pcno = ? where pno = ?";
+
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, dto.getPname());
+				ps.setString(2, dto.getPcomment());
+				ps.setInt(3, dto.getPprice());
+				ps.setFloat(4, dto.getPdiscount());
+				ps.setByte(5, dto.getPactive());
+				ps.setString(6, dto.getPimg());
+				ps.setInt(7, dto.getPcno());
+				ps.setInt(8, dto.getPno());
+				ps.executeUpdate();
+				return true;
+						
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			return false;
+			
+		} // setProduct e
 	
 	
 	
