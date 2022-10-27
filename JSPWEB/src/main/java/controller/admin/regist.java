@@ -22,7 +22,7 @@ import model.dto.ProductDto;
  * Servlet implementation class regist
  */
 @WebServlet("/admin/regist")
-public class regist extends HttpServlet {
+public class regist extends HttpServlet { // HttpServlet : Http 에 대한 속성을 상속 받음
 	private static final long serialVersionUID = 1L;
        
     public regist() {
@@ -30,44 +30,13 @@ public class regist extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-    // 제품 출력 : GET 사용
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		ArrayList< ProductDto > list = new ProductDao().getProductlist();
-		
-		// ArrayList -> JSON로 변환
-		JSONArray array = new JSONArray();
-		for( int i = 0; i < list.size(); i++ ) {
-			JSONObject object = new JSONObject();
-			
-			object.put("pno", list.get(i).getPno());
-			object.put("pname", list.get(i).getPname());
-			object.put("pcomment", list.get(i).getPcomment());
-			object.put("pprice", list.get(i).getPprice());
-			object.put("pdiscount", list.get(i).getPdiscount());
-			object.put("pactive", list.get(i).getPactive());
-			object.put("pimg", list.get(i).getPimg());
-			object.put("pdate", list.get(i).getPdate());
-			object.put("pcno", list.get(i).getPcno());
-			array.add(object);
-		}
-		
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(array);
-		
-		
-		
-		
-	}
-
-	// 제품 등록 : POST 사용
+	// 1. 제품 등록 : POST 사용
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 첨부파일이 있을 경우에만 사용 [ 업로드용 ]
 		MultipartRequest multi = new MultipartRequest(
 				request,
-				request.getSession().getServletContext().getRealPath("/admin/pimg"),
+				request.getSession().getServletContext().getRealPath("/admin/pimg"), // getRealPath : 배포한 서버의 경로
 				1024*1240*10,
 				"UTF-8",
 				new DefaultFileRenamePolicy());
@@ -86,7 +55,95 @@ public class regist extends HttpServlet {
 		boolean result = new ProductDao().setProduct(dto);
 		response.getWriter().print(result);
 		
+	} // doPost e
+	
+	
+	// 2. 제품 출력 : GET 사용
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList< ProductDto > list = new ProductDao().getProductlist();
 		
-	}
-
+		// ArrayList -> JSON로 변환
+		JSONArray array = new JSONArray();
+		for( int i = 0; i < list.size(); i++ ) {
+			JSONObject object = new JSONObject();
+			
+			object.put("pno", list.get(i).getPno());
+			object.put("pname", list.get(i).getPname());
+			object.put("pcomment", list.get(i).getPcomment());
+			object.put("pprice", list.get(i).getPprice());
+			object.put("pdiscount", list.get(i).getPdiscount());
+			object.put("pactive", list.get(i).getPactive());
+			object.put("pimg", list.get(i).getPimg());
+			object.put("pdate", list.get(i).getPdate());
+			object.put("pcno", list.get(i).getPcno());
+			array.add(object);
+		}
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(array);
+		
+	} // doGet e
+	
+	
+	// 3. 제품 수정 [ put ]
+	@Override
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+	} // doPut e
+	
+	
+	// 4. 제품 삭제 [ delete ]
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 1. 삭제할 제품 번호 요청
+		int pno = Integer.parseInt(request.getParameter("pno"));
+		
+		// 2. dao
+		boolean result = new ProductDao().deleteproduct(pno);		
+		
+		//3. 응답
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(result);
+		
+		
+		
+	} // doDelete e
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

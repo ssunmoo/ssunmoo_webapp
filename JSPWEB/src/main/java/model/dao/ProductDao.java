@@ -25,7 +25,6 @@ public class ProductDao extends Dao {
 	
 	// 2. 카테고리 출력 [ R ] 
 	public ArrayList< PcategoryDto > getPcategory() {
-		
 		ArrayList< PcategoryDto > list = new ArrayList<>();
 		
 		String sql = "select * from pcategory";
@@ -68,7 +67,6 @@ public class ProductDao extends Dao {
 
 	// 4. 제품 출력 [ R ] 
 	public ArrayList< ProductDto > getProductlist() {
-		
 		ArrayList< ProductDto > list = new ArrayList<>();
 		
 		String sql = "select * from product";
@@ -93,7 +91,21 @@ public class ProductDao extends Dao {
 	
 	
 	
-	
+	// 5. 제품 삭제
+	public boolean deleteproduct( int pno ) {
+		String sql = "delete from product where pno = "+pno;
+		try {
+			ps = con.prepareStatement(sql);
+			// 삭제시 삭제된 레코드 수로 삭제 성공 유무 판단
+			int count = ps.executeUpdate();
+			if( count == 1 ) {
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	} // deleteproduct e
 	
 	
 	
