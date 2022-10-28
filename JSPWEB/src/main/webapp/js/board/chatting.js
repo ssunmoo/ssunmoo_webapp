@@ -9,12 +9,13 @@ function enterkey(){
 	}
 } // enterkey e
 
-
 // 1. 소켓을 사용할 수 있도록 변수 선언
 let websocket = null	// 소켓 사용 저장 변수
 
 // 2. 로그인 id 호출 [ jsp or ajax 둘 중 하나로 호출 ]
-let mid = document.querySelector('.mid').value
+let mid = document.querySelector('.mid').value;
+let room = document.querySelector('.room').value;
+alert(room);
 
 // 3. 회원/비회원 구분
 if( mid !== 'null' ){	// 로그인이 되어있으면 소켓 사용
@@ -61,7 +62,7 @@ function send(){
 
 	// 1. 보낼 데이터 객체 구성	// 객체 = { 속성 : 값 }
 	let msg = { // 전송할 데이터 객체
-		type : "msg" ,  // 일반메시지
+		type : room ,  // 일반메시지
 		content : document.querySelector('.msgbox').value , // 작성내용
 		mid : mid ,  // 보낸 사람 
 		date : new Date().toLocaleTimeString(), // 날짜 
@@ -90,9 +91,6 @@ function emosend( i ){
 	websocket.send( JSON.stringify(msg) )
 } // emosend e
 
-
-
-
 	// alert(e);
 	// e : 서버 소캣으로 부터 받은 정보가 담겨져있음
 	
@@ -102,9 +100,9 @@ function emosend( i ){
 function onmessage(e){ // 메세지를 받았을 때 
 	
 	let msg = JSON.parse(e.data) // 받은 데이터 객체
-	
+	console.log(e.data)
 	// 전송 타입이 일반 메세지이면
-	if( msg.type == "msg" ){ 
+	if( msg.type == room ){ 
 		
 		// 내가 보낸 메세지면
 		if( msg.mid == mid ){ // 보낸 사람 아이디와 접속된 아이디가 동일하면

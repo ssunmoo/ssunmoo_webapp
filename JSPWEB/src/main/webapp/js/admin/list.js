@@ -1,10 +1,10 @@
 
-// 1. 제품 등록 메소드
+// 1. 모든 제품 호출 메소드
 getproduct()
 function getproduct(){
 	$.ajax({
 		url 	: "/JSPWEB/admin/regist",
-		data	: { "type" : 1 },	// 타입이 1이면 모든 제품 전체 출력  
+		data	: { "type" : 1 , "option" : "all" },	// 타입이 1이면 모든 제품 전체 출력  
 		type 	: "get",			// 해당 서블릿의 doGet 으로 통신
 		success : function( re ){
 			let json = JSON.parse( re );
@@ -17,9 +17,9 @@ function getproduct(){
 					+ '<td>'+ list.pno +'</td>'
 					+ '<td>'+ list.pcno +'</td>'
 					+ '<td>'+ list.pname +'</td>'
-					+ '<td>'+ list.pprice +'</td>'
-					+ '<td>'+ list.pdiscount +'</td>'
-					+ '<td>'+ list.pprice*(1-list.pdiscount) +'</td>'
+					+ '<td>'+ list.pprice.toLocaleString('ko-KR') +'원</td>'
+					+ '<td>'+ list.pdiscount*100 +'%</td>'
+					+ '<td>'+ (list.pprice*(1-list.pdiscount)).toLocaleString('ko-KR') +'원</td>'
 					+ '<td>'+ list.pactive +'</td>'
 					+ '<td>'+ list.pdate +'</td>'
 					+ '<td> <button type="button" onclick="updatemodal('+list.pno+')"> 수정 </button> '
@@ -159,6 +159,7 @@ function deleteproduct( pno ){
 		})
 	}
 } // deleteproduct e
+
 
 
 

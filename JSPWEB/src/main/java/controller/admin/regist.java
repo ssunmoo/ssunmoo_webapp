@@ -66,10 +66,12 @@ public class regist extends HttpServlet { // HttpServlet : Http 에 대한 속�
 		
 		response.setCharacterEncoding("UTF-8");
 		
-		
 		if( type.equals("1")) {	// type : 1 [ 모든 제품 출력 ]
 			
-			ArrayList< ProductDto > list = new ProductDao().getProductlist();
+			// 1. 전체출력 2. 판매중만 출력
+			String option = request.getParameter("option");
+			
+			ArrayList< ProductDto > list = new ProductDao().getProductlist( option );
 			// ArrayList -> JSON로 변환
 			JSONArray array = new JSONArray();
 			for( int i = 0; i < list.size(); i++ ) {

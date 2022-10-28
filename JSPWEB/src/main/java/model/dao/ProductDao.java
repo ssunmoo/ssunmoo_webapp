@@ -66,10 +66,18 @@ public class ProductDao extends Dao {
 	} // setProduct e
 
 	// 4. 제품 출력 [ R ] 
-	public ArrayList< ProductDto > getProductlist() {
+	public ArrayList< ProductDto > getProductlist( String option ) {
 		ArrayList< ProductDto > list = new ArrayList<>();
 		
-		String sql = "select * from product";
+		String sql = null;
+		if ( option.equals("all") ) {
+			// 1. 조건없이 모든 제품 출력
+			sql = "select * from product";
+		}else if ( option.equals("pactive1") ) {
+			// 2. [ 판매중 ] 상태만 모든 제품 출력
+			sql = "select * from product where pactive = 1 order by pdate desc";
+		}
+		
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();

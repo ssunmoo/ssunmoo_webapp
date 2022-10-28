@@ -23,7 +23,7 @@
 		<div class ="hd_top"> <!-- 상단 헤더 -->
 			<div> <!-- 로고 -->
 				<span class = "hd_title"> 
-					<a href="/JSPWEB/index.jsp"> The Music </a>
+					<a class="nav-link" href="/JSPWEB/index.jsp"> The Music </a>
 				</span>		
 			</div>
 				
@@ -37,40 +37,40 @@
 			
 			<!-- 비로그인 메뉴 // 세션이 없다     로그인 안했네...    -->
 			<% if( loginid == null ){ %>
-				<li> <a href="/JSPWEB/member/login.jsp">로그인</a> </li>
-				<li> <a href="/JSPWEB/member/signup.jsp">회원가입</a></li>
+				<li> <a class="nav-link" href="/JSPWEB/member/login.jsp">로그인</a> </li>
+				<li> <a class="nav-link" href="/JSPWEB/member/signup.jsp">회원가입</a></li>
 			
 			<!-- 관리자 계정 접속 -->
 			<%	}else if( loginid.equals("admin") ){  %>
-				<li> <a href="/JSPWEB/admin/dashboard.jsp"> 관리자 모드 </a> </li>
+				<li> <a class="nav-link" href="/JSPWEB/admin/dashboard.jsp"> 관리자 모드 </a> </li>
 				
 			<!-- 로그인 메뉴  // 세션이 존재한다    로그인 했다..  -->
 			<%	}else{  %>
 				<li> <%=loginid %> 님 안녕하세요 </li>
-				<li> <a href="/JSPWEB/member/logout.jsp"> 로그아웃 </a> </li>
+				<li> <a class="nav-link" href="/JSPWEB/member/logout.jsp"> 로그아웃 </a> </li>
 			<%  }	 %>
 			
 			<!--  공통 메뉴  -->
-				<li> <a href="/JSPWEB/member/info.jsp">마이쇼핑</a> </li>
-				<li> <a href="/JSPWEB/board/list.jsp">게시판</a> </li>
+				<li> <a class="nav-link" href="/JSPWEB/member/info.jsp">마이쇼핑</a> </li>
+				<li> <a class="nav-link" href="/JSPWEB/board/list.jsp">게시판</a> </li>
 				
 			</ul> <!--  상단 메뉴 end  -->
 			
 		</div>	<!-- 상단 헤더 종료 -->
 		
 		<ul class = "hd_menu"> <!-- 하단 헤더 -->
-			<li> <a href = "#"> NEW! </a> </li>
-			<li> <a href = "#"> 건반악기 </a> </li>
-			<li> <a href = "#"> 현악기 </a> </li>
-			<li> <a href = "#"> 전자드럼 </a> </li>
-			<li> <a href = "#"> 기타 </a> </li>
-			<li> <a href = "#"> 우쿨렐레 </a> </li>
-			<li> <a href = "#"> 관악기 </a> </li>
-			<li> <a href = "#"> 칼림바 </a> </li>
-			<li> <a href = "#"> 미디/음향 </a> </li>
-			<li> <a href = "#"> 이벤트 </a> </li>
-			<li> <a href = "/JSPWEB/board/api.jsp"> 공공데이터 </a> </li>
-			<li> <a href = "/JSPWEB/board/chatting.jsp"> 채팅방 </a> </li>
+			<li> <a class="nav-link" href = "#"> NEW! </a> </li>
+			<li> <a class="nav-link" href = "#"> 건반악기 </a> </li>
+			<li> <a class="nav-link" href = "#"> 현악기 </a> </li>
+			<li> <a class="nav-link" href = "#"> 전자드럼 </a> </li>
+			<li> <a class="nav-link" href = "#"> 기타 </a> </li>
+			<li> <a class="nav-link" href = "#"> 우쿨렐레 </a> </li>
+			<li> <a class="nav-link" href = "#"> 관악기 </a> </li>
+			<li> <a class="nav-link" href = "#"> 칼림바 </a> </li>
+			<li> <a class="nav-link" href = "#"> 미디/음향 </a> </li>
+			<li> <a class="nav-link" href = "#"> 이벤트 </a> </li>
+			<li> <a class="nav-link" href = "/JSPWEB/board/api.jsp"> 공공데이터 </a> </li>
+			<li> <a class="nav-link" href = "/JSPWEB/board/chatting.jsp"> 채팅방 </a> </li>
 			<li class="serch_box">
 				<span>
 					<input>

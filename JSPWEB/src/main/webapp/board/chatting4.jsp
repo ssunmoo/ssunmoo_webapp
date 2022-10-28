@@ -17,7 +17,7 @@
 	
 	<!-- 로그인한 회원 아이디 숨기기 [ 헤더.jsp 에 loginid 변수 존재 ]-->
 	<input type="hidden" class="mid" value="<%=loginid%>">
-	<input type="hidden" class="room" value="1">
+	<input type="hidden" class="room" value="2">
 
 	<div class="container"> <!-- 부트스트랩 css는 미리만들어진 class 사용 -->
 		

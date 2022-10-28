@@ -25,7 +25,7 @@ public class chatting {
 	
 	// 서버 소켓에 접속한 클라이언트 소켓 명단 ( 세션 ) vector --> hashtable 변경한 이유 [ 2개씩 저장하기 위해 ] 벡터는 1개만 저장 가능
 	// 0. 접속 명단
-	public static Hashtable< Session, String > clients = new Hashtable<>();
+	public static Hashtable< Session, String > clients = new Hashtable<>(); // 동기화[웨이팅] 지원 클래스
 					// 키[set=중복불가], 값 -> 엔트리 [ 모든 키 호출 : clients.keySet() , 값 호출 : clients.get(키) ]
 	
 	// * 접속 알람 메세지 구성
