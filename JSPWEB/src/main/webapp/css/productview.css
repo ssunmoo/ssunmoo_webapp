@@ -1,0 +1,149 @@
+
+img {
+	width: 100%; /* 상위 태그의 사이즈만큼 비율 */
+}
+
+.infobox{
+	margin-left: 3%;
+}
+
+.pname{ /* 제품명 */
+	margin: 5% 0% 2% 0%;
+	padding-bottom: 2%;
+	font-family: "Pretendard-Regular";
+	font-weight: bold;
+	font-size: 30px;
+	border-bottom: 1px solid #ccc; 
+}
+
+.pcomment{ /* 제품설명 */
+	font-size: 15px;
+}
+
+.pricebox{
+	margin: 3% 0% 1% 0%;
+	text-align: right;
+}
+
+.pdisount{
+	font-family: "GmarketSansMedium";
+	font-weight: bolder;
+	color: #fb0000;
+	font-size: 20px;
+	padding-right: 2%;
+	text-align: right;
+}
+
+.pprice{
+	text-decoration: line-through; /* 중간 실선 */
+	font-family: "GmarketSansMedium";
+	color: #999;
+	padding-right: 3%;
+}
+
+.psale{
+	font-family: "GmarketSansMedium";
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+.sizebox{
+	text-align: right;
+}
+
+
+.into_t{
+	margin: 3% 0%;
+	font-size: 15px;
+}
+
+select{
+	width: 60%;
+	height: 30px;
+	border: 1px solid #ccc;
+}
+
+.select_t{
+	margin: 5% 0%;
+}
+
+.amonut_btn{ /* 수량 증가, 감소 버튼*/
+	margin-left : 5px;
+	display: block;
+	background: #fff;
+	border: none;
+	font-size: 5px;
+	padding: 0px 8px;
+	color: #808080;
+}
+
+.col-md-4 .amonut_btn:nth-child(1) {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+}
+
+.cancel_btn{ /* 선택 옵션 제거 */
+	background: #fff;
+	font-size: 15px;
+	border: none;
+	padding: 5px;
+}
+
+.pointbox{ /* 선택 옵션 */
+	font-size: 10px;
+	color: #999;
+}
+
+.totalprice{ /* 선택된 옵션의 총 가격 */
+	text-align: right;	/* 오른쪽 배치 */
+	font-size: 20px;
+	font-family: "GmarketSansMedium";
+}
+
+.btnbox{
+	margin: 7% 0%;
+	font-size: 15px;
+}
+
+.btnbox button{  /* 버튼 목록안에 있는 버튼 꾸미기 */
+	background: #fff;
+	border: 1px solid #999;
+	padding: 10px;
+	width: 30%; /* 상위 태그 안에서의 가로 비율 */
+	margin-right: 2%; /* 버튼들의 사이간격 */
+}
+
+.btnbox button:nth-child(1) {
+	background: #2c2c2c;
+	border: none;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

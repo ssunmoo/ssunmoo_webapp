@@ -7,7 +7,7 @@
 <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-	<%@include file="header.jsp"%>
+	<%@include file="../header.jsp"%>
 
 	<!-- 대문 [ 이미지 슬라이드 - 캐러셀 ]  -->
 	<div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="10000">
