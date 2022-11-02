@@ -11,7 +11,7 @@ function getpactive1(){
 		json.forEach( list => {
 
 				html += '<div class="item">'
-					+ '<a href="/JSPWEB/product/view.jsp?pno='+ list.pno +'">'
+					+ '<a href="/JSPWEB/product/view.jsp?pno='+ list.pno +'">' // ?를 사용하여 열린 페이지에 pno 전달
 					+ '<img alt="" src="/JSPWEB/admin/pimg/'+list.pimg+'" style= "width:100%">'	
 					+ '</a>'
 					+ '<div class="item_info">'

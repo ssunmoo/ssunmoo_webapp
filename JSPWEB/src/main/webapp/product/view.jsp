@@ -11,10 +11,19 @@
 	<%@include file="../header.jsp"%>
 	
 	<% 
-		// 1. 경로에 있는 pno request 요청
+		// 1. 경로[URL]에 있는 pno request 요청
 		int pno = Integer.parseInt(request.getParameter("pno"));
+		
+		// 2. 로그인된 회원정보 호출
+		Object object = session.getAttribute("mid");
+		String mid = null;
+		if( object != null ){ // 로그인 했다
+			mid = (String)object;
+		}
 	%>
-	<input type="hidden" value="<%=pno%>" class="pno"> 
+	제품번호 <input type="text" value="<%=pno%>" class="pno"> <!-- 제품번호 : 저장한 pno를 안보이게 숨겨놓기 -->
+	회원아이디 <input type="text" value="<%=mid%>" class="mid"> <!-- 회원아이디 : 저장한 mid를 안보이게 숨겨놓기 -->
+	
 	<div class="container"> <!-- b: container -->
 		
 		<div class="row"> <!-- b: row 가로배치 -->
@@ -83,14 +92,14 @@
 					<!-- 선택된 제품들의 총 가격 -->
 					<div class="row">
 						<div class="col-md-6"> 총 상품 금액 </div>
-						<div class="col-md-6 totalprice"> 40,000원 </div>	
+						<div class="col-md-6 totalprice"> 0원 (0개) </div>	
 					</div>
 					
 					<!-- 버튼 목록  -->
 					<div class="btnbox">
-						<button> 바로 구매 </button>
-						<button> 장바구니 담기 </button>
-						<button> 찜하기 🤍 </button> <!-- 로그인된 회원이 찜하기 누르기 전 -->
+						<button id="btn1"> 바로 구매 </button>
+						<button id="btn2"> 장바구니 담기 </button>
+						<button id="btn3" class="btnlike"> 찜하기🤍 </button> <!-- 로그인된 회원이 찜하기 누르기 전 -->
 					</div>
 					
 				</div> <!-- infobox e -->
