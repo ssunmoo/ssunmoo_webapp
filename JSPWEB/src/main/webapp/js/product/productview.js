@@ -3,7 +3,7 @@
 let stock = null; 		// 재고목록
 let product = null; 	// 제품
 let color = null;		// 선택한 색상
-let productlist = [];	// 선택된 제품 옵션[색상,사이즈,수량] 리스트 선언
+let productlist = [];	// 선택된 제품 옵션[색상,사이즈,수량]의 목록
 let psale = 0; 			// 할인율이 적용된 판매가
 
 // ** 현재 페이지내 제품 번호[a href="링크?pno=제품번호"]를 가지고와서
@@ -92,6 +92,41 @@ btnlike.addEventListener('click',  (e)=>{
 }) // click e
 
 
+// 4. 장바구니 버튼 눌렀을때
+document.querySelector('.btncart').addEventListener('click', (e)=>{
+	
+	// 1. 만약에 선택한 제품이 없으면
+	if( productlist.length == 0 ){
+		alert('최소 1개 이상 옵션을 선택하세요');
+		return;
+	}
+	
+	// 2. 로그인 유무
+	let mid = document.querySelector('.mid').value; // html에서 mid 가져오기
+	if ( mid == 'null' ){ // 로그인이 안되어있으면
+		alert('로그인 후 가능한 기능입니다.');
+		return;
+	}
+	
+	$.ajax({ // 전송타입 : 문자열 객체   ** 첨부파일은 멀티파트 형식으로 보냄
+		url		: "/JSPWEB/product/cart",
+		type 	: "post",
+		data	: { "data" : JSON.stringify( productlist ), "pno" : pno }, // JSON.stringify() 문자열로 변환시켜줌
+		success	: re => {
+			alert(re)
+				
+			
+		}
+	})
+	
+	
+}) // click e
+
+
+
+
+
+
 
 
 
@@ -152,7 +187,7 @@ function sethtmlprint(){
 	
 	// 2. 사이즈 목록 중복 제거
 	let sizeset = new Set( sizelist )	// 3. 사이즈 리스트 => Set 목록 변경 [ 중복제거 ]
-	console.log( sizeset )
+	// console.log( sizeset )
 					
 	// 4. 사이즈 종류
 	let shtml = '<span> [ '
@@ -168,7 +203,7 @@ function sethtmlprint(){
 		colorlist.push( c.pcolor ) });
 	
 	let colorset = new Set( colorlist );
-	console.log( colorlist )
+	// console.log( colorlist )
 	
 	let chtml = '<option> 색상 </option>';
 	colorset.forEach( c => {

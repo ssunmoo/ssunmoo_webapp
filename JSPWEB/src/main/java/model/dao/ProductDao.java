@@ -3,6 +3,8 @@ package model.dao;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import controller.board.list;
+import model.dto.CartDto;
 import model.dto.PcategoryDto;
 import model.dto.ProductDto;
 import model.dto.StockDto;
@@ -256,15 +258,61 @@ public class ProductDao extends Dao {
 			System.out.println(e);
 		}
 		return 3;
-	}
+	} // setplike e
 	
 	
-	// 11. 찜하기 여부 판단
+	// 11. 장바구니에 선택한 제품의 옵션 저장 
+	public boolean setcart( int pno, String psize, int amount, String pcolor, int mno) {
+		
+		String sql = "values (\r\n"
+				+ "	"+ amount +", \r\n"
+				+ "	(select pstno\r\n"
+				+ "	from productstock pst, ( select psno from productsize where pno = "+ pno +" and psize = '"+ psize +"') sub\r\n"
+				+ "	where pst.psno = sub.psno and pcolor = '"+ pcolor + "'), \r\n"
+				+ "	"+ mno +"\r\n"
+				+ " )";
+
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println("장바구니 제품저장 오류 : "+e);
+		} return false;
+	} // setcart e
 	
 	
-	
-	
-	
+	// 12. 회원번호의 모든 장바구니 호출
+	public ArrayList< CartDto > getcart( int mno ) {
+		ArrayList< CartDto > list = new ArrayList<>();
+		String sql = "select\r\n"
+				+ "	c.cartno, pst.psno, p.pname, p.pimg, \r\n"
+				+ "    p.pprice, p.pdiscount, pst.pcolor, ps.psize, c.amount\r\n"
+				+ "from \r\n"
+				+ "	cart c natural join \r\n"
+				+ "	productstock pst natural join\r\n"
+				+ "    productsize ps natural join\r\n"
+				+ "    product p\r\n"
+				+ "where\r\n"
+				+ "	c.mno = " + mno;
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				CartDto cartdto = new CartDto(
+						rs.getInt(1), rs.getInt(2),
+						rs.getString(3), rs.getString(4),
+						rs.getInt(5), rs.getFloat(6),
+						rs.getString(7), rs.getString(8),
+						rs.getInt(9));
+				list.add(cartdto);
+				System.out.println("list : " +list);
+			} return list;
+		} catch (Exception e) {
+			System.out.println( "장바구니 호출 오류 : " +e);
+		}
+		return list;
+	} // getcart e
 	
 	
 	
