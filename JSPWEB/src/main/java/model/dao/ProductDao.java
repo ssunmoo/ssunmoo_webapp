@@ -262,16 +262,19 @@ public class ProductDao extends Dao {
 	
 	
 	// 11. 장바구니에 선택한 제품의 옵션 저장 
-	public boolean setcart( int pno, String psize, int amount, String pcolor, int mno) {
+	public boolean setcart( int pno, String psize, int amount, String pcolor, int mno ) {
 		
-		String sql = "values (\r\n"
+		// 만약에 동일한 제품 옵션이 존재했을 때 수량만 증가하는 업데이트 처리 [ 중복검사 미구현 ]
+		
+		// 동일한 제품 옵션이 없을 때
+		String sql =  "insert into cart( amount , pstno , mno )\r\n"
+				+ "values (\r\n"
 				+ "	"+ amount +", \r\n"
 				+ "	(select pstno\r\n"
 				+ "	from productstock pst, ( select psno from productsize where pno = "+ pno +" and psize = '"+ psize +"') sub\r\n"
 				+ "	where pst.psno = sub.psno and pcolor = '"+ pcolor + "'), \r\n"
 				+ "	"+ mno +"\r\n"
 				+ " )";
-
 		try {
 			ps = con.prepareStatement(sql);
 			ps.executeUpdate();
@@ -285,6 +288,7 @@ public class ProductDao extends Dao {
 	// 12. 회원번호의 모든 장바구니 호출
 	public ArrayList< CartDto > getcart( int mno ) {
 		ArrayList< CartDto > list = new ArrayList<>();
+		
 		String sql = "select\r\n"
 				+ "	c.cartno, pst.psno, p.pname, p.pimg, \r\n"
 				+ "    p.pprice, p.pdiscount, pst.pcolor, ps.psize, c.amount\r\n"

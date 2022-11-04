@@ -1,6 +1,8 @@
 package controller.product;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +16,7 @@ import org.json.simple.parser.ParseException;
 
 import model.dao.MemberDao2;
 import model.dao.ProductDao;
+import model.dto.CartDto;
 
 /**
  * Servlet implementation class cart
@@ -28,10 +31,34 @@ public class cart extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	
-	
+		// 1. 요청
+		MemberDao2 dao2 = new MemberDao2();
+		int mno = dao2.getMno((String)request.getSession().getAttribute("mid"));
+		// 2. db 처리
+		ArrayList< CartDto > list = new ProductDao().getcart(mno);
+		
+		// 3. 형변환
+		JSONArray array = new JSONArray();
+		for ( CartDto dto : list ) {
+			JSONObject object = new JSONObject();
+			object.put("cartno", dto.getCartno());
+			object.put("pstno", dto.getPstno());
+			object.put("pname", dto.getPname());
+			object.put("pimg", dto.getPimg());
+			object.put("pprice", dto.getPprice());
+			object.put("pdiscount", dto.getPdiscount());
+			object.put("pcolor", dto.getPcolor());
+			object.put("psize", dto.getPsize());
+			object.put("amount", dto.getAmount());
+			array.add(object);
+		}
+		
+		// 4. 응답
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(array);
+		
+		
 	
 	}
 
@@ -47,7 +74,6 @@ public class cart extends HttpServlet {
 		
 		// 문자열 --> JSON형 변환
 		try {
-			
 			// 1. JSONParser 객체 생성
 			JSONParser parser = new JSONParser();
 			
@@ -74,9 +100,7 @@ public class cart extends HttpServlet {
 					response.getWriter().print(result);
 					return;
 				}
-				
 			}
-			
 		} catch (ParseException e) {
 			System.out.println("JSON으로 변환 실패" + e);
 		}

@@ -27,7 +27,6 @@ function getmember(){
 			document.querySelector("#sample4_jibunAddress").value = member.maddress.split(",")[2]
 			document.querySelector("#sample4_detailAddress").value = member.maddress.split(",")[3]
 			
-			
 		
 			// getmemberlist(); // 모든 회원 호출 메소드 
 		}
@@ -40,7 +39,6 @@ function getmemberlist(){
 	$.ajax({
 		url : "/JSPWEB/member/infolist",
 		success : function( result ){
-			//alert("나와라!!!!")
 			let memberlist = JSON.parse( result );
 			// console.log( memberlist );
 			// 1. tag 가져오기
@@ -130,6 +128,7 @@ function mdelete(){
 let buttons = document.querySelectorAll("button")
 // 현재 페이지의 모든 버튼 출력
 
+// 회원정보 수정
 function update_action(){
 	let mname = document.querySelector("#mname");
 	// 입력한 데이터를 가지고옴

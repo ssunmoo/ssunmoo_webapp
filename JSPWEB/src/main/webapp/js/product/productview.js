@@ -113,13 +113,17 @@ document.querySelector('.btncart').addEventListener('click', (e)=>{
 		type 	: "post",
 		data	: { "data" : JSON.stringify( productlist ), "pno" : pno }, // JSON.stringify() 문자열로 변환시켜줌
 		success	: re => {
-			alert(re)
-				
 			
+			if( re == 'true'){
+				productlist = []; // 배열 초기화
+				if( confirm('장바구니 페이지로 이동하시겠습니까?')){
+					location.href = 'cart.jsp';
+				}
+			}else{
+				alert('장바구니 담기 실패')
+			}
 		}
 	})
-	
-	
 }) // click e
 
 

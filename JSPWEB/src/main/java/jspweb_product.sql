@@ -1,202 +1,309 @@
-drop database if exists jspweb;
-create database jspweb;
 use jspweb;
 
-create table member(
-
-	mno int auto_increment primary key,				-- 회원번호
-	mid varchar(50) not null unique,				-- 아이디
-    mpw varchar(50) not null,						-- 비밀번호
-	mname varchar(50) not null,						-- 이름
-	mphone varchar(15) not null,					-- 번호
-    memail varchar(100) not null unique,			-- 이메일
-	maddress varchar(100) null,						-- 주소
-    mdate datetime default now() not null ,			-- default : 레코드 추가시 기본으로 들어가는 값 설정, now() : 현재 시스템의 자동날짜 
-    mpoint int default 0 not null                   -- 포인트             
-    
-);
-select * from member;						
-
-
--- 로그인 쿼리
-select * from member where mid = "aaa" and mpw = "aaa"; 
--- 존재하면 레코드 1개 검색, 존재하지 않으면 레코드 검색 x
-
-select * from member where mname = "aaa" and memail = "aaa";
-
--- 회원정보 호출
-select * from member where mid = 'aaa';
-
--- 회원 삭제
-delete from member where mid = '11' and mpw = '11';
-
-drop table if exists category;
-create table category(
+drop table if exists pcategory;
+-- 제품 카테고리 테이블 
+create table pcategory(
 	
-    cno int auto_increment primary key ,										-- 카테고리 번호
-	cname varchar(100)
+	pcno int auto_increment,						-- 카테고리번호
+    pcname varchar(100),							-- 카테고리이름
+	
+    constraint pcno_pk primary key( pcno )
 );
+select * from pcategory;
 
-select * from category;
+-- 카테고리 추가 쿼리문
+insert into pcategory(pcname) values('dd');
 
-
--- ------------------------------------------------------
-
--- 게시판 테이블 생성
-drop table if exists board;
-create table board(
-
-	bno			int primary key auto_increment,		-- 게시글 번호
-	btitle 		varchar(1000) ,						-- 제목
-    bcontent 	longtext,							-- 내용	[ 썸머노트 이용하여 사진/영상 대용량 추가 ]
-    bfile		longtext,							-- 파일첨부 [ 게시물 1개당 첨부파일 1개 ]
-    bdate		datetime default now(),				-- 작성일 : 기본 값 현재 시스템 날짜
-    bview		int default 0,						-- 조회수 : 기본 값 0
-    cno			int,								-- 카테고리 번호 fk 
-    mno 		int,								-- 작성자
-    constraint ccno_fk foreign key ( cno ) references category ( cno ) on delete cascade on update cascade , 
-    constraint bmno_fk foreign key ( mno ) references member ( mno ) on delete cascade on update cascade 
+drop table if exists product;
+-- 제품테이블
+create table product(
+	
+    pno	int auto_increment,							-- 제품번호
+    pname varchar(100),								-- 제품명
+	pcomment varchar(1000),							-- 제품설명
+    pprice int unsigned, 							-- 제품가격	 int : +- 20억, unsigned 사용시 음수 제거 : 0~40억
+	pdiscount float, 								-- 제품할인율 [소수점]
+	pactive tinyint default 0,   					-- 제품상태 : 0[준비중], 1[판매중], 2[재고없음]으로 사용 예정
+	pimg varchar(100), 								-- 썸네일 경로
+	pdate datetime default now(), -- 등록날짜			-- 등록 날짜
+	pcno int,										-- 제품 카테고리 번호 FK						
     
+    constraint pno_pk primary key( pno ),
+	constraint pcon_fk foreign key( pcno ) references pcategory( pcno ) on update cascade on delete cascade
 );
-select * from board;
+select * from product;
 
--- ------------------------------------------------------
+-- 제품 등록 쿼리문
+insert into product( pname, pcomment, pprice, pdiscount, pimg, pcono) values(?,?,?,?,?,?);
 
+-- 제품 전체보기 쿼리문
+select * from product;
 
+select p.*, ca.pcname from product p, pcategory ca  where pno = 2;
 
--- 댓글 테이블 생성 [ 1. 게시물 번호 2. 회원번호 3. 내용 4. 답글식별필드 ]
-drop table if exists reply;
-create table reply(
-
-	rno int auto_increment,					-- 댓글 번호
-	rcontent varchar(1000) not null,		-- 댓글 내용
-    rdate datetime default now(), 			-- 댓글 작성일
-    rindex int default 0,					-- 댓글, 대댓글 식별 필드 [ 0 : 상위 댓글, 숫자 : 상위댓글번호 ]
-    mno int not null,						-- 작성자 회원번호
-    bno int not null,						-- 게시물 번호
-    
-    constraint rno_pk primary key ( rno ),
-    constraint rmno_fk foreign key ( mno ) references member ( mno ) on delete cascade , -- 회원 탈퇴 시 댓글도 함께 삭제
-    constraint rbno_fk foreign key ( bno ) references board ( bno ) on delete cascade	 -- 게시물 삭제 시 댓글도 삭제
-    
-);
-select * from reply;
-
--- 댓글작성 쿼리문
-insert into reply(rcontent, mno, bno) values(?, ?, ?);
-
--- 댓글 호출
-select r.rcontent, r.rdate, m.mid
-from reply r, member m
-where r.mno = m.mno
-and r.bno = 17;
-
--- 댓글만 출력
-select * from reply where rindex = 0;
-
--- 1번 댓글의 답글만 출력
-select * from reply where rindex = 1;
-
--- 해당 게시물의 댓글만 출력
-select r.rcontent, r.rdate, m.mid
-from reply r, member m
-where r.mno = m.mno
-and r.bno = 18
-and r.rindex = 0
-order by r.rdate desc;
-
--- 해당 게시물의 1번 댓글의 답글만 출력
-select r.rcontent, r.rdate, m.mid, r.rno
-from reply r, member m
-where r.mno = m.mno
-and r.bno = 18 and r.rindex = 1;
-
-
--- ------------------------------------------------------
-
-
-
-
-insert into board(btitle, bcontent) value( "aa", "aa");
-select * from member where mid = "ㅇㅇㅇ";
-
--- 두개 테이블 검색 [ 1번 테이블 레코드 수 x 2번 테이블 레코드 수 ]
-select * from member, board;	
-
--- 조건 [ pk - fk 일치한 경우만 표시 ]
-select b.bno, b.btitle, b.bcontent, b.bfile, b.bdate, b.bview, b.cno, b.mno, m.mid  from member as m, board as b where m.mno = b.mno;
-
--- 5. 모든 글 출력
-select b.*, m.mid  from member as m, board as b where m.mno = b.mno;
-
--- 6. 개별 글 출력
+-- board 필드 전체와 member 필드 중 mid 출력 쿼리문
 select b.*, m.mid  from member as m, board as b where m.mno = b.mno and bno =1;
 
+-- 제품 수정 쿼리문
+update product set pname = "망곰", pcomment = "구엽다", pprice = "38000", pdiscount = "0.2", pimg = "망곰이2.png", pcno = "2" where pno = 2;
 
-create table api(
-	
-    api_no int auto_increment primary key , 	-- 평점 번호
-    대표전화 varchar(20) ,		
-	평점 int
+-- 제품상태가 1(판매중)인 상품만 정렬해서 출력 쿼리문
+select * from product where pactive = 1 order by pdate desc;
 
+-- 제품별[pno] 사이즈[psize] 테이블 생성
+drop table if exists productsize;
+create table productsize(
+	psno int auto_increment,		-- 제품 사이즈 번호
+    psize varchar(100),				-- 제품 사이즈
+    pno int,						-- 제품 번호
+    
+    constraint psno_pk primary key ( psno ),
+    constraint pno_fk foreign key ( pno ) references product ( pno )
+);
+select * from productsize;
+
+
+-- 사이즈별[psizw] 색상[pcolor] 재고[pstock] 테이블 생성
+drop table if exists productstock;
+create table productstock(
+	pstno int auto_increment,		-- 제품 색상&재고 번호
+    pcolor varchar(100),			-- 제품 색상
+    pstock int,						-- 제품 재고
+    psno int,						-- 제품 사이즈 번호
+    
+	constraint pstno_pk primary key ( pstno ),
+    constraint psno_fk foreign key ( psno ) references productsize ( psno ) 
+);
+select * from productstock;
+
+-- 제품 사이즈 등록 쿼리문
+insert into productsize( psize, pno ) value ( ? , ? );
+
+-- 제품 색상 등록 쿼리문
+insert into productstock( pcolor, pstock, psno) values ( ?, ?, ? );
+
+-- 제품별 재고 출력
+select ps.psno, ps.psize, pst.pstno, pst.pcolor, pst.pstock 			-- 원하는 필드만
+from productsize as ps, productstock as pst								-- 두개의 테이블을 합해서
+where ps.psno = pst.psno and ps.pno = 2									-- ps.pno로 검색했을때 ps.psno 와 pst.psno 가 동일 하면
+order by ps.psize desc;						
+
+-- 좋아요 테이블
+drop table plike;
+create table plike( -- sns <--> 친추 
+	plikeno int auto_increment,
+    mno int,
+    pno int,
+    
+    constraint plik_pk primary key ( plikeno ),
+    constraint plik_mno_fk  foreign key ( mno ) references member( mno ),
+	constraint plik_pno_fk  foreign key ( pno ) references product( pno )
 );
 
--- csv 파일 -> db 테이블 가져오기
--- 1. 해당 db 오른쪽 클릭 -> table data import wizard
+-- 해당 제품의 찜하기 여부 확인
+select * from plike where pno = ? and mno = ?;
+
+-- 찜하기가 되어있으면 삭제
+delete from plike where pno = ? and mno = ?;
+
+-- 찜하기가 안되어있으면 넣기
+insert into plike( pno , mno ) values( ?, ? );
+
+-- 전체 찜하기 확인
+select * from plike;
 
 
--- 모든 게시물 수 확인
-select count(*) from board;
+-- 장바구니 테이블
+drop table if exists cart;
+create table cart(
 
--- 검색 결과에서 limit를 이용한 개수 제한 [ 시작점, 개수 ]
-select * from board limit 0, 3;
+	cartno int auto_increment,			-- 사이즈, 색상, 제품정보를 모두 가져올 수 있음 [ fk로 연결되어있기 때문에 ]
+    amount int, 						-- 옵션 수량
+    pstno int,							-- 제품 재고 정보
+    mno int,							-- 회원번호
 
--- 검색결과 정렬[ 작성일 기준 정렬 desc 내림차순 asc 오름차순 -> 날짜는 최신일수록 크다 ]
-select * from board order by bdate desc;
+	constraint cart_pk primary key( cartno ),
+    constraint cart_pstno_fk foreign key( pstno ) references productstock ( pstno ),
+	constraint cart_mno_fk foreign key( mno ) references member ( mno )
+);
 
--- 페이지 보기 처리
-select * from board order by bdate desc limit 0, 3; -- [ 1 페이지 ]
-select * from board order by bdate desc limit 3, 3; -- [ 2 페이지 ]
+-- 재고번호 찾기
 
--- 앞전 코드 + 정렬
-select b.*, m.mid  from member as m, board as b where m.mno = b.mno order by b.bdate desc;
+-- 장바구니에 선택한 제품 옵션 추가
+insert into cart( amount, pstno, mno ) values(?, ?, ?);
 
--- 앞전 코드 + 정렬 + 출력제한
-select b.*, m.mid  from member as m, board as b where m.mno = b.mno order by b.bdate desc limit 0, 3;
+-- 재고 테이블 검색
+select * from productstock; 
 
+-- 재고 테이블에 pno 없기 때문에 오류 발생
+select * from productstock where pno = 7; 
 
--- 검색처리 sql문 -> 레코드 수 검색 
-select count(*)
-from board as b
-where b.btitle like '%r%';
+-- 사이즈 테이블에는 pno 있음
+select * from productsize where pno = 7;
 
+--
+select * from productsize where pno = 7 and psize = '4/4';
 
--- 검색된 게시물 수 확인
-select count(*)
-from member as m, board as b
-where m.mno = b.mno and b.btitle like '%a%';
-
--- 전체 게시물
-select b.*, m.mid
-from member as m, board as b
-where m.mno = b.mno
-order by b.bdate desc
-limit 0, 3;
-
--- 검색된 게시물 확인
-select b.*, m.mid
-from member as m, board as b
-where m.mno = b.mno and b.bcontent like '%r%'
-order by b.bdate desc
-limit 0, 3;
+-- 두개이상 테이블 검색
+select * from productsize as ps, productstock as pst where ps.psno = pst.psno and psize = 'm' and pcolor = '파랑';
 
 
+-- 1. 서브쿼리 방법 [ select 안에 select ] 
+select psno from productsize where pno = 7 and psize = '3/4';
+
+select pstno
+from productstock pst, ( select psno from productsize where pno = 7 and psize = '3/4') sub
+where pst.psno = sub.psno and pcolor = '갈색';
+
+-- ---------------------------------------------------------------------------------------------------------------------
+
+-- 선택한 옵션을 장바구니에 추가하기  [ 22-11-03 ]
+insert into cart ( amount , pstno , mno )
+values (
+	1, 
+	(select pstno
+	from productstock pst, ( select psno from productsize where pno = 7 and psize = '3/4') sub
+	where pst.psno = sub.psno and pcolor = '갈색'), 
+	3
+ );
+ 
+ select * from cart;
+ select * from member;
+-- ex) 3번 회원의 장바구니 호출 [ mno -> 카트번호, 재고번호, 제품명, 제품사진, 가격, 할인율, 색상, 사이즈, 수량  ]
+
+-- 회원 장바구니
+select * from cart where mno = 3; 
+
+-- 카트, 재고 테이블 조회
+select * from cart c , productstock pst where c.pstno = pst.pstno; 
+
+-- 카트, 재고, 사이즈 테이블 조회
+select * from cart c , productstock pst , productsize ps
+where c.pstno = pst.pstno and pst.psno = ps.psno;
+
+-- 카트, 재고, 사이즈, 제품 조회
+select * from cart c , productstock pst , productsize ps, product p
+where c.pstno = pst.pstno and pst.psno = ps.psno and ps.pno = p.pno;
 
 
-insert into reply(rcontent, mno, bno) values(?, ?, ?);
+-- ex) 3번 회원의 장바구니 호출 [ mno -> 카트번호, 재고번호, 제품명, 제품사진, 가격, 할인율, 색상, 사이즈, 수량  ]
+select
+	c.cartno as 장바구니번호,
+	pst.psno as 재고번호,
+    p.pname as 제품명,
+    p.pprice as 가격,
+    p.pimg as 제품이미지,
+    p.pdiscount as 할인율,
+    pst.pcolor as 색상,
+    ps.psize as 사이즈,
+    c.amount as 수량
+from cart c , productstock pst , productsize ps, product p
+where c.pstno = pst.pstno and pst.psno = ps.psno and ps.pno = p.pno;
+
+-- (p.pprice - (p.pprice * p.pdiscount)) * c.amount as 결제금액	
 
 
+-- INNER JOIN 버전 : 관계 pk-fk 가 있고 2개이상 테이블이 있을 경우 
+select
+	c.cartno as 장바구니번호,
+	pst.psno as 재고번호,
+    p.pname as 제품명,
+    p.pprice as 가격,
+    p.pimg as 제품이미지,
+    p.pdiscount as 할인율,
+    pst.pcolor as 색상,
+    ps.psize as 사이즈,
+    c.amount as 수량
+from 
+	cart c inner join 
+	productstock pst inner join
+    productsize ps inner join
+    product p
+on c.pstno = pst.pstno
+	and pst.psno = ps.psno
+    and ps.pno = p.pno;
 
+-- natural JOIN 버전 : 관계 pk-fk 가 있고 2개이상 테이블이 있을 경우 
 
+select
+	c.cartno as 장바구니번호,
+	pst.psno as 재고번호,
+    p.pname as 제품명,
+    p.pprice as 가격,
+    p.pimg as 제품이미지,
+    p.pdiscount as 할인율,
+    pst.pcolor as 색상,
+    ps.psize as 사이즈,
+    c.amount as 수량
+from 
+	cart c natural join 
+	productstock pst natural join
+    productsize ps natural join
+    product p;
 
+-- natural JOIN 버전 간소화
+select
+	c.cartno, pst.psno, p.pname, p.pimg, 
+    p.pprice, p.pdiscount, pst.pcolor, ps.psize, c.amount
+from 
+	cart c natural join 
+	productstock pst natural join
+    productsize ps natural join
+    product p
+where
+	c.mno = 3;
+    
+    
+        
+    
+-- ------------------------------------------------
 
+-- 주문 테이블 [ 22-11-04 ]
+drop table if exists porder;
+create table porder(
+
+	ono int auto_increment,			-- 주문 번호
+	oname varchar(100),				-- 수령인 이름
+	ophone varchar(100),			-- 수령인 연락처
+	oaddress varchar(100),			-- 수령인 주소
+	orequest varchar(100),			-- 배송 메세지 
+	odate datetime default now(),	-- 주문 날짜
+	mno int,							-- 주문자 회원 번호
+    
+    constraint ono_pk primary key ( ono ),
+    constraint orderno_mno_fk foreign key ( mno ) references member ( mno )
+    
+);
+
+select * from porder;
+
+-- 주문 상세 테이블
+drop table if exists porderdetail;
+create table porderdetail(
+
+	odno int auto_increment,				-- 주문 상세 번호
+	odamount int,				-- 수량
+    odprice int,                -- 결제 금액 [ 결제 시 할인율 등이 달라질 수 있어서 넣음 ]
+	odactive int,				-- 결제 상태[ 결제 완료 / 취소 / 배송 준비 중 / 배송 중 / 배송 완료 등 ]
+	pstno int,					-- 재고 번호
+    ono int,              	  	-- 주문 번호
+    
+    constraint odno_pk primary key ( odno ),
+    constraint od_pstno_fk foreign key ( pstno ) references productstock ( pstno ),
+    constraint od_ono_fk foreign key ( ono ) references porder ( ono )
+    
+);
+    
+ select * from porderdetail;   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
