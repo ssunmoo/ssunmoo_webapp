@@ -124,7 +124,7 @@ public class MemberDao2 extends Dao {
 	
 	// 5. 임시 비밀번호 업데이트
 	public boolean pwchange ( String mid, String randstr) {
-		String sql = "select * from member where mid = ? and memail = ?";
+		String sql = "update member set mpw = ? where mid = ?";
 		//MemberDto2 dto = new MemberDto2();
 		//System.out.println(dto.toString());
 		try {

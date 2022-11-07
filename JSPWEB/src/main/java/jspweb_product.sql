@@ -261,7 +261,7 @@ where
 -- 주문 테이블 [ 22-11-04 ]
 drop table if exists porder;
 create table porder(
-
+	
 	ono int auto_increment,			-- 주문 번호
 	oname varchar(100),				-- 수령인 이름
 	ophone varchar(100),			-- 수령인 연락처
@@ -274,17 +274,16 @@ create table porder(
     constraint orderno_mno_fk foreign key ( mno ) references member ( mno )
     
 );
-
 select * from porder;
 
 -- 주문 상세 테이블
 drop table if exists porderdetail;
 create table porderdetail(
-
+	
 	odno int auto_increment,				-- 주문 상세 번호
 	odamount int,				-- 수량
     odprice int,                -- 결제 금액 [ 결제 시 할인율 등이 달라질 수 있어서 넣음 ]
-	odactive int,				-- 결제 상태[ 결제 완료 / 취소 / 배송 준비 중 / 배송 중 / 배송 완료 등 ]
+	odactive int default 0,		-- 결제 상태[ 0 : 결제 완료 / 4: 취소 / 1 : 배송 준비 중 / 2: 배송 중 / 3: 배송 완료 등 ]
 	pstno int,					-- 재고 번호
     ono int,              	  	-- 주문 번호
     
@@ -293,7 +292,6 @@ create table porderdetail(
     constraint od_ono_fk foreign key ( ono ) references porder ( ono )
     
 );
-    
  select * from porderdetail;   
     
     

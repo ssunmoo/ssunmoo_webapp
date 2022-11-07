@@ -48,8 +48,8 @@ public class findpw extends HttpServlet {
 									// random.nextInt(26)+97: 97~122
 									// 강제형변환 (char)random.nextInt(26)+97 : a ~ z
 			}
-			// 해당 회원의 비밀번호를 임시 담당하는시
-			dao2.pwchange(mid, memail);
+			// 해당 회원의 비밀번호를 임시 비밀번호 교체[업데이트] 
+			dao2.pwchange(mid, randstr);
 		}
 		// 4. 반환
 		response.getWriter().print( randstr );

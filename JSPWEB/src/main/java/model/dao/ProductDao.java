@@ -1,10 +1,12 @@
 package model.dao;
 
+import java.io.Console;
 import java.sql.Statement;
 import java.util.ArrayList;
 
 import controller.board.list;
 import model.dto.CartDto;
+import model.dto.OrderDto;
 import model.dto.PcategoryDto;
 import model.dto.ProductDto;
 import model.dto.StockDto;
@@ -174,7 +176,7 @@ public class ProductDao extends Dao {
 	// 8. 재고 등록
 	public boolean setstock( String psize, int pno, String pcolor, int pstock ) {
 		String sql = "insert into productsize( psize, pno ) value ( ? , ? )";
-
+		
 		// 1. 사이즈 등록
 		try {
 			ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS ); // 실행된 insert 의 실행 결과를 가져옴 RETURN_GENERATED_KEYS
@@ -310,7 +312,7 @@ public class ProductDao extends Dao {
 						rs.getString(7), rs.getString(8),
 						rs.getInt(9));
 				list.add(cartdto);
-				System.out.println("list : " +list);
+				// System.out.println("list : " +list);
 			} return list;
 		} catch (Exception e) {
 			System.out.println( "장바구니 호출 오류 : " +e);
@@ -320,10 +322,46 @@ public class ProductDao extends Dao {
 	
 	
 	
+	// 13. 주문 내역 등록
+	public boolean setOrder( ArrayList<OrderDto> list ) {
+		// 1. 주문 레코드 생성
+		String sql = "insert into porder( oname, ophone, oaddress, orequest, mno ) values( ?, ?, ?, ?, ? )";
+		try {
+			ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS );
+			for( int i = 0; i < list.size(); i++ ) {
+				ps.setString(1, list.get(i).getOname());	
+				ps.setString(2, list.get(i).getOphone());
+				ps.setString(3, list.get(i).getOaddress());
+				ps.setString(4, list.get(i).getOrequest());
+				ps.setInt(5, list.get(i).getMno());
+				ps.executeUpdate();
+			}
+			rs = ps.getGeneratedKeys();	 // 방금 생성된 pk값 호출
+			// 2. 생성된 주문번호를 이용하여 주문된 제품[list] 개수만큼 주문 상세 레코드 생성 
+			if( rs.next() ) {
+				int ono = rs.getInt(1); // pk 호출
+				System.out.println("ono"+ono);
+				sql = "insert into porderdetail( odamount, odprice, pstno, ono ) values( ?, ?, ?, ? )";
+				ps = con.prepareStatement(sql); // sql문 한번 더 실행 시 또 선언
+				
+				for( int i = 0; i < list.size(); i++ ) {
+					ps.setInt(1, list.get(i).getOdamount());
+					ps.setInt(2, list.get(i).getOdprice());
+					ps.setInt(3, list.get(i).getPstno());
+					ps.setInt(4, ono ); // 첫번째 sql로 실행된 pk 값
+					ps.executeUpdate();
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("주문 db 처리 오류 : " + e);
+		}
+		return false;
+	} // setOrder e
 	
-	
-	
-	
+	// * 해당 sql에서 insert된 pk 값 가져오기
+	// ps = con.prepareStatement(sql, statement);
+	// ! : Statement [ java.sql 패키지 ] 
 	
 	
 	

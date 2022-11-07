@@ -53,7 +53,7 @@ public class chatting {
 	public void onOpen( Session session , @PathParam("mid") String mid ) throws IOException {	// @PathParam(경로상의 변수명) : 경로상의 변수 호출
 		
 		clients.put( session, mid ); // 접속된 클라이언트 소켓을 저장
-		sendmsg( jsonAlarm( mid + " 님이 들어오셨습니다." ) );
+		sendmsg( jsonAlarm( mid + " 님이 들어오셨습니다." ) ); // JS로 메세지 전송
 
 	} // onOpen e
 	
@@ -61,9 +61,10 @@ public class chatting {
 	@OnClose // 서버 소켓에 나갔을 때 [ 서버 소캣이 재부팅, 시작 등] 꺼지거나 클라이언트 소캣이 닫기 요청 시
 	public void onClosse( Session session ) throws IOException {
 		
-		JSONObject object = jsonAlarm( clients.get(session)+ " 님이 퇴장하셨습니다.");
+		JSONObject object = jsonAlarm( clients.get( session ) + " 님이 퇴장하셨습니다.");
 		clients.remove(session); // **서버 소켓에서 해당 세션 지우기
-			
+		sendmsg(object); // JS로 메세지 전송
+		
 	} // onClosse e
 	
 	// 3. 메세지 받기

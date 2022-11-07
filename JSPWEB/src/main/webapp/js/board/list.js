@@ -80,11 +80,11 @@ function list( page ){
 // 2. 제목 클릭 시 페이지 이동 함수
 function viewload( bno ){
 	$.ajax({
-		url : "http://localhost:8080/JSPWEB/board/viewload",
+		url : "/JSPWEB/board/viewload",
 		data : { "bno" : bno },
 		success : function(re){
 			
-			location.href="http://localhost:8080/JSPWEB/board/view.jsp";	
+			location.href="/JSPWEB/board/view.jsp";	
 		}
 	})
 } // viewload e

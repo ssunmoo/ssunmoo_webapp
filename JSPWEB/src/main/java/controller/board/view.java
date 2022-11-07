@@ -33,7 +33,6 @@ public class view extends HttpServlet {
 			// 다형성 : 부모가 자식에게 강제 형변환 가능
 		
 		int bno = (Integer)request.getSession().getAttribute("bno");
-		System.out.println(bno);
 	
 		// 2. dao 처리
 		BoardDto dto = BoardDao.getInstance().getboard(bno);

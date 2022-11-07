@@ -21,7 +21,7 @@ alert(room);
 if( mid !== 'null' ){	// 로그인이 되어있으면 소켓 사용
 
 	// JS에서 지원하는 클라이언트 웹 소켓 클래스 [ new WebSocket( "ws://ip:port/프로젝트명/서버소켓엔드포인트/"+변수) ]
-	websocket = new WebSocket("ws://localhost:8080/JSPWEB/chatting/"+mid);
+	websocket = new WebSocket("ws://192.168.17.131:8080/JSPWEB/chatting/"+mid);
 	
 	// 3. 2번에서 구현된 메소드를 클라이언트 소켓에 대입
 	websocket.onopen = function(e){
@@ -42,7 +42,7 @@ if( mid !== 'null' ){	// 로그인이 되어있으면 소켓 사용
 }
 else{	// 로그인이 안되어있으면
 	alert("로그인이 필요합니다")
-	location.href ="../member/login.jsp";
+	location.href ="/JSPWEB/member/login.jsp";
 }
 
 
